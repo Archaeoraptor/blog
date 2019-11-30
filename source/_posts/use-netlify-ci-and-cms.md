@@ -15,7 +15,7 @@ date: 2019-11-30 15:58:43
 
 ## 使用Netlify进行自动化部署
 
-不知道怎么都在搞CI/CD（Continuous Integration/Continuous Deployment），Github也搞了个Github Action。看了一圈感觉对于我这种半个月git commit一次备份博客的人并没有什么必要，而且不管是travis ci还是github action或netlify自己的
+不知道怎么都在搞CI/CD（Continuous Integration/Continuous Deployment），Github也搞了个Github Action。看了一圈感觉对于我这种半个月git commit一次备份博客的人并没有什么必要，而且不管是travis ci还是github action或netlify自己的在线build都很慢，博客东西多一点几分钟就过去了（没有特殊需求就想安安静静写个博客就不要搞这个了，本地hexo g，hexo d推到github pages或者netlify就完事了，速度还快）
 
 之前都是在本地生成，hexo g && hexo d 推到Github pages，然后Netlify关联这个仓库自动拉取(好像是用的钩子吧)。备份的时候再 git commit && git push 本地项目。
 现在每次 git commit 备份并 git push，让Netlify从Hexo的项目直接在线 Hexo g ，按部就班授权，改仓库，改deploy命令为 hexo clean && hexo generate
@@ -64,8 +64,10 @@ INFO  180 files generated in 2.01 s
 ## Netlify CMS 使用
 
 （多说一句，Netlify官网打开是真的慢啊）
+我已经踩过坑了，没有他们吹的那么好，大骗子，这个也就手机/平板写markdown和发布可以将就一下，真的都不如随身带个U盘里面装着博客工程或者markdown体验好
+如果不是有多人协作之类的需求就不要乱试了（除非你真的吃饱了撑的没事干
 
-安装：
+如果你还是要安装：
 
 ```bash
 yarn add hexo-netlify-cms
@@ -84,16 +86,19 @@ yarn add hexo-netlify-cms
 
 * 这句话是我在Netlify CMS里面打的，试试，貌似这个在线的markdown编辑器并不太好用,感觉跟CodiMD差了好多啊，也没有夜间模式，也不支持Mathjax之类的
 
-行吧，感觉被坑了啊，一点也不好用啊。改天在教研室服务器上部署个CodiMD玩
+行吧，感觉被坑了啊，一点也不好用啊。~~等有空我在教研室服务器上部署个CodiMD玩~~
 
 （或许可以在本地写好了markdown再粘贴上去，这个markdown在线编辑器实在是难用，而且丑）
 
 唯一能看的就是它会自动同步你的repo，但是你下次在本地编辑的时候还得git pull一下，什么时候仓库不在手边的时候能拿来将就一下。（好像可以拿手机之类的操作啊）
 
+什么，你说多人协作？也不太好用，免费用户invite只能五个账号，鸡肋；收费用户太贵了，并不划算。还不如直接建一个git repository多人协作结合CI发布。至于使用Netlify CMS多人一起维护发布网站内容, 行吧，个人博客基本用不到。也许是给不愿意折腾又想建站还想搞个静态博客的小白用的，但是这样的小白真的有1%吗？
+
+当然netilify cms对于静态网站还是有它的意义的，不然也不会在Github有那么多star，但是对于不需要多人协作的个人博客，就别装了吧（已经装了的和不折腾不舒服斯基人士请随意）
+
 ## 参考
 
 [Hexo Netlify CMS](https://github.com/jiangtj/hexo-netlify-cms/blob/master/README-ZH.md)
-
 
 [^1]:[Git 工具 - 子模块](https://git-scm.com/book/zh/v2/Git-工具-子模块) 可能会有切换分支等其他问题
 [^2]:<https://www.dnocm.com/articles/beechnut/hexo-netlify-cms/>
