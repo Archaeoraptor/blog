@@ -1,6 +1,7 @@
 ---
 title: 尝试Netlify自动部署和CMS
 date: 2019-11-30T15:58:43.000Z
+updated: '2019-11-30 20:22:52'
 tags:
   - netlify
   - ci
