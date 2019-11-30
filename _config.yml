@@ -76,12 +76,13 @@ pagination_dir: page
 theme: next
 
 plugin:
-- hexo-generator-feed
-- hexo-generator-sitemap
-- hexo-generator-search
-- hexo-asset-image
-- hexo-abbrlink
-- hexo-addlink
+ - hexo-generator-feed
+ - hexo-generator-sitemap
+ - hexo-generator-search
+ - hexo-asset-image
+ - hexo-abbrlink
+ - hexo-addlink
+ - hexo-netlify-cms
 # Feed Atom
 feed:
 type: atom
@@ -113,3 +114,6 @@ server:
   port: 5000
   compress: true
   header: true
+
+netlify_cms:
+  config_file: netlify.yaml
