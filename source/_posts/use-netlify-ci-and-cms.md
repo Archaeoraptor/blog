@@ -1,12 +1,13 @@
 ---
 title: 尝试Netlify自动部署和CMS
-date: 2019-11-30T15:58:43.000Z
 updated: '2019-11-30 20:22:52'
 tags:
   - netlify
   - ci
 categories:
   - 博客
+abbrlink: e9d5
+date: 2019-11-30 15:58:43
 ---
 又开始了瞎折腾。话说我这种没人看的静态小破网站，真的有必要持续集成、持续部署吗？
 
@@ -83,7 +84,7 @@ yarn add hexo-netlify-cms
 
 * 这句话是我在Netlify CMS里面打的，试试，貌似这个在线的markdown编辑器并不太好用,感觉跟CodiMD差了好多啊，也没有夜间模式，也不支持Mathjax之类的
 
-行吧，感觉被坑了啊，一点也不好用啊。\~\~改天在教研室服务器上部署个CodiMD玩\~\~
+行吧，感觉被坑了啊，一点也不好用啊。改天在教研室服务器上部署个CodiMD玩
 
 （或许可以在本地写好了markdown再粘贴上去，这个markdown在线编辑器实在是难用，而且丑）
 
@@ -93,5 +94,6 @@ yarn add hexo-netlify-cms
 
 [Hexo Netlify CMS](https://github.com/jiangtj/hexo-netlify-cms/blob/master/README-ZH.md)
 
-\[^1]:[Git 工具 - 子模块](https://git-scm.com/book/zh/v2/Git-工具-子模块) 可能会有切换分支等其他问题
-\[^2]:<https://www.dnocm.com/articles/beechnut/hexo-netlify-cms/>
+
+[^1]:[Git 工具 - 子模块](https://git-scm.com/book/zh/v2/Git-工具-子模块) 可能会有切换分支等其他问题
+[^2]:<https://www.dnocm.com/articles/beechnut/hexo-netlify-cms/>
