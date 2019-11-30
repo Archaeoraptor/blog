@@ -64,11 +64,24 @@ INFO  180 files generated in 2.01 s
 
 安装：
 
-```
+```bash
 yarn add hexo-netlify-cms
 ```
 
+然后在Netlify里面设置一下[^2], 开启git-gateway服务并在Snippet Injection加入一行代码
 
-## 注
+```html
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+```
+
+打开yoursite/admin就可以看到了
+这个时候Settings->Identity->Registration是开放注册的，我们改成Invite only
+然后在设置里面Settings->Identity->External providers里面进行Github授权
+由于我是白嫖用户，Indetity Level 0，什么Audit log之类的都用不了, 设置到这里基本就结束了
+
+## 参考
+
+[Hexo Netlify CMS](https://github.com/jiangtj/hexo-netlify-cms/blob/master/README-ZH.md)
 
 [^1]:[Git 工具 - 子模块](https://git-scm.com/book/zh/v2/Git-工具-子模块) 可能会有切换分支等其他问题
+[^2]:<https://www.dnocm.com/articles/beechnut/hexo-netlify-cms/>
