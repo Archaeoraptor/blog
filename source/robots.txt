@@ -1,0 +1,16 @@
+#hexo robots.txt
+User-agent: *
+
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/
+Allow: /about/
+Allow: /schedule/
+Allow: /uploads/
+
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: https://zhangjk98.xyz/sitemap.xml
+Sitemap: https://zhangjk98.xyz/atom.xml
