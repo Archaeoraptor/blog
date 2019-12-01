@@ -77,6 +77,8 @@ date: '2019-11-30 20:22:52'
 
 根据issue里的解决办法，只要在`hexo clean && hexo generate` 之前加上`git ls-files -z | while read -d '' path; do touch -d \"$(git log -1 --format=\"@%ct\" \"$path\")\" \"$path\"; done`就行了
 
+算了，直接关了吧
+
 ## Netlify CMS 使用
 
 （多说一句，Netlify官网打开是真的慢啊）
