@@ -48,6 +48,12 @@ tar -czvf filemane.tar.gz
 du -sh *
 ```
 
+备份同步rsync, -a（archive）递归并同步时间戳和权限，-v显示详细信息，-z压缩
+
+```bash
+rsync -avz source destination
+```
+
 ### 查找
 
 grep查找文件内的内容，支持正则表达式（但是需要加`-P`参数支持perl正则，否则支持程度有限）
