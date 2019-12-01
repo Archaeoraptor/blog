@@ -59,7 +59,23 @@ INFO  180 files generated in 2.01 s
 ```
 
 这个速度可以接受，据说Netlify最近新增了CI的时间限制（官网说是300 included/month，每个月三百分钟），但是我这种不是重度用户的人根本用不完（实在不行本地hexo s调试好了再提交就完事了，Netlify也要恰饭的嘛，每次CI都要重新安装环境）
-带宽也有限制，100GB，我这个没人看的小破博客也根本用不了
+带宽也有限制，100GB，我这个没人看的小破博客也根本用不了。
+
+还有一个小问题，改成这样之后发现每一篇文章的更新时间都变成了今天，暂时还没找到判定更新时间的原理是什么，一个办法是手动指定时间戳
+在每个markdown文件开头
+
+```markdown
+updated: '2019-11-30 20:22:52'
+date: '2019-11-30 20:22:52'
+```
+
+更新，找到了这个时间戳的问题，看这个issue：[The update time of the article is incorrect](https://github.com/theme-next/hexo-theme-next/issues/893)
+
+大概是Git在checkout的时候，没有正确保留时间戳，试了一下，应该就是push上去的时间，而不是修改后add的时间或者commit的时间
+
+>It uses the push time of the last modification of the file.
+
+根据issue里的解决办法，只要在`hexo clean && hexo generate` 之前加上`git ls-files -z | while read -d '' path; do touch -d \"$(git log -1 --format=\"@%ct\" \"$path\")\" \"$path\"; done`就行了
 
 ## Netlify CMS 使用
 
