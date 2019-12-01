@@ -6,6 +6,7 @@ tags:
  - 矩阵
 categories:
  - 数学
+date: 2019-10-9 15:58:43
 ---
 数理基础太差，被关了起来
 <img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/found.png" alt="Picture" style="zoom:40%;" />

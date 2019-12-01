@@ -2,6 +2,7 @@
 title: Flask开坑记
 tags: Flask
 abbrlink: ff2b
+date: 2019-10-12 15:58:43
 ---
 动态语言一时爽，维护重构火葬场
 <!--more-->
