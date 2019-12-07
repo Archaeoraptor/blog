@@ -9,7 +9,7 @@ abbrlink: 2d5
 date: 2019-11-18 17:00:54
 ---
 
-<img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/haixing.png" alt="Picture" style="zoom:20%;" />
+<img width=100 src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/haixing.png" alt="Picture"/>
 祖传服务器传到了我的手里
 <!-- more -->
 上回书说到，服务器一不小心卸载了iptables
