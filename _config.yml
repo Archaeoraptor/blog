@@ -114,3 +114,13 @@ server:
   compress: true
   header: true
 
+nofollow:
+
+  enable: true
+
+  field: site
+
+  exclude:
+
+    - 'https://uestc.icu'
+    - 'https://zhangshuqiao.org'

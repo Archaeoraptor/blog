@@ -48,9 +48,6 @@ favicon:
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
 
-# hexo-generator-feed required for rss support. Leave rss as blank to use site's feed link.
-# Set rss to false to disable feed link. Set rss to specific value if you have burned your feed already.
-rss:
 
 footer:
   # Specify the date when the site was setup. If not defined, current year will be used.
@@ -196,11 +193,11 @@ social:
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
-  #VK Group: https://vk.com/yourname || vk
   #StackOverflow: https://stackoverflow.com/yourname || stack-overflow
   #YouTube: https://youtube.com/yourname || youtube
   #Instagram: https://instagram.com/yourname || instagram
   #Skype: skype:yourname?call|chat || skype
+  RSS: /atom.xml || rss
 
 social_icons:
   enable: true
@@ -215,7 +212,7 @@ links_settings:
   layout: block
 
 links:
-  uestc.icu: http://uestc.icu
+  uestc.icu: https://uestc.icu
   米米的博客: https://zhangshuqiao.org
 
 # Sidebar Avatar
@@ -283,12 +280,6 @@ scroll_to_more: true
 
 # Automatically excerpt description in homepage as preamble text.
 excerpt_description: true
-
-# Automatically excerpt (Not recommend).
-# Use <!-- more --> in the post to control excerpt accurately.
-auto_excerpt:
-  enable: false
-  length: 150
 
 # Read more button
 # If true, the read more button would be displayed in excerpt section.
@@ -359,9 +350,6 @@ post_edit:
 # Custom Page Settings
 # See: https://theme-next.org/docs/theme-settings/custom-pages
 # ---------------------------------------------------------------
-
-# Enable "cheers" for archive page.
-cheers: true
 
 # TagCloud settings for tags page.
 tagcloud:

@@ -3,16 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "4.0.0"
+    "version": "4.1.0"
   },
   "dependencies": {
     "eslint": "^6.7.1",
     "fancybox": "^3.0.1",
-    "hexo": "^4.0.0",
+    "hexo": "^4.1.0",
     "hexo-abbrlink": "^2.0.5",
     "hexo-addlink": "^1.0.4",
     "hexo-asset-image": "git+https://github.com/CodeFalling/hexo-asset-image.git",
     "hexo-deployer-git": "^2.1.0",
+    "hexo-filter-nofollow": "^2.0.2",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
     "hexo-generator-feed": "^2.2.0",
@@ -28,7 +29,11 @@
     "lozad": "^1.14.0",
     "medium-zoom": "^1.0.4",
     "mkdirp": "^0.5.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "rough-charts": "^0.4.0",
+    "typescript": "^3.7.3",
+    "webpack": "^3.0.0",
     "yarn": "^1.19.2"
   }
 }
