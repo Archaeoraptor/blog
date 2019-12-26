@@ -23,6 +23,8 @@ date: 2019-10-11 16:48:51
 | free | 查看内存 |
 | history | 查看历史命令 |
 
+这里推荐用glances代替top，`pip3 install glances`
+
 ### 文件操作
 
 cd, ls, mkdir, ls, mv， rm这些不说了
@@ -66,6 +68,8 @@ grep -n include test.c
 
 find查找文件
 
+（这里建议用fd和ripgrep代替find和grep）
+
 ## Vim基础操作
 
 ~~不得不用linux命令界面编辑文件又不喜欢vim直接nano就好了~~
@@ -81,7 +85,7 @@ Vim有Normal（普通模式），Insert（插入模式）和 Visual（可视模�
 ## 简单的脚本
 
 脚本文件通常是.sh后缀，在执行的时候`bash filename.sh` 。在第一行声明执行的shell解释器路径，如#!/bin/bash 。
-接收参数用$, $1,$2,$3为第1、2、3个参数，$?为上一个参数的返回值。
+接收参数用\$, \$1,\$2,\$3为第1、2、3个参数，\$?为上一个参数的返回值。
 使用逻辑判断&&和||, 输出用户是否管理员：
 
 ```shell

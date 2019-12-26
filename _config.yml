@@ -34,7 +34,7 @@ default_layout: post
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
-render_drafts: true
+render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: true
@@ -79,9 +79,8 @@ plugin:
  - hexo-generator-feed
  - hexo-generator-sitemap
  - hexo-generator-search
- - hexo-asset-image
+ - hexo-asset-link
  - hexo-abbrlink
- - hexo-addlink
 # Feed Atom
 feed:
 type: atom
@@ -95,10 +94,6 @@ sitemap:
 abbrlink:
   alg: crc16  #support crc16(default) and crc32
   rep: hex    #support dec(default) and hex
-
-# addlink:
-#   before_text: 本文出处： # text before the post link
-#   after_text: 请规范转载 # text after the post link
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -124,3 +119,30 @@ nofollow:
 
     - 'https://uestc.icu'
     - 'https://zhangshuqiao.org'
+
+next_nightmode:
+  enable: false
+  # FontAwesome or ForkAwesome icon in sidebar button.
+  icon: lightbulb-o
+  # Text for sidebar button.
+  text: Night Mode
+  # If true, when you disable Night Mode, Hexo will show warning messages in your console.
+  reminder: false
+  # Debugger for alpha option below.
+  debugger: false
+  # Support experimental prefers-color-scheme media query.
+  # For now if alpha mode enabled, sidebar button will be disabled.
+  # The only way to toggle night mode is your system color scheme settings.
+  # Also see: https://caniuse.com/#feat=prefers-color-scheme.
+  alpha: false
+
+# Demo: https://utteranc.es/  http://trumandu.github.io/about/
+utteranc:
+  enable: true
+  repo: Archaeoraptor/archaeoraptor.github.io #Github repo such as :TrumanDu/comments
+  pathname: pathname
+  # theme: github-light,github-dark,github-dark-orange
+  theme: github-light
+  cdn: https://utteranc.es/client.js
+  # If you want to modify priority, please config in **hexo**
+  #priority:

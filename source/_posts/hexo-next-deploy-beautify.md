@@ -250,7 +250,6 @@ value就填谷歌给你的那个值，等几分钟就好了
 {% caniuse sharedarraybuffer @ current %}
 {% caniuse link-rel-modulepreload @ past_1,past_2,past_3,past_4,past_5 %}
 
-
 ## 使用yarn管理npm包和travis-ci自动化部署
 
 可选，本地生成速度够快或者不嫌麻烦也没太有必要上travis-ci
@@ -273,6 +272,22 @@ npm install hexo-reference --save
 ```
 
 注释测试[^1]
+
+### 使用Cloudflare和Github Pages
+
+由于Netlify访问速度实在太慢（居然比Github Pages还慢），本来以为只是在国内慢，没想到收到一封邮件，说：
+
+然后我感觉不对劲，拿ping工具和网络测试工具（<https://gtmetrix.com>）看了一下，又查了一下，原来不仅国内慢啊，国外也比Github Pages慢啊
+Netlify居然还说“Why You don't need clcoudflare”, 我。。。
+
+<img width=450 src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/net5xx.png" alt="Picture" />
+
+换回GitHub Pages和cloudlfare，还有CNAME Flatterning, 不需要备案的免费CDN也就cloudflare了。
+ping检测结果终于不是一片飘红了。巨硬收购Github后说要建设Github国内的服务器，但是它自家的Azure、bing、onedrive都整天抽风，感觉指望不上了。
+
+<img width=450 src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/ping.png" alt="Picture" />
+
+现在唯一的问题就是图床用的Github，已经弃疗，国内速度不管了。
 
 ## 可能的问题请参考
 
