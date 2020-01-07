@@ -252,6 +252,7 @@ zjk ALL=(ALL) ALL
 [Vim中文社区](https://vim-china.org/)
 [Linux工具快速教程](https://linuxtools-rst.readthedocs.io/zh_CN/latest/index.html)
 [Linux工具快速教程](https://linuxtools-rst.readthedocs.io/zh_CN/)
+[explainshell](https://explainshell.com/) 一个解释shell语句的网站
 
 ## 注
 
