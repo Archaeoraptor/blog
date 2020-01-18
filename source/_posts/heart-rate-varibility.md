@@ -10,9 +10,6 @@ katex: true
 等待填坑
 <!-- more -->
 
-- [x] dlf
-- [ ] sdfabzt
-
 ## 采集
 
 HRV测定的是NN间期(在正常的窦性心律时就是RR间期)的波动，主要与自主神经调控机制有关。标准的HRV根据正常窦性搏动的NN间期得出的（正常对正常间期，normal-to-normal,*NN* intervals，即由窦房结除极所致相邻QRS波群之间的所有间期）的变化来表示心率的变异性。
@@ -52,6 +49,8 @@ PPG法采集到的脉搏波经过去噪和整流等处理后提取PP间期可以
 >HRV反映的是自主神经和非自主神经系统所有反馈回路极其复杂的非线性交互作用。自主神经系统是窦性节律条件下心率的主要调节机制。
 
 忽略微小的影响，HRV的高频部分主要受迷走神经的调节，低频部分受到迷走和交感神经的双重作用。
+
+![](heart-rate-varibility/nero2.jpg)
 
 >交感神经增强自律性，而副交感神经抑制自律性。交感神经通过增加起搏点去极化程度产生变时性作用，而对心脏起搏点细胞的迷走刺激会引起超极化而降低去极化程度。自主神经的这两个分支均影响与心脏起搏细胞去极化相关的离子通道的活动。
 
@@ -142,6 +141,11 @@ $a\dot{b}c$
 
 ![健康人和CHF患者的散点图](heart-rate-varibility/image-20191225111057030.png)
 
+##### 三维散点图
+
+三维散点图的一些意义还不明确，医院里实际用的也很少
+![心率变异性三维散点图](heart-rate-varibility/3D-scatter-plot.png)
+
 ##### 心率震荡（HRT）
 
 心率震荡（heart rate turbulence）是指发生室性早搏后，窦性心律出现短暂的加速和减速的过程。检测HRT异常有助于预测自主神经功能障碍以及心血管事件的风险增加。
@@ -175,7 +179,10 @@ HRV明显降低或缺失可以作为辅助指标。
 
 ### 评估体育表现
 
- 可以作为推测无氧阈的较为精确的指标之一
+可以作为推测无氧阈的较为精确的指标之一
+
+>注意
+在运动评估中一般只有要求无伤等才会首先考虑HRV，一般是用血清肌酸激酶(CK)、血清睾酮(T)、血红蛋白、乳酸等
 
 ### 监测训练负荷及诊断运动性疲劳
 
@@ -205,21 +212,7 @@ HRV明显降低或缺失可以作为辅助指标。
 
 呼吸频率变异性(Respiratory Rate Variability，RRV, 有的地方也叫Breath Rate Variability），和心率变异性一样反映了一些生理特征，但是这种非电信号采集难，噪声大，不规律，包含的信息也比心电和脉搏波等信号少。除了
 
-目前对于RRV的研究比较少，也很少有人用这个特征做睡眠分期检测、疲劳压力检测或睡眠呼吸暂停的检测。一些使用雷达等手段检测疲劳或者睡眠的研究将这项指标作为判断依据。雷达和监控视频等可以在较近的距离探测人体呼吸活动和心率，但是这样采集分离出的心动信息用作睡眠和疲劳监测不如直接采集呼吸和运动的信息进行分析。对于体重指数（body mass index ）过高的的超重人群、较复杂的干扰和活动等情景，使用雷达等方式检测压力或疲劳时HRV准确率大幅降低，从心动信息检测不如直接从呼吸信息检测。在这些场景下会使用呼吸和体动信息来
-
-## 参考文献
-
-J. Choi and R. Gutierrez-Osuna, "Removal of Respiratory Influences From Heart Rate Variability in Stress Monitoring," in *IEEE Sensors Journal*, vol. 11, no. 11, pp. 2649-2656, Nov. 2011.
-
-Takahashi, N, Kuriyama, A, Kanazawa, H, Takahashi, Y, Nakayama, T. Validity of spectral analysis based on heart rate variability from 1‐minute or less ECG recordings. *Pacing Clin Electrophysiol*. 2017;
-
-Nolan J, Batin PD, Andrews R, et al. Prospective study of heart rate variability and mortality
-in chronic heart failure: results of the United Kingdom heart failure evaluation and
-assessment of risk trial (UK-heart). Circulation 1998; 98:1510.
-
-贾晓宁,申岱,李川勇.基于Poincaré散点图的5s心率变异性分析方法用于实时监测自主神经功能的研究[J].生物医学工程学杂志,2011,28(03):597-601+606.
-
-霍铖宇,庄建军,黄晓林,侯凤贞,宁新宝.基于Poincare差值散点图的心率变异性分析方法研究[J].物理学报,2012,61(19):62-69.
+目前对于RRV的研究比较少，也很少有人用这个特征做睡眠分期检测、疲劳压力检测或睡眠呼吸暂停的检测。一些使用雷达等手段检测疲劳或者睡眠的研究将这项指标作为判断依据。雷达和监控视频等可以在较近的距离探测人体呼吸活动和心率，但是这样采集分离出的心动信息用作睡眠和疲劳监测不如直接采集呼吸和运动的信息进行分析。对于体重指数（body mass index ）过高的的超重人群、较复杂的干扰和活动等情景，使用雷达等方式检测压力或疲劳时HRV准确率大幅降低，从心动信息检测不如直接从呼吸信息检测。在这些场景下会使用呼吸和体动信息来作为指标。
 
 ## 数据和软件
 

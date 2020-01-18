@@ -6,7 +6,7 @@ tags:
   - Next主题
 categories:
  - 博客
-mathjax: false
+katex: true
 abbrlink: bd8f
 date: 2019-06-20 22:23:47
 ---
@@ -14,6 +14,8 @@ date: 2019-06-20 22:23:47
 next主题从5.X版本迁移到7.X，坑很多，慢慢填
 5.X主题已经停止维护了，6.X和7.X版本交给了开源社区维护，后续改进了不少，这也造成了迁移坑多
 <!-- more -->
+
+注：
 
 ## 升级7.X的大坑
 
@@ -171,7 +173,7 @@ npm install -g hexo@4.0.0
 更新，现在hexo-cli包也上hexo4.0了，使用官网的那个带cli的命令就行了
 升级之后试一下'hexo generate'
 
-```
+```log
 INFO  Files loaded in 1.94 s
 INFO  140 files generated in 3.07 s
 ```
@@ -185,7 +187,7 @@ INFO  140 files generated in 3.07 s
 找到了问题了，已经在[issue#3729](https://github.com/hexojs/hexo/issues/3729)里解决了
 现在直接升级到master分支就行了
 
-```git
+```bash
 cd themes/next
 git pull https://github.com/theme-next/hexo-theme-next master
 git checkout master
@@ -289,6 +291,19 @@ ping检测结果终于不是一片飘红了。巨硬收购Github后说要建设G
 
 现在唯一的问题就是图床用的Github，已经弃疗，国内速度不管了。
 
+可能的小坑：开启coludflare的 rocket loader 功能后会出错（这是个实验性的功能），Next主题会变成一片空白，一直加载不出来。关掉就好了。
+
+## 提高加载速度
+
+在[GTmetrix](https://gtmetrix.com/)上看到我这得分才70多
+发现首页两个图片占了很多，把两个图整成webp格式的，然后再调整一下大小(这里我用的这个[网站](https://cloudconvert.com/))。这里抛弃safari用户了
+(cloudflare的business是有这个功能的，但是我用不起)
+然后把velocityjs的那些动画效果关了（这个早就想关了，和其他组件各种冲突）
+
+虽然拉黑了百度[^2]，但是发现我的流量统计还是有一大半是国内访问，为了照顾一下国内速度，还是用了Cloudflare的CDN
+大多数时候，国内 cloudflare > github pages > netlify (如果不用个人域名，用netlify的二级域名会比XXX.github.io快一点)。raw.githubusercontent.com 是基本废了，想作为国内图床并不可行
+（备案是不可能备案的）
+
 ## 可能的问题请参考
 
 [Hexo常见问题解决方案](https://shuyelife.github.io/post/Hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/)
@@ -298,8 +313,13 @@ ping检测结果终于不是一片飘红了。巨硬收购Github后说要建设G
 [next文档(6.0以后)](https://theme-next.org/docs/)
 [hexo指南](https://hexo-guide.readthedocs.io) 从node.js操作到next主题，很详细，自己折腾可以参考,也记录了很多坑，但是不全，非官方指南，都是个人博客的坑。他还写了别的[指南](https://www.zhujian.tech/posts/d22ab967.html)
 <https://github.com/theme-next/awesome-next#plugins>Next主题的插件，7.X版本之后越来越多的功能都剥离出来做成了插件, 使用时要npm install 一下，不能会直接在设置里设为true
-[markdowm教程](https://github.com/LearnShare/Learning-Markdown/tree/v2)
+[markdown教程](https://github.com/LearnShare/Learning-Markdown/tree/v2)
 
 ## 注释
 
 [^1]: 这是一个注释测试
+[^2]: 加了一个这个
+
+```html
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lurongkai/anti-baidu/js/anti-baidu-latest.min.js" charset="UTF-8"></script>
+```
