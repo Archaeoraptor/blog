@@ -36,6 +36,6 @@
     "rough-charts": "^0.4.0",
     "typescript": "^3.7.4",
     "webpack": "^3.12.0",
-    "yarn": "^1.21.1"
+    "yarn": "^1.22.0"
   }
 }
