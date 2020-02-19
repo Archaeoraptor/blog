@@ -4,7 +4,7 @@ tags:
   - 花鸟鱼虫
   - Collection
 categories:
-  - 我
+  - 杂七杂八
 abbrlink: b27a
 date: 2019-06-12 19:33:19
 ---
