@@ -167,11 +167,13 @@ menu_settings:
 # ---------------------------------------------------------------
 
 # Schemes
-#scheme: Muse
-#scheme: Mist
+# scheme: Muse
+# scheme: Mist
 scheme: Pisces
-#scheme: Gemini
+# scheme: Gemini
 
+# Dark Mode
+darkmode: auto
 
 # ---------------------------------------------------------------
 # Sidebar Settings
@@ -464,10 +466,10 @@ github_banner:
 font:
   # Use custom fonts families or not.
   # Depended options: `external` and `family`.
-  enable: true
+  enable: false
 
   # Uri of fonts host, e.g. //fonts.googleapis.com (Default).
-  host:
+  host: //fonts.googleapis.com
 
   # Font options:
   # `external: true` will load this font family from `host` above.
@@ -534,7 +536,7 @@ math:
 # Easily enable fast Ajax navigation on your website.
 # Dependencies: https://github.com/theme-next/theme-next-pjax
 # For moreinformation: https://github.com/MoOx/pjax
-pjax: false
+pjax: true
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox
@@ -837,17 +839,6 @@ three:
   canvas_lines: false
   canvas_sphere: false
 
-# Canvas-nest
-# Dependencies: https://github.com/theme-next/theme-next-canvas-nest
-# For more information: https://github.com/hustcc/canvas-nest.js
-canvas_nest:
-  enable: false
-  onmobile: true # Display on mobile or not
-  color: "0,0,255" # RGB values, use `,` to separate
-  opacity: 0.5 # The opacity of line: 0~1
-  zIndex: -1 # z-index property of the background
-  count: 99 # The number of lines
-
 # Canvas-ribbon
 # Dependencies: https://github.com/theme-next/theme-next-canvas-ribbon
 # For more information: https://github.com/zproo/canvas-ribbon
@@ -900,7 +891,7 @@ vendors:
   # Internal version: 0.2.8
   # Example:
   # pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
-  pjax:
+  pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
   # FancyBox
   # Example:
   # jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
@@ -999,13 +990,6 @@ vendors:
   three_waves:
   canvas_lines:
   canvas_sphere:
-
-  # Internal version: 1.0.0
-  # Example:
-  # canvas_nest: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js
-  # canvas_nest_nomobile: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js
-  canvas_nest:
-  canvas_nest_nomobile:
 
   # Internal version: 1.0.0
   # Example:
