@@ -30,9 +30,9 @@ custom_file_path:
   #postBodyEnd: source/_data/post-body-end.swig
   #footer: source/_data/footer.swig
   #bodyEnd: source/_data/body-end.swig
-  #variable: source/_data/variables.styl
-  #mixin: source/_data/mixins.styl
-  style: source/_data/styles.styl
+  # variable: source/_data/variables.styl
+  # mixin: source/_data/mixins.styl
+  # style: source/_data/styles.styl
 
 
 # ---------------------------------------------------------------
@@ -67,16 +67,8 @@ footer:
   copyright: 止息
 
   powered:
-    # Hexo link (Powered by Hexo).
+    # Powered by Hexo & NexT
     enable: true
-    # Version info of Hexo after Hexo link (vX.X.X).
-    version: true
-
-  theme:
-    # Theme & scheme info link (Theme - NexT.scheme).
-    enable: true
-    # Version info of NexT after scheme info (vX.X.X).
-    version: true
 
   # Beian ICP and gongan information for Chinese users. See: http://www.beian.miit.gov.cn, http://www.beian.gov.cn
   beian:
@@ -168,8 +160,8 @@ menu_settings:
 
 # Schemes
 # scheme: Muse
-# scheme: Mist
-scheme: Pisces
+scheme: Mist
+# scheme: Pisces
 # scheme: Gemini
 
 # Dark Mode
@@ -242,7 +234,7 @@ toc:
 
 sidebar:
   # Sidebar Position.
-  position: left
+  position: right
   #position: right
 
   # Manual define the sidebar width. If commented, will be default for:
@@ -356,10 +348,10 @@ post_edit:
 # TagCloud settings for tags page.
 tagcloud:
   # If true, font size, font color and amount of tags can be customized
-  enable: false
+  enable: true
   # All values below are same as default, change them by yourself
-  min: 12 # Minimun font size in px
-  max: 30 # Maxium font size in px
+  min: 16 # Minimun font size in px
+  max: 16 # Maxium font size in px
   start: "#ccc" # Start color (hex, rgba, hsla or color keywords)
   end: "#111" # End color (hex, rgba, hsla or color keywords)
   amount: 200 # Amount of tags, change it if you have more than 200 tags
@@ -396,9 +388,6 @@ mobile_layout_economy: true
 # Android Chrome header panel color ($brand-bg / $headband-bg => $black-deep).
 android_chrome_color: "#222"
 
-# Hide sticky headers and color the menu bar on Safari (iOS / macOS).
-safari_rainbow: false
-
 # Optimize the display of scrollbars on webkit based browsers.
 custom_scrollbar: false
 
@@ -414,9 +403,9 @@ codeblock:
   copy_button:
     enable: true
     # Show text copy result.
-    show_result: false
+    show_result: true
     # Available values: default | flat | mac
-    style: default
+    style: flat
 
 
 back2top:
@@ -558,7 +547,7 @@ pangu: false
 # Quicklink Support
 # For more information: https://github.com/GoogleChromeLabs/quicklink
 quicklink:
-  enable: true
+  enable: false
 
   # Quicklink (quicklink.umd.js script) is loaded on demand.
   # Add `quicklink: true` in Front-matter of the page or post you need.
@@ -843,7 +832,7 @@ three:
 # Dependencies: https://github.com/theme-next/theme-next-canvas-ribbon
 # For more information: https://github.com/zproo/canvas-ribbon
 canvas_ribbon:
-  enable: true
+  enable: false
   size: 300 # The width of the ribbon
   alpha: 0.6 # The transparency of the ribbon
   zIndex: -1 # The display level of the ribbon
