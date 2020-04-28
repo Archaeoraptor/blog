@@ -44,11 +44,13 @@ venv是[python3官方的包管理工具](https://docs.python.org/zh-cn/3/tutoria
 
 就跟npm差不多，和node_modules差不多的Pipfile（存放本地包），和npm的package-lock.json差不多的Pipfile.lock（版本锁）
 
+但是，这家伙会趁你不注意偷偷更新你的依赖。注意不要被它的自动更新坑了，你以为它能给你锁定版本，其实不能。
+
 ### Poetry
 
 用了一阵发现这个挺好，喜欢
 
-能管理python版本和python的包，还能用来打包
+能管理python版本和python的包，还能用来打包（这个打包感觉比setuptools舒服不少）
 配置文件是单个toml，很舒服，依赖在poetry.lock里面
 
 一个小问题是初次加载依赖有点慢，原因见[这里](https://python-poetry.org/docs/faq/#why-is-the-dependency-resolution-process-slow)。这也不能怪poetry，PyPI上那么多库，还有不少野库，很多库并没有规范声明Metadata，poetry没法通过调PyPI的API判断该下哪种版本的包，就只能把所有的都拉下来然后判断该用哪个
@@ -96,3 +98,4 @@ win10有些包很难装，倒是可以把ananconda当jupyter notebook的win10安
 3. Fluent Python
 4. [pylint](https://www.pylint.org/)
 5. [poetry官网](https://python-poetry.org/)
+6. [dephell打包工具](https://github.com/dephell/dephell)

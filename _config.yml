@@ -50,8 +50,9 @@ highlight:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 10
+  per_page: 0
   order_by: -date
+  pagination_dir: page
   
 # Category & Tag
 default_category: uncategorized
@@ -105,7 +106,7 @@ deploy:
   message: 
 
 server:
-  port: 4069
+  port: 5000
   compress: true
   header: true
 
@@ -120,21 +121,6 @@ nofollow:
     - 'https://uestc.icu'
     - 'https://zhangshuqiao.org'
 
-next_nightmode:
-  enable: false
-  # FontAwesome or ForkAwesome icon in sidebar button.
-  icon: lightbulb-o
-  # Text for sidebar button.
-  text: Night Mode
-  # If true, when you disable Night Mode, Hexo will show warning messages in your console.
-  reminder: false
-  # Debugger for alpha option below.
-  debugger: false
-  # Support experimental prefers-color-scheme media query.
-  # For now if alpha mode enabled, sidebar button will be disabled.
-  # The only way to toggle night mode is your system color scheme settings.
-  # Also see: https://caniuse.com/#feat=prefers-color-scheme.
-  alpha: false
 
 # Demo: https://utteranc.es/  http://trumandu.github.io/about/
 utteranc:

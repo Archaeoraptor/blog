@@ -11,11 +11,12 @@ abbrlink: bd8f
 date: 2019-06-20 22:23:47
 ---
 
-next主题从5.X版本迁移到7.X，坑很多，慢慢填
-5.X主题已经停止维护了，6.X和7.X版本交给了开源社区维护，后续改进了不少，这也造成了迁移坑多
+这里仅记录个人问题，找教程为什么不看看官方文档呢
 <!-- more -->
 
-注：
+有问题先看这里啦，[更新说明及常见问题](https://github.com/next-theme/hexo-theme-next/issues/4)
+我自己的博客基本会跟着Next主题每月发布的release更新版本，偶尔直接跳到最新的master版本。
+可能有的时候因为忙或者其他原因，并不会追最新版，有些之前写的东西过时了也没有改，请大家尽量以[官方文档](https://theme-next.org/)为准。
 
 ## 升级7.X的大坑
 
@@ -25,26 +26,34 @@ NexT主题的顺畅更新好像很难，官方不推荐，之前乱改的5.X主�
 
      cd themes/next
      git tag -l
-     git checkout tags/v6.0.1
+     git checkout tags/v7.7.1
 
 spawn failed 问题，删除.deploy_git文件夹并重新部署。
 _config.yml配置请注意对齐问题
 
-添加README.md文档可在这个路径下，这样就会显示在首页
+给备份博客的repo添加README.md文档可在这个路径下，这样就会显示在首页
 themes\%yourtheme%\source\README.md
 
 为文章设置预览:添加
 `<!-- more -->`
 
-插入本地图片推荐hexo-asset-image插件,可以看[这里](http://etrd.org/2017/01/23/hexo%E4%B8%AD%E5%AE%8C%E7%BE%8E%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/)
+插入本地图片推荐hexo-asset-image插件,可以看[这里](http://etrd.org/2017/01/23/hexo中完美插入本地图片/)
 
-公式问题：原来采用的hexo-math插件，在hexo-inject插件上有坑，看了看官方推荐，换成[新的插件](https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/MATH.md)。换完记得卸载hexo-inject插件
+## 各种小问题
+
+### 公式问题
+
+原来采用的hexo-math插件，在hexo-inject插件上有坑，看了看官方推荐，换成[新的插件](https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/MATH.md)。换完记得卸载hexo-inject插件
+
+### 配置出错
 
 设置_config.yml时那个rss如果开启，默认空着就好了，不要填true  
 
     rss: true
 
 像这样就会报错
+
+### 本地搜索
 
 本地搜索一直转圈圈，看到issue里面说是插件的问题，卸载后重装，神奇的好了
 
@@ -56,38 +65,66 @@ themes\%yourtheme%\source\README.md
      npm uninstall hexo-generator-searchdb --save
      npm install hexo-generator-search --save
 
-似乎那几个背景特效和进度条都会拖慢网页加载速度，不知道什么时候支持原生动画
+### canvas效果
 
-报错
+似乎那几个背景特效和进度条都会拖慢网页加载速度，不填建议用（新版的Next已经把乱晃的那个canvas移除了）
 
-     YAMLException: duplicated mapping key at line ...
+### 报错
+
+可能出现的一类问题是yaml的配置出现了语法错误报错
+
+```log
+YAMLException: duplicated mapping key at line ...
+```
 
 这说明你的key重复了，比如在yaml里同时两段
 
-     calendar:
-          calendar_id: <required> # Your Google account E-Mail
-          api_key: <required>
-     calendar:
-          calendar_id: <required> # Your Google account E-Mail
-          api_key: <required>
+```yaml
+calendar:
+     calendar_id: <required> # Your Google account E-Mail
+     api_key: <required>
+calendar:
+     calendar_id: <required> # Your Google account E-Mail
+     api_key: <required>
+```
+
 删掉一个calender或者将二者合并就可以了
+
+还有一种经常出现的问题
+
+```log
+ERROR read ECONNRESET
+Error: read ECONNRESET
+    at TLSWrap.onStreamRead (internal/stream_base_commons.js:111:27)
+```
+
+这种可能是配置出错了，比如引用了某个本地资源结果路径不对找不到资源。这种建议在浏览器里打开F12检查一下
+
+### 新的自定义配置路径
 
 next v7.3.0 版本的定制路径改了，比如custom.styl改成了source/_data/styles.styl，参见
 
-    custom_file_path:
-      #head: source/_data/head.swig
-      #header: source/_data/header.swig
-      #sidebar: source/_data/sidebar.swig
-      #postMeta: source/_data/post-meta.swig
-      #postBodyEnd: source/_data/post-body-end.swig
-      #footer: source/_data/footer.swig
-      #bodyEnd: source/_data/body-end.swig
-      #variable: source/_data/variables.styl
-      #mixin: source/_data/mixins.styl
-      #style: source/_data/styles.styl
+```yaml
+custom_file_path:
+  #head: source/_data/head.swig
+  #header: source/_data/header.swig
+  #sidebar: source/_data/sidebar.swig
+  #postMeta: source/_data/post-meta.swig
+  #postBodyEnd: source/_data/post-body-end.swig
+  #footer: source/_data/footer.swig
+  #bodyEnd: source/_data/body-end.swig
+  #variable: source/_data/variables.styl
+  #mixin: source/_data/mixins.styl
+  style: source/_data/styles.styl
+```
 
-你也可以修改custom_file_path:来自定义定制内容路径。
-这些内容在git merge的时候需要手动移动
+当然也可以修改custom_file_path:来自定义定制内容路径，想放哪就放哪。
+改成之后就可以每次顺畅的直接每次更新主题时直接`git pull`了，不需要再merge自定义修改了
+很多老的Next主题自定义教程都是在custom.styl或者直接改主题的css文件，7.3以后的新版要把老教程里的路径改了。
+还有一种方法是[用Injects自定义主题](https://www.dnocm.com/articles/beechnut/hexo-next-injects/)
+据说Hexo5.x之后就能用npm安装主题了，Hexo一直咕咕咕，我们慢慢等吧
+
+### 标签
 
 Next v7.3.0 版本的标签不再支持 Full-image tag
 
@@ -109,7 +146,11 @@ Next v7.3.0 版本的标签不再支持 Full-image tag
 
      {% img [class names] /path/to/image [width] [height] "title text 'alt text'" %}
 
-另外，fancybox虽然现在还支持，但是据说计划在8.0版移除，所有jQuery有关的东西都在逐步移除，目前已经支持 medium-zoom，可以在设置中开启
+### 其他插件
+
+#### fancybox
+
+fancybox虽然现在还支持，但是据说计划在8.0版移除，所有jQuery有关的东西都在逐步移除，目前已经支持 medium-zoom，可以在设置中开启
 
      npm install medium-zoom
 
@@ -119,6 +160,15 @@ Next v7.3.0 版本的标签不再支持 Full-image tag
      Failed to load resource: the server responded with a status of 404 () fontawesome-webfont.woff2:1
 
 这个找到提示的文件夹 source/font 路径,找到这三个缺失的文件,补上就可以了(可能没有这个文件夹,新建一下就行了)
+
+### 夜间模式
+
+现在新版Next已经有了自带的夜间模式，在配置里开启即可，会自动随着系统设置变
+
+```yaml
+# Dark Mode
+darkmode: auto
+```
 
 ## 更新主题
 
@@ -275,7 +325,11 @@ npm install hexo-reference --save
 
 注释测试[^1]
 
-### 使用Cloudflare和Github Pages
+### 主页文章置顶
+
+[hexo-generator-indexed](https://github.com/next-theme/hexo-generator-indexed)
+
+## 使用Cloudflare和Github Pages
 
 由于Netlify访问速度实在太慢（居然比Github Pages还慢），本来以为只是在国内慢，没想到收到一封邮件，说：
 

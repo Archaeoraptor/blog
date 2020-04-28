@@ -6,9 +6,7 @@
     "version": "4.2.0"
   },
   "dependencies": {
-    "@1v9/hexo-next-nightmode": "github:1v9/hexo-next-nightmode",
     "eslint": "^6.8.0",
-    "fancybox": "^3.0.1",
     "hexo": "^4.2.0",
     "hexo-abbrlink": "^2.0.5",
     "hexo-asset-link": "^2.0.1",
@@ -17,7 +15,7 @@
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
     "hexo-generator-feed": "^2.2.0",
-    "hexo-generator-index": "^1.0.0",
+    "hexo-generator-indexed": "^1.2.0",
     "hexo-generator-search": "^2.4.0",
     "hexo-generator-sitemap": "^2.0.0",
     "hexo-generator-tag": "^1.0.0",
@@ -30,12 +28,9 @@
     "hexo-server": "^1.0.0",
     "lozad": "^1.14.0",
     "medium-zoom": "^1.0.5",
+    "minimist": "^1.2.5",
     "mkdirp": "^0.5.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "rough-charts": "^0.4.0",
-    "typescript": "^3.7.5",
     "webpack": "^3.12.0",
-    "yarn": "^1.22.0"
+    "yarn": "^1.22.4"
   }
 }

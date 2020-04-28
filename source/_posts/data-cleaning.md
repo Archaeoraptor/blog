@@ -43,8 +43,8 @@ XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <getHospitalInfoResult>true</getHospitalInfoResult>
             <HTML>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;&lt;HTML&gt;&lt;
             HEAD&gt;&lt;TITLE&gt;Demo For Lord&lt;/TITLE&gt;&lt;META http-equiv=Content-Type 
-            content="text/html; charset=unicode"&gt;&lt;META content="MSHTML 6.00.2900.6182" 
-            
+            content="text/html; charset=unicode"&gt;&lt;META content="MSHTML 6.00.2900.6182"
+
             中间太长略去
 
             多重耐药菌防控措施处置表 (42)出科病历评分表 (43)病历排序&lt;/FONT&gt;&lt;/P&gt;&lt;P&gt;&amp;nbsp;&lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</HTML>
@@ -263,3 +263,8 @@ connection.commit()
 ## 其他
 
 一些大段的文本，比如主诉、病史之类的后期结构化用LSTM或者Bert跑一下，这个以后再讲。
+
+现在这个电子病历吧，感觉跟纸币支付宝化一样，疯狂泄露隐私等问题根本没人管，指不定哪天你个人信息全给你卖了。
+以后你们到医院还是能要纸质凭据就要纸质的，回头出了什么事找医院撕逼比较好办。另，现在医保吃紧，交了很多年医保到了用的时候大概率被赖账，别被坑了找医院讨说法还被打成医闹反动分子；什么？医生不都是弱势群体白衣天使咩？啊这，你说是那就是。
+
+>三个劫道的不如一个卖药的,三个卖药的不如一个开学校的
