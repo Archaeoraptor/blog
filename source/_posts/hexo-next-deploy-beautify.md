@@ -18,6 +18,21 @@ date: 2019-06-20 22:23:47
 我自己的博客基本会跟着Next主题每月发布的release更新版本，偶尔直接跳到最新的master版本。
 可能有的时候因为忙或者其他原因，并不会追最新版，有些之前写的东西过时了也没有改，请大家尽量以[官方文档](https://theme-next.org/)为准。
 
+## 更新升级至hexo5.0
+
+没有什么太大魔改的话直接
+
+```bash
+npm install hexo@5.0.0
+```
+然后把next.yml的配置（或者主题的_config.yml）配置放到根目录_config.next.yml下面。
+
+hexo 5 支持用npm安装主题了
+
+```bash
+npm install hexo-theme-next
+```
+
 ## 升级7.X的大坑
 
 NexT主题的顺畅更新好像很难，官方不推荐，之前乱改的5.X主题升级7.2分支合并出现问题，一堆warning，索性推倒重来直接新搞一个7.X。
