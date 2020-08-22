@@ -56,15 +56,15 @@ footer:
 
 creative_commons:
   license: by-nc-sa
-  sidebar: false
-  post: true
+  sidebar: true
+  post: false
   language:
 
 # Schemes
 # scheme: Muse
 #scheme: Mist
 scheme: Pisces
-#scheme: Gemini
+# scheme: Gemini
 
 # Dark Mode
 darkmode: auto
@@ -117,7 +117,7 @@ tagcloud:
   amount: 200 # Amount of tags, change it if you have more than 200 tags
 
 # Custom Logo (Do not support scheme Mist)
-custom_logo: /uploads/hollowknight.webp #/uploads/custom-logo.jpg
+custom_logo: #/uploads/custom-logo.jpg
 
 github_banner:
   enable: true
@@ -187,11 +187,11 @@ math:
     # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
     copy_tex: false
 
-pjax: true
+pjax: false
 
 mediumzoom: true
 
-lazyload: true
+lazyload: false
 
 # Google Analytics
 google_analytics:
@@ -219,6 +219,18 @@ pdf:
   # Default height
   height: 500px
 
+motion:
+  enable: true
+  async: true
+  transition:
+    # All available transition variants: https://theme-next.js.org/animate/
+    post_block: fadeInDown
+    post_header: fadeInDown
+    post_body: fadeInDown
+    coll_header: fadeInLeft
+    # Only for Pisces | Gemini.
+    sidebar: fadeInDown
+
 vendors:
   # Available values: local, jsdelivr, unpkg
   internal: local
@@ -231,7 +243,7 @@ vendors:
 
   # Medium-zoom
   # mediumzoom: //unpkg.com/medium-zoom@1/dist/medium-zoom.min.js
-  mediumzoom: //cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.0.5/medium-zoom.min.js
+  # mediumzoom: //cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.0.5/medium-zoom.min.js
   # mediumzoom:
 
   # Recommended version: 0.4.0
@@ -240,8 +252,8 @@ vendors:
 
   # Valine
   # valine: //unpkg.com/valine@1/dist/Valine.min.js
-  valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.4.14/Valine.min.js
-  # valine:
+  # valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.4.14/Valine.min.js
+  valine:
 
 
   # ---------------------------------------------------------------
@@ -286,3 +298,5 @@ valine:
   enableQQ: true # Whether to enable the Nickname box to automatically get QQ Nickname and QQ Avatar
   requiredFields: [] # Set required fields: ['nick'] | ['nick','mail']
   #post_meta_order: 0
+
+cheers: false # 删除归档上的cheer
