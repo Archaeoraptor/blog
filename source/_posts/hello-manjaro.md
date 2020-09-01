@@ -140,7 +140,8 @@ cd ../ && sudo rm -rfv visual-studio-code-bin/
 code .
 ```
 
-这里我们有`yay -S visual-studio-code-bin`可以代替上面那一串命令（pacman现在也有了包，直接pacman就好了`pacman -S code`）
+这里我们有`yay -S visual-studio-code-bin`可以代替上面那一串命令
+（pacman现在也有了包，直接pacman就好了`pacman -S code`）
 
 #### pamac
 

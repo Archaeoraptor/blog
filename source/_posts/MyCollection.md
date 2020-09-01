@@ -31,7 +31,7 @@ My Collection
 
 <font size="3">环境问题可以看看[环境黑板报](https://bookdown.org/yufree/hjhbb/)</font> 科普讲堂系列文章不错, 生化环材的就业和现状也可以参考
 
-## 动物们
+## 花鸟鱼虫
 
 ### 网站
 
@@ -42,78 +42,39 @@ My Collection
 5. [中国两栖类](http://www.amphibiachina.org/)
 6. [David Herasimtschuk](https://www.davidherasimtschuk.com/) 北美水生物，<http://www.isaacszabo.com/>还有这个
 
-### 文章
 
-1. [遠夏的动物园](https://zhuanlan.zhihu.com/yuanxia)
-2. [案锦水草](https://zhuanlan.zhihu.com/c_193807493)
-3. [发癫Neon的大鱼美图系列](https://www.weibo.com/6148883758/H6htQEqFw) 基本都是海鱼(其实看上去并不怎么美，小声bb)
-4. [cheilinus的原生鱼/观赏鱼文章](https://www.weibo.com/p/1005052021018495/wenzhang)
-5. [FabuLous楼长的文章](https://weibo.com/p/1005055835261195/wenzhang)  爬行动物及爬宠
-6. 已删除
-7. 公众号 灵囿志异 灵鳖记等文章
-<!-- 8. [几篇原生鱼缸~~池塘~~简易攻略文章](https://www.weibo.com/p/1005055620561913/wenzhang) -->
-
-### 人们
-
-鸣虫子 --  蟋蟀和螽斯
-鸟人bridman -- 鰟鮍与鱊的高玩 饿乌龟、夏青华等，以及chelinius，ALL-10 等
-王蛐蛐
-郑声，黑肉
-[张墨](https://twitter.com/zhang_moO)
-[嘉道理中国保育](https://zh.wikipedia.org/wiki/%E5%98%89%E9%81%93%E7%90%86%E4%B8%AD%E5%9C%8B%E4%BF%9D%E8%82%B2)
-猫盟
-
-## 不务正业的键盘
-
-### 书
-
-1. [合集](https://github.com/justjavac/free-programming-books-zh_CN/issues)
-2. 微服务设计
-
-### 网站
+## 网站
 
 1. [WolframAppha](https://www.wolframalpha.com/)
 2. [git教程](https://git-scm.com/book/en/v2)
-3. [52自然语言处理](http://www.52nlp.cn/)
+3. [52nlp](http://www.52nlp.cn/)
 4. [元素周期表](https://www.ptable.com/)
 5. [在线地图绘制](https://inkarnate.com/)
 6. draw.io
+7. [卢昌海的主页](https://www.changhai.org/) （本人完全不赞成其政治立场）
+8. [乱讲区](http://www.joyfulphysics.net)
+9. [超理论坛](https://chaoli.club/)
 
-## 其他
-
-1. [卢昌海的主页](https://www.changhai.org/) （本人完全不赞成其政治立场）
-2. [乱讲区](http://www.joyfulphysics.net)
-3. [超理论坛](https://chaoli.club/)
-4. [方流芳老师](http://www.fangliufang.com/)
-5. 勃学系列：[Yesterday Once More](https://www.zhihu.com/collection/107336571)
-[文章](https://www.zhihu.com/question/309744856/answer/580366820)
-bobo在blogger和sina博客以及人人网都有遗迹，再见，再问zs，下辈子学cs，我去浅色床单上哭了
-6. [f.lux](https://justgetflux.com/)
-7. cryptomator 一个开源的加密网盘
 
 ## 音游文娱
 
 1. Hollow Knigkt 不再有梦
 2. kr系列塔防（3>1≥2）（不包括kr4）
-3. [Poly Bridge Gallery](https://gallery.drycactus.com) 造桥游戏高分展览
+3. [Poly Bridge Gallery](https://gallery.drycactus.com) 
 4. [信任的进化](https://ncase.me/trust/)
 
-## 蜀道难
+## 一些软件
 
-### 网站
+Linux下的图形软件还是太少了。很多跨平台的都是electron，要不就是web版，几乎把KDE或者LXDE桌面省下来的内存资源全给吃了，对渣配置机子实在不怎么友好。
 
-1. <https://sciowl.xyz> 适合萌新(比如我)的上网教程
-2. <https://matrix.org/> matrix，去中心化的聊天软件，不想自己搭可以用[riot](https://about.riot.im/) 注册不需要邮箱或者手机
-3. [长毛象](https://joinmastodon.org/#getting-started) 去中心化的社交网络，功能跟twitter差不多
-4. [tor](https://www.torproject.org/) 洋葱路由，不多说了
-5. [端点星](https://terminus2049.github.io/) 和谐文章备份
-6. [好奇心日报的备份](https://github.com/LampScript/qdaily_backup) 整改前的好奇心还是有点东西的，可惜啊
-7. sci-hub 赞美sci-hub， Die Internationale！
+### ssh客户端
 
-### 人
+一般直接ssh命令连上去，但是教研室机子加上自己的VPS多了，一个一个全敲命令写脚本忙不过来，尤其是有的时候又是代理又是跳板的。外加本人非命令行键盘控，总想找个客户端，win上有xshell和Mobaxterm（这个用起来略卡，功能是真的全），我非常喜欢Mobaxterm，可惜Mobaxterm只有windows版本的。试了很多挑出来这两个，都在开发维护更新中。
 
-编程随想
+#### terimus
 
-## 炼丹炉
+electron应用（相信大家看到electron都知道这意味着什么），漂亮、功能有点少、占内存高，略卡。在
 
-等待更新  
+#### asbru-cm
+
+ [*Ásbrú Connection Manager*](https://github.com/asbru-cm/asbru-cm/)一个功能足够全的客户端，勉强能达到Mobaxterm七成的水平。
