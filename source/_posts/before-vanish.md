@@ -3,6 +3,9 @@ title: 写在被消灭的路上
 abbrlink: aa1c
 date: 2019-12-26 19:40:05
 tags:
+ - 2020
+categories:
+ - 彼黍离离
 ---
 
 庚子年，格外的长

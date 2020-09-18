@@ -2,11 +2,11 @@
 title: 试图抢救吃灰的树莓派
 tags:
   - 树莓派3B+
-categories:
-  - 杂七杂八
 abbrlink: '7042'
 date: 2019-12-07 19:52:23
 mathjax: true
+categories:
+  - 荒废的老本行
 ---
 
 $$

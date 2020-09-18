@@ -6,6 +6,8 @@ tags:
  - λ-calcus
  - js
 katex: true
+categories:
+ - 不务正业系列
 ---
 等待填坑
 <!-- more -->

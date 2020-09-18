@@ -6,6 +6,8 @@ tags:
 - HRV
 - BCG
 katex: true
+categories:
+  - 102网吧日常
 ---
 等待填坑
 <!-- more -->
@@ -220,3 +222,5 @@ HRV明显降低或缺失可以作为辅助指标。
 2. <https://www.physionet.org/#latest> 心电图数据
 3. <https://www.youtube.com/watch?v=D_KYv7pXAvQ> rPPG检测心率
 4. <https://pypi.org/project/bob.rppg.base/> rPPG的开源库，数据集MAHNOB-HCI和DEAP
+5. <https://www.hrv4training.com/> 一个用蓝牙测HRV的APP，准确率貌似还可以
+6. [Firstbeat HRV Summit](https://www.firstbeat.com/en/firstbeat-hrv-summit-2019/) Firstbeat公司的HRV峰会，一些商用搞的比较好的东西

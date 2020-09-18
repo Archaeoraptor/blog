@@ -4,9 +4,10 @@ title: 数学知识补习
 tags:
  - 矩阵
 categories:
- - 数学
+ - 笔记&札记
 date: 2019-10-9 15:58:43
 mathjax: true
+
 ---
 数理基础太差，被关了起来
 <img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/found.png" alt="Picture" style="zoom:40%;" />

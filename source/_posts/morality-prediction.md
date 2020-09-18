@@ -4,6 +4,8 @@ tags:
   - MIMIC
 abbrlink: morality-prediction
 date: 2020-05-31 11:06:54
+categories:
+ - 102网吧日常
 ---
 
 以急性心肌梗死和MIMIC数据库为例

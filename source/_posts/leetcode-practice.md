@@ -2,9 +2,8 @@
 title: Leetcode刷题
 tags:
   - leetcode
-  - 算法
 categories:
-  - 笔记
+  - 杂七杂八
 abbrlink: 6aa3
 date: 2019-10-13 19:40:29
 ---

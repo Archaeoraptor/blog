@@ -6,7 +6,7 @@ tags:
  - 炼丹
  - keras
 categories:
- - 笔记
+ - 笔记&札记
 ---
 瞎写的
 <!-- more -->

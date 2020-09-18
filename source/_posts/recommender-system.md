@@ -1,10 +1,9 @@
 ---
 title: 推荐系统笔记
 tags:
-  - 炼丹
   - 推荐系统
 categories:
-  - 笔记
+  - 笔记&札记
 abbrlink: bccd
 date: 2019-10-18 9:52:43
 ---

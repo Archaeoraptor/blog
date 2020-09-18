@@ -4,8 +4,7 @@ tags:
   - 算法
   - DSP
 categories:
-  - 笔记
-  - 数学
+  - 荒废的老本行
 mathjax: true
 abbrlink: fcd4
 date: 2019-06-15 22:48:58

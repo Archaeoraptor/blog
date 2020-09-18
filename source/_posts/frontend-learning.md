@@ -1,8 +1,8 @@
 ---
-title: 前端基础知识学习
+title: 糊个网页吧
 tags: 笔记
 categories:
-  - 笔记
+  - 笔记&札记
 abbrlink: 4a8d
 date: 2019-11-18 15:58:43
 ---

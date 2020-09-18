@@ -3,7 +3,7 @@ title: Pythonic手账
 tags:
   - python
 categories:
-  - Python
+  - 不务正业系列
 abbrlink: a343
 date: 2019-07-07 21:23:24
 ---

@@ -3,7 +3,7 @@ title: Docker笔记
 tags:
   - Docker
 categories:
-  - 笔记
+  - 笔记&札记
 abbrlink: 69d4
 date: 2019-10-18 21:31:55
 ---

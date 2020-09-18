@@ -55,7 +55,6 @@ My Collection
 8. [乱讲区](http://www.joyfulphysics.net)
 9. [超理论坛](https://chaoli.club/)
 
-
 ## 音游文娱
 
 1. Hollow Knigkt 不再有梦
@@ -65,6 +64,7 @@ My Collection
 
 ## 一些软件
 
+ios的软件就暂时不推荐了，win10和安卓现在不怎么用了，凭着印象写一点吧，反正也没人看。
 Linux下的图形软件还是太少了。很多跨平台的都是electron，要不就是web版，几乎把KDE或者LXDE桌面省下来的内存资源全给吃了，对渣配置机子实在不怎么友好。
 
 ### ssh客户端
@@ -78,3 +78,23 @@ electron应用（相信大家看到electron都知道这意味着什么），漂�
 #### asbru-cm
 
  [*Ásbrú Connection Manager*](https://github.com/asbru-cm/asbru-cm/)一个功能足够全的客户端，勉强能达到Mobaxterm七成的水平。
+
+### 阅读器
+
+#### 静读天下
+
+安卓下最好的阅读器没有之一
+
+#### foliate
+
+epub阅读器，足够小巧，功能恰好够用（舒服程度和功能不如安卓版静读天下，单就体验略逊于老edge）
+
+### KDE桌面组件
+
+#### event calendar
+
+就这个感觉还行，别的花里胡哨的我也没折腾, latte-dock也不错，可惜太吃内存了
+
+```bash
+yay -S plasma5-applets-eventcalendar
+```

@@ -2,13 +2,12 @@
 title: Hexo博客部署和Next主题设置
 tags:
   - hexo
-  - bug
-  - Next主题
-categories:
- - 博客
+  - Next
 katex: true
 abbrlink: bd8f
 date: 2019-06-20 22:23:47
+categories:
+  - 杂七杂八
 ---
 
 这里仅记录个人问题，找教程为什么不看看官方文档呢

@@ -5,7 +5,7 @@ tags:
   - netlify
   - ci
 categories:
-  - 博客
+  - 杂七杂八
 abbrlink: e9d5
 date: 2019-11-30 15:58:43
 ---

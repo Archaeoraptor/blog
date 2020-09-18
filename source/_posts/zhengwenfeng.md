@@ -1,7 +1,6 @@
 ---
 title: 郑文锋老师的四大发明事件始末
 tags:
-  - 你电
 categories:
   - 杂七杂八
 abbrlink: '16e8'
