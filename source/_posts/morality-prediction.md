@@ -32,8 +32,7 @@ MIIMC里面能用的特征大概有性别年龄这些个人信息、心率血压
 
 先把24小时ICUSTAY_ID选出来
 
-```
-
+```sql
 CREATE TABLE k_AMI2 AS
 SELECT
 	ADMISSIONS.SUBJECT_ID,
@@ -91,8 +90,7 @@ AND ADMISSIONS.SUBJECT_ID = T.SUBJECT_ID
 
 然后用找患者检查项目、生理指标的ITEM_ID。写一个简单的SQL联接查询就可以了：
 
-```
-
+```sql
 SELECT DISTINCT
 	SUBJECT_ID,
 	MAX(VALUEUOM) MAX_VALUE,
@@ -170,8 +168,7 @@ GROUP BY
 
 直接用的scikit-learn工具包，随便调了调参。决策树类的bsoosting算法表现都还不错，像GBDT啊，XGBoost啊，LightGBM啊。数据量还是有点小了，就没上深度学习那些网络。直接调sklearn的包调一下参：
 
-```
-
+```python
 import pandas as pd
 # pd.options.mode.chained_assignment = None
 import numpy as np

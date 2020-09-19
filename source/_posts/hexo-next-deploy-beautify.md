@@ -51,7 +51,10 @@ themes\%yourtheme%\source\README.md
 为文章设置预览:添加
 `<!-- more -->`
 
-插入本地图片推荐hexo-asset-image插件,可以看[这里](http://etrd.org/2017/01/23/hexo中完美插入本地图片/)
+~~插入本地图片推荐hexo-asset-image插件,可以看[这里](http://etrd.org/2017/01/23/hexo中完美插入本地图片/)~~
+
+上面那个图片插件的repo已经时archived了，可以考虑换hexo-asset-link这个插件
+
 
 ## 各种小问题
 
@@ -161,6 +164,29 @@ Next v7.3.0 版本的标签不再支持 Full-image tag
      {% img [class names] /path/to/image [width] [height] "title text 'alt text'" %}
 
 ### 其他插件
+
+附上我安装的插件
+
+```bash
+$ npm list --depth=0
+hexo-site@0.0.0 /home/zjk/blog
+├── hexo@5.1.1
+├── hexo-asset-link@2.1.0
+├── hexo-deployer-git@2.1.0
+├── hexo-filter-mathjax@0.6.0
+├── hexo-filter-nofollow@2.0.2
+├── hexo-generator-archive@1.0.0
+├── hexo-generator-category@1.0.0
+├── hexo-generator-feed@3.0.0
+├── hexo-generator-index@2.0.0
+├── hexo-generator-searchdb@1.3.2
+├── hexo-generator-tag@1.0.0
+├── hexo-hide-posts@0.1.1
+├── hexo-renderer-ejs@1.0.0
+├── hexo-renderer-pandoc@0.3.0
+├── hexo-renderer-stylus@2.0.0
+└── hexo-server@2.0.0
+```
 
 #### fancybox
 
