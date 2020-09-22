@@ -142,6 +142,6 @@ hide_posts:
   filter: hide
   # 指定你想要传递隐藏文章的 generator，比如让所有隐藏文章在存档页面可见
   # 常见的 generators 有：index, tag, category, archive, sitemap, feed, etc.
-  public_generators: []
+  public_generators: [tag, category, archive, sitemap, feed]
   # 为隐藏的文章添加 noindex meta 标签，阻止搜索引擎收录
   noindex: false

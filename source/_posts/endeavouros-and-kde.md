@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: EndeavourOS和KDE设置
+title: 为什么不试试EndeavourOS和KDE呢
 date: 2020-09-13 23:52:18
 tags:
  - KDE
@@ -11,9 +11,23 @@ categories:
   - 不务正业系列
 ---
 
-一些个人配置，仅作记录
+sudo pacman -Rs win10
 
 <!-- more -->
+
+## 镜像源
+
+清华已经安排上了EndeavourOS的镜像和[iso](https://mirrors.tuna.tsinghua.edu.cn/endeavouros/iso/)，可以方便的下载iso和更新EndeavourOS的包了。（或者用PT种子下载，实测速度>10Mb/s）
+
+更改`/etc/pacman.d/endeavouros-mirrorlist
+`中的内容，改为
+
+```config
+## China
+Server = https://mirrors.tuna.tsinghua.edu.cn/endeavouros/repo/$repo/$arch
+```
+
+然后`sudo pacman -Syy`刷新一下
 
 ## 安装virtualbox虚拟机
 
@@ -82,11 +96,17 @@ EndeavourOS有一个叫akm的图形界面，但是你要手动重装virtualbox�
 
 他们从以前Antergos那fork了一个驱动安装脚本，有个包叫nvidia-installer（lts等用户请用nvidia-installer-dkms），看[这里](https://endeavouros.com/docs/hardware-and-network/graphic-cards-gpu-driver-and-setup/)。
 
-## 多DE的问题
+## 桌面环境
+
+EndeavourOS官方魔改定制了xfce的主题和图标，离线安装镜像也只有xfce，其他的几乎没怎么魔改。
+
+紫红配色看个人喜好吧，其实我不太能欣赏的来
 
 多桌面环境可能出问题，非要这样做的话建议每个不同的桌面环境分配一个单独的用户名。
-貌似xfce4和KDE一起用没什么大问题（用ssdm）
-我试了试i3wm, 用不习惯又换回KDE了。
+（貌似xfce4和KDE一起用几乎问题（用ssdm），先装ssdm和KDE,然后装xfce4）
+尝试了一下i3wm, 简洁是真的简洁，不太习惯又删了换回KDE了。
+
+KDE有一种 Windows Vista 的感觉，感觉是 linux 所有 Desktop Enviroment 里面最舒服的。xfce虽然是EndeavourOS默认的DE，但是xfce开发人手不够，用户和社区贡献者也比KDE少，而且内存占用最新的KDE已经比xfce低了.....现在xfce也不怎么轻量了，渣配置机器上表现没有LXDE好，感觉不少用户都转去用i3wm和KDE了...逐渐没落的夕阳DE，适合养老
 
 ### 硬盘扩容和迁移
 
@@ -138,7 +158,47 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Endea
 
 ## KDE使用事项
 
-### 选个合适的混成器
+### KDE卡死的抢救方案
+
+KDE现在已经比较稳定了，但是Linux桌面程序还是偶尔把桌面搞到卡死，比如vscode内存泄漏。
+
+首先尝试`ctl+alt+t`呼出终端，如果不能就`ctl+alt+F2`调出tty，htop看一下那个进程占用高，kill掉，如果不行就重启tty
+
+```bash
+kquitapp5 plasmashell && kstart5 plasmashell
+```
+
+正常退出不行就直接killall
+
+```bash
+killall plasmashell && kstart5 plasmashell
+```
+
+或者重启一下SDDM
+
+```bash
+systemctl restart sddm
+```
+
+还不行就杀掉tty1，然后重启xorg
+
+```bash
+ps aux | grep tty1 # 或者pgrep tty1
+```
+
+然后kill掉（或者直接`pkill -9 -t tty1`），重启
+或者直接
+
+```bash
+pkill x
+startx
+```
+
+再不行直接`reboot`就好了
+
+再不行就直接尝试长按电源关机了
+
+### 混成器
 
 有Nvidia显卡怕驱动更新出问题可以在设置中将渲染器（混成器）从OpenGL改为XRender，XRender出问题的情况会少一点，虽然很多特效都不支持，性能也略差。没有问题建议还是用OpenGL或者直接关闭特效，XRender没有硬件加速用起来感觉跟OpenGL有明显的体验差距。
 
