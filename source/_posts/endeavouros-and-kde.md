@@ -196,6 +196,8 @@ startx
 
 再不行直接`reboot`就好了
 
+或许你开了SysRq，先用SysRq抢救一下，见[Linux Magic System Request Key Hacks](https://www.kernel.org/doc/html/latest/admin-guide/sysrq.html)，或者直接看[linux下的SysRq键](http://blog.lujun9972.win/blog/2018/08/22/linux下的sysrq键/index.html)
+
 再不行就直接尝试长按电源关机了
 
 ### 混成器
@@ -219,6 +221,39 @@ latte-dock：虽然KDE官方维护支持这个，动画效果很漂亮，用起�
 ```bash
 yay -S plasma5-applets-eventcalendar
 ```
+
+### 双显示器开机右侧出现黑边
+
+发现是每次开机分辨率变成1680*1050了
+
+先看一下你的显示器编号
+
+```bash
+xrandr
+```
+
+比如我的就是DVI-I-1和DVI-D-0，把这两个分辨率改回1080p
+
+```bash
+xrandr --output DVI-I-1 --mode 1920x1080 --rate 60
+xrandr --output DVI-D-0 --mode 1920x1080 --rate 60
+```
+
+这里有一个自动配置的包[autorandr](https://www.archlinux.org/packages/?name=autorandr)
+
+```bash
+sudo pacman -S autorandr
+autorandr horizontal && autorandr vertical # 这里我直接把显示长宽分辨率都直接拉满了
+autorandr --save test1
+```
+
+或者你可以手动编辑`/etc/X11/xorg.conf.d`下的配置
+
+见[Arch Wiki xrandr](https://wiki.archlinux.org/index.php/Xrandr)
+
+其实每次开机运行一下xrandr可能更好一点（如果你不是wayland的话），不少人都是这么搞得（顺便刷新调整一下字体啥的
+
+![xrandr](endeavouros-and-kde/image-20200923222725926.png)
 
 ## 一点闲话
 
