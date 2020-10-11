@@ -1,5 +1,5 @@
 ---
-title: 尝试Netlify自动部署和CMS
+title: 试用Netlify自动部署和CMS
 updated: 2019-11-30 20:22:52
 tags:
   - netlify
@@ -26,7 +26,7 @@ date: 2019-11-30 15:58:43
 failed during stage 'preparing repo': Error checking out submodules: fatal: No url found for submodule path 'themes/next' in .gitmodules
 ```
 
-查了一下发现是Netlify会把每一个包含.git的子目录当成是一个submodule，并且每次都要`git submodule update`一下，但是这个next主题的git仓库又没有在在我的.gitmodules配置里面设置为submodule, 那我们直接把themes/next加到.gitmodules里面就好了\[^1]
+查了一下发现是Netlify会把每一个包含.git的子目录当成是一个submodule，并且每次都要`git submodule update`一下，但是这个next主题的git仓库又没有在在我的.gitmodules配置里面设置为submodule, 那我们直接把themes/next加到.gitmodules里面就好了[^1]
 
 在根目录（执行hexo g && hexo d的那个目录）新建`.gitmodules`写入
 
@@ -91,7 +91,7 @@ date: '2019-11-30 20:22:52'
 yarn add hexo-netlify-cms
 ```
 
-然后在Netlify里面设置一下\[^2], 开启git-gateway服务并在Snippet Injection加入一行代码
+然后在Netlify里面设置一下[^2], 开启git-gateway服务并在Snippet Injection加入一行代码
 
 ```html
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -119,4 +119,5 @@ yarn add hexo-netlify-cms
 [Hexo Netlify CMS](https://github.com/jiangtj/hexo-netlify-cms/blob/master/README-ZH.md)
 
 [^1]:[Git 工具 - 子模块](https://git-scm.com/book/zh/v2/Git-工具-子模块) 可能会有切换分支等其他问题
+
 [^2]:<https://www.dnocm.com/articles/beechnut/hexo-netlify-cms/>

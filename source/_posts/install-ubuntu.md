@@ -68,7 +68,7 @@ eno1网卡选择automatic自动获取ipv4和ipv6
 
 bbr已经自带了，不用装了
 设置root用户和用户组权限
-装Docker参考这里[^1]
+装Docker参考这里[^3]
 和英文官方教程那个差不多，主要是获取GPG的地址和Docker源换成国内的
 换成国内中科大的镜像源（这个换了也时断时续可能连不上）
 出现permission denied：
@@ -184,6 +184,7 @@ netmask = 255.255.255.0
 ## 安装参考
 
 [^1]:[tutorial-install-ubuntu-server](ttps://tutorials.ubuntu.com/tutorial/tutorial-install-ubuntu-server)
+
 [^2]:[Ubuntu16.04.5以lvm方式安装全记录](https://blog.51cto.com/3241766/2323927)
  [LVM arch-wiki](https://wiki.archlinux.org/index.php/LVM_(简体中文))
 [^3]:[Ubuntu 安装 Docker CE](https://yeasy.gitbooks.io/docker_practice/install/ubuntu.html)、[镜像加速器](https://yeasy.gitbooks.io/docker_practice/install/mirror.html)

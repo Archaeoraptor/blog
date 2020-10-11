@@ -14,6 +14,3 @@ comments: false
 - 喜欢鳑鲏和鮈
 
 - 数理不精，文气散漫
-
-***
-{% note %}Contact me: [zhangjk67@gmail.com](mailto:zhangjk67@gmail.com) {% endnote %}

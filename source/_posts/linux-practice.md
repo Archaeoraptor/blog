@@ -20,7 +20,7 @@ date: 2019-10-11 16:48:51
 | -----| ----- |
 | reboot | 重启 |
 | poweroff | 关机 |
-| weget  | 下载文件 |
+| wget  | 下载文件 |
 | ps  | 监视进程 |
 | top | 动态监视进程 |
 | kill | 终止进程 |
@@ -145,58 +145,26 @@ done
 卸载自带python:`sudo apt uninstall python`
 卸载iptables使用`sudo apt remove iptables`
 执行`:(){ :|:& };:`之类的fork炸弹
+不给/home分区
 
 ## 文件系统
 
-“一切皆文件”, 这是UNIX最初的构想，但是Linux里面并不是，比如socket，真正实现了一切皆文件是贝尔实验室的Plan9,然而已经凉了[^2], **真·入土**
+“一切皆文件”, 这是UNIX最初的构想，但是Linux里面并不是，比如socket、比如进程，真正实现了一切皆文件是贝尔实验室的Plan9,然而已经凉了[^2], **真·入土**
 虽然入土了，那个Plan9的风格影响后来很多东西，了也影响了Go，你看LOGO，多像啊
 （不得不说贝尔实验室那帮人当年搞出来那一堆东西真的有点意思，形式化验证和Lisp之类的也让人仰望，但是没能商用推广，曲高和寡，~~其实也不是他们的问题，是大多是人都太菜了，比如我~~现在一个个都入土了）
 
-创建文件链接(硬链接和符号链接)
+文件的信息存在metadata里的inode中，包括UID、修改创建时间、权限等
 
-```shell
-ln <source> <target>
-ln -s <source> <target>
-```
+之前我以为类UNIX系统的文件是个文件树的样子，后来发现加上链接（link）后是一个有向无环图（把符号链接当一个文件的话还是树的样子）
 
-加 -s 是符号链接，就像一个指针，源文件删除，符号链接会指向不存在的位置
-
-装载文件（将一个设备添加到文件系统中）
-一开始会将/root或者/boot自动装载，装载其他的设备一般用mount命令，比如
-`mount /mnt/cdrom`
+不能对一个目录创建硬链接，貌似是因为会产生回环？（每个目录下的隐藏文件`.`和`..`就是本目录和上一级目录的硬链接）
 
 ## 其他
 
-### 支持中文和UTF-8
-
-```shell
-    sudo apt-get install language-pack-zh-hans
-    sudo vim /etc/environment
-```
-
-写入
->LANG="zh_CN.UTF-8"
-LANGUAGE="zh_CN:zh:en_US:en"
-
-```shell
-sudo vim /var/lib/locales/supported.d/local
-```
-
-写入
->en_US.UTF-8 UTF-8
-zh_CN.UTF-8 UTF-8
-zh_CN.GBK GBK
-zh_CN GB2312
-
-```shell
-sudo locale-gen
-sudo apt-get install fonts-droid-fallback ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming
-```
-
 ### 保持SSH连接不自动退出
 
-用的Mobaxterm，直接在settings>SSH>SSH keepalive
-当然通常的做法是每隔一定时间向服务器发送心跳[^1]，应该是防止防火墙把SSH干掉，通常SSH不会自己断的
+开启SSH keepalive。
+通常的做法是每隔一定时间向服务器发送心跳[^1]，应该是防止防火墙把SSH干掉，通常SSH不会自己断的
 在`/etc/ssh/sshd_config`里面设置ClientAliveInterval和ClientAliveInterval
 也可以修改`.ssh/config`文件，设置
 
@@ -265,49 +233,23 @@ UUID=bf5e768c-a2de-4618-9861-5946459a69b6 /home          ext4    defaults,noatim
 
 再次登陆后应该就行了。弄完突然发现KDE自带一个叫KDE Partition Manager的工具，推荐大家用这个。
 
-## 几个版本的个人印象
-
-### Ubuntu
-
-家里最老的一台Dell笔记本预装了这个，然而当时没用过，貌似在电脑城被直接格了装了win7。先后在学校机房和教研室的工作站上用过14、16、18的LTS版。
-
-Ubuntu Server 体验貌似跟Debian差不太多。
-
-桌面版喜欢不上来，GNOME占用又高又耗电，Ubuntu的颜色还挺丑。
-
-Lubuntu流畅到2G内存的老笔记本都丝毫不卡，装了20新版玩，成功救活了家里8年前的老笔记本。除了界面复古略微简陋以外都很完美。Lubuntu特别适合装到虚拟机里面和低配老电脑，随便给点内存就能流畅跑起来了。
-
-### ~~Manjaro~~
-
-曾经比较喜欢，后来philm恰烂钱事件jonathon出走和论坛挂了让我印象急转直下，已经放弃了，开发组各种迷之操作动不动整出什么幺蛾子。不过他们浅绿色的魔改KDE主题真的漂亮哇。
-
-### Debian
-
-VPS上跑的是这个，图省事，装依赖还是比老Cent舒服，vps2arch总怕哪天滚挂了不敢用
-
-### CentOS
-
-哇，依赖都太老了，不想用。不想评价，基本躲着走，躲不了就上docker。。。
-
-### wsl
-
-试了试感觉好东西哇，win开发体验超越mac指日可待
-
-暂时不支持GPU，指望跑个tensorflow暂时没希望，一些图形化和底层还是有点小问题。
-wsl2已经出了，但我还没升级20H1（据说这个基于hyper-v的？害怕），到时候再试试2吧，据说要上GPU驱动和图形化支持了，然而我已经把主力换成了linux，日用KDE桌面
-
-总感觉这玩意能抢走至少一半的Linux桌面用户，Linux桌面雪上加霜。。。
-
 ## 写在后面的话
 
 wsl和虚拟机或者Jetbrains家、vscode的远程也挺香，感觉貌似比linux桌面有前途，好多人都放弃linux桌面了。Linux图形化桌面有出头之日大概至少还需要一个强势的**商业**发行版（此处商业二字特别加粗），钦定桌面DE，钦定桌面布局，限制小白用户的美化和魔改。提供一个中心化的软件商店上架商业软件以及**收费软件**（貌似现在snap和flatpack有点那个意思？），然而这样搞一圈跟Mac和Chrome OS又有什么区别呢。国产化也没什么太大希望，行政命令运动式推广Linux只会让企业里充满特供版UOS这种怪胎（不仅魔改还收费，root权限全给你收了，除了软件商店别想自己装别的了，整的跟个收费版安卓似的），跟自由软件没啥关系了。跟开源社区和个人肯定没多大关系（当然Deepin整了wine还是做了点好事的.......他们自己做的那一套DDE感觉真的是败笔，就像Ubuntu非得自己搞个Ubuntu Touch和Android争一样）
 
+## 一些花里胡哨的玩意
 
-## 参考
+| Command&Tools                                             | description            | 备注                   |
+| --------------------------------------------------------- | ---------------------- | ---------------------- |
+| htop                                                      | 比top花里胡哨一点      |                        |
+| [glances](https://github.com/nicolargo/glances)           | 比htop显示的东西多一点 | 看起来还比较清爽       |
+| [bashtop/bpytop](https://github.com/aristocratos/bashtop) | 极其花里胡哨           | 用起来没比htop好用多少 |
+| [duf](https://github.com/muesli/duf)                      | 显示磁盘占用           |                        |
+
+## 一些网站
 
 [Vim中文社区](https://vim-china.org/)
 [Linux工具快速教程](https://linuxtools-rst.readthedocs.io/zh_CN/latest/index.html)
-[Linux工具快速教程](https://linuxtools-rst.readthedocs.io/zh_CN/)
 [explainshell](https://explainshell.com/) 一个解释shell语句的网站
 
 ## 注

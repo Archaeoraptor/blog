@@ -9,44 +9,14 @@ date: 2019-10-18 21:31:55
 ---
 开始折腾Docker，等待填坑
 <!-- more -->
-容器化好像挺有意思，开始学学（指照着网上教程乱用[^1]）。
-VPS(Virtual Private Server)用的就是虚拟化技术，Docker比各种虚拟机、云服务虚拟程度低。大概相当于一个沙盒？一般用来打包安装环境，这样部署方便一些。（有很多安装脚本，但是CentOS、Ubuntu、Debian经常不一样，打成Docker image，就可以通用了）。Docker还带一层隔离，大概相当于加强版的chroot（并没有隔离硬件）
+容器化到底拿来干什么呢
 
-Docker好像还可以套娃，Docker里面跑Docker
+Docker还可以套娃，Docker里面跑Docker
 
-## win10下使用Docker
 
-下载Docker Desktop，安装，重启。打开hyper-v，进BIOS开启虚拟化，重启。
-一般这样就直接装好了，看到小鲸鱼，试一下
+## 基本设置和操作
 
-```shell
-docker run hello-world
-```
-
-更换镜像源，你电的镜像源还没有安排上，这里先用[中科大的](https://lug.ustc.edu.cn/wiki/mirrors/help/docker)好了，在`C:\ProgramData\Docker`新建一个config\daemon.json
-
-```json
-{
-  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]
-}
-```
-
-然后就可以获取镜像了
-
-```shell
-docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]
-```
-
-用`docker ps`查看容器，用`Docker run`运行，`docker logs`查看日志。
-这里推荐使用VSCode Docker插件和Docker Compose插件
-记得在设置里打开Expose daemon on tcp://localhost:2375 without TLS
-
-### wsl下使用Docker
-
-在官网上看到了Docker for wsl2，等待填坑。(虽然我现在直接强行apt装了)
-（家庭版貌似并不可以，要专业版）
-
-## Linux下的Docker
+### Docker设置
 
 一定要先启动, 不然有可能`Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?`
 
@@ -63,21 +33,36 @@ service docker start
 ```bash
 sudo gpasswd -a ${USER} docker
 ```
+#### 离线装Docker镜像
 
-## Docker Compose 部署
+教研室服务器的网一直出问题，还有一台机子没有外网
+决定离线搞Docker镜像
+发现Docker有离线的方法，就是直接在别的机子上pull，然后
+
+```shell
+docker save -o mysql.tar mysql
+```
+
+把生成的tar文件拷到服务器上
+
+```shell
+docker load -i  mysql.tar
+```
+
+### Docker Compose 部署
 
 当部署多个Docker容器，它们之间还有关联的时候，就用Compose代替Docker run，比如师兄Flask写的标注工具，就是前后端分别一个Docker容器
 
 运行：`docker-compose up`自动创建
 
-## Docker镜像
+### Docker镜像
 
 Docker镜像（image）也是一堆文件，可以自己建或者从远程pull别人建好的
 有了Docker镜像，再写好Dockerfile就可以跑起来了（跑起来之后就是个容器container）
 
-## Dockerfile
+### Dockerfile
 
-大概相当于一个脚本之类的东西，填写好之后启动会根据文件里面的配置逐步执行
+语法近似bash脚本，填写好之后启动会根据文件里面的配置逐步执行
 
 ## 常用命令
 
@@ -93,7 +78,11 @@ Docker镜像（image）也是一堆文件，可以自己建或者从远程pull�
 | Docker import/load   | 导出导入镜像         |
 | Docker start/stop/restart/pause/unpause/kill   | 略 |
 
-## 报错
+## 踩坑记录
+
+各位看官散了吧，都是一堆弱智操作搞的
+
+### 一次弱智的踩坑
 
 `Failed to enable unit: Unit file /etc/systemd/system/docker.service is masked.`
 
@@ -115,7 +104,7 @@ See "systemctl status docker.service" and "journalctl -xe" for details.`
 Docker pull出现`Error response from daemon: Get https://registry-1.docker.io/v2/: dial tcp 34.201.196.144:443: connect: connection refused
 `
 
-是镜像源或者DNS的问题，参照这里[^2]改了。（阿里的和中科大的我这网根本不稳，建议换华为的）
+是镜像源或者DNS的问题，参照[这里](https://yeasy.gitbooks.io/docker_practice/install/mirror.html)改了。（阿里的和中科大的教研室的鬼畜教育网根本不稳，最后换了华为的（要注册账号））
 
 出现`pkg_resources.DistributionNotFound: The 'docker-compose==1.8.0' distribution was not found and is required by the application`
 
@@ -196,10 +185,18 @@ apt install ca-certificates
 查看了一下网络状态
 
 没问题的工作站
+
+```
 tcp        0      0 211.83.111.221:40294    211.83.111.224:443      ESTABLISHED 1825/telnet
+```
+
 有问题的服务器
+
+```
 tcp6       0      0 :::443                  :::*                    LISTEN      101411/apache2
 tcp6       0      0 211.83.111.224:443      211.83.111.221:40294    ESTABLISHED 101415/apache2
+```
+
 
 难道学校的ipv6又炸了？
 
@@ -223,31 +220,15 @@ emmm，被占用了
 
 <img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/jiaqian.png" alt="Picture" style="zoom:60%;" />
 
-## 离线装Docker镜像
-
-教研室服务器的网一直出问题
-决定离线搞Docker镜像
-发现Docker有离线的方法，就是直接在别的机子上pull，然后
-
-```shell
-docker save -o mysql.tar mysql
-```
-
-把生成的tar文件拷到服务器上
-
-```shell
-docker load -i  mysql.tar
-```
-
 ## 参考
 
-[^1]:[Docker从入门到实践](https://yeasy.gitbooks.io/docker_practice/)
-
-[^2]:[镜像加速器](https://yeasy.gitbooks.io/docker_practice/install/mirror.html)
+[1]:Docker从入门到实践(https://yeasy.gitbooks.io/docker_practice/)
 
 ## 再看Docker
 
-被人骗入坑Docker，甚至教研室服务器上基本全是Docker跑的一个个容器，甚至MySQL都是跑在Docker上的
+被人骗入坑Docker，甚至教研室服务器上基本全是Docker跑的一个个容器，甚至MySQL都是跑在Docker上的。
+
+Docker 网络那里
 
 http://dockone.io/article/660
 https://jimmysong.io/docker-handbook/
