@@ -7,7 +7,9 @@ abbrlink: '193'
 date: 2019-10-11 16:48:51
 ---
 从小心翼翼到灵车漂移
+
 <!--more-->
+
 ## 写在前面的话
 
 刚刚入坑Linux的时候我还迷信UINX哲学，看到别人在那[骂systemd](https://suckless.org/sucks/systemd/)还有好有道理的样子。后来发现什么Keep it stupid Simple、去中心化在很多场景有很大的缺陷，还是systemd真香啊。linux桌面日用至今只是勉强能用的样子，wayland还是有好多软件和组件不配适，xorg又各种撕裂，不少国产软件能出个win版都烧高香了，软件生态也看不到多少希望。linux发行版本来就分裂，然后DE也五花八门，然后各种控件和面板都可以自行美化魔改，根本不可能稳定。目前比较喜欢的桌面是KDE，长期看好，虽然还是跟瘟斗士和Bug Sir差了很多。linux桌面绑一块都打不过MAC，甚至连Chrome OS都不一定能打过，还各种内斗和搞分裂。软件生态也是个无解的问题，建议大家要用各种办公软件和仿真设计软件的还是去用win和mac，不要来受这个罪。
@@ -246,11 +248,17 @@ wsl和虚拟机或者Jetbrains家、vscode的远程也挺香，感觉貌似比li
 | [bashtop/bpytop](https://github.com/aristocratos/bashtop) | 极其花里胡哨           | 用起来没比htop好用多少 |
 | [duf](https://github.com/muesli/duf)                      | 显示磁盘占用           |                        |
 
-## 一些网站
+ohmyzsh 广为人知的花里胡哨的东西，比bash花多了
+
+https://github.com/knqyf263/pet 一个terminal里的复制粘贴工具
+
+## 一些网站和文章
 
 [Vim中文社区](https://vim-china.org/)
 [Linux工具快速教程](https://linuxtools-rst.readthedocs.io/zh_CN/latest/index.html)
-[explainshell](https://explainshell.com/) 一个解释shell语句的网站
+[explainshell](https://explainshell.com/) 一个shell网站
+[kernelnewbies](https://kernelnewbies.org/Documents) 好吧这其实不怎么newbie
+[GNOME与KDE的战争](https://i.linuxtoy.org/docs/guide/ch49.html) 陈年旧事，社区的分裂
 
 ## 注
 

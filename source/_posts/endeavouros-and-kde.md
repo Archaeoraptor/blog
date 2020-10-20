@@ -5,7 +5,7 @@ date: 2020-09-13 23:52:18
 tags:
  - KDE
  - EndeavourOS
-hide: true
+# hide: true
 abbrlink: 'endeavouros-and-kde-setting'
 categories:
   - 不务正业系列
@@ -15,12 +15,21 @@ sudo pacman -Rs win10
 
 <!-- more -->
 
+其实还是建议能折腾的玩家直接上原味Arch。不想装Arch的偷懒用户可以试试这个（不过推荐想用KDE等其他桌面的玩家先选择离线安装，然后卸载xfce的包，再装其他DE。这个在线安装的时候每装一个包都会 -Syu 一下，非常慢）
+
 ## 镜像源
 
-清华已经安排上了EndeavourOS的镜像和[iso](https://mirrors.tuna.tsinghua.edu.cn/endeavouros/iso/)，可以方便的下载iso和更新EndeavourOS的包了。（或者用PT种子下载，实测速度>10Mb/s）
+再次更新，你电镜像源有EndeavourOS了： <http://mirrors.uestc.cn/endeavouros/>
 
-更改`/etc/pacman.d/endeavouros-mirrorlist
-`中的内容，改为
+```bash
+echo "Server = http://mirrors.tuna.tsinghua.edu.cn/endeavouros/repo/$repo/$arch" > /etc/pacman.d/endeavouros-mirrorlist
+```
+
+iso镜像在[这里](http://mirrors.uestc.cn/endeavouros/iso/)
+
+清华已经安排上了EndeavourOS的镜像和[iso](https://mirrors.tuna.tsinghua.edu.cn/endeavouros/iso/)，可以方便的下载iso和更新EndeavourOS的包了。（或者用PT种子下载，实测速度均>10Mb/s）
+
+更改`/etc/pacman.d/endeavouros-mirrorlist`中的内容，改为
 
 ```config
 ## China
@@ -100,7 +109,9 @@ EndeavourOS有一个叫akm的图形界面，但是你要手动重装virtualbox�
 
 EndeavourOS官方魔改定制了xfce的主题和图标，离线安装镜像也只有xfce，其他的几乎没怎么魔改。
 
-紫红配色看个人喜好吧，其实我不太能欣赏的来
+如果要装其他DE的话
+
+紫红配色看个人喜好吧，其实我不太能欣赏的来（这个配色，Gitlab同款）
 
 多桌面环境可能出问题，非要这样做的话建议每个不同的桌面环境分配一个单独的用户名。
 （貌似xfce4和KDE一起用几乎问题（用ssdm），先装ssdm和KDE,然后装xfce4）
@@ -108,7 +119,7 @@ EndeavourOS官方魔改定制了xfce的主题和图标，离线安装镜像也�
 
 KDE有一种 Windows Vista 的感觉，感觉是 linux 所有 Desktop Enviroment 里面最舒服的。xfce虽然是EndeavourOS默认的DE，但是xfce开发人手不够，用户和社区贡献者也比KDE少，而且内存占用最新的KDE已经比xfce低了.....现在xfce也不怎么轻量了，渣配置机器上表现没有LXDE好，感觉不少用户都转去用i3wm和KDE了...逐渐没落的夕阳DE，适合养老
 
-### 硬盘扩容和迁移
+## 硬盘扩容和迁移
 
 趁打折买了一块西数SN550,之前只有500G还装了个双系统的笔记本可以扩容了
 
@@ -155,6 +166,26 @@ mount /dev/nvme1n1p2 /mnt/boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=EndeavourOS-grub
 ```
+
+## 滚动升级
+
+```bash
+sudo pacman -Syu # 装了AUR就yay -Syu
+```
+
+如果要自动降级新软件包就`-Syuu`(不推荐)
+
+升级的包里面有内核和显卡驱动的时候要注意小心
+
+升级内核之后最好重启一下，有的时候不重启会遇到开bbr失败了啊，u盘读不出来了啊，就比如[记因内核版本错误导致U盘不能识别的问题解决](https://jlice.top/p/7l9mo/)、[这个v站帖子](https://v2ex.com/t/323559)还有重启后[Grub内核版本号不升级](https://manateelazycat.github.io/linux/2020/02/14/fix-arch-boot-failed.html)，大部分情况下`modprobe`找不到模块八成就是了
+
+### 升级内核不重启
+
+参考reddit这个[帖子](https://www.reddit.com/r/archlinux/comments/4zrsc3/keep_your_system_fully_functional_after_a_kernel/)
+
+一个软链过去，感觉不太优雅，还是乖乖重启比较好
+
+>看来包管理器们应该学习其他两个系统，统一在关机开机的时候更新软件。
 
 ## KDE使用事项
 
@@ -255,6 +286,15 @@ autorandr --save test1
 
 ![xrandr](endeavouros-and-kde/image-20200923222725926.png)
 
+## Mac/win10上的一些软件
+
+~~请阅读王垠经典博文完全用linux工作~~
+不少时候用wine还是能搞定的（如果你不在乎wine的稳定性的话），包括一些大型软件，比如PS
+当然有的东西用wine体验远没有虚拟机好，拿Virtualbox或者KVM开个虚拟机是个不错的选择。或者身边有闲置安卓机用scrcpy投屏，或者KDE Connect传文件。
+
+部分国产软件开个黑果虚拟机感觉体验比windows虚拟机略好一点
+<https://github.com/foxlet/macOS-Simple-KVM>
+
 ## 一点闲话
 
 其实我一直很期待Arch系诞生一批用户友好的桌面发行版，就像Debian那样衍生出Ubuntu、Linux Mint那样。（虽然这很不Arch）
@@ -266,7 +306,12 @@ autorandr --save test1
 
 Arch把wifi-menu去掉之后就不太想用原味Arch了，我这笔记本没网口高通网卡Nividia独显实在八字不合，只想佛系地找个好装的iso
 
-KaOS基本符合，然而包太少，可惜....
+KaOS基本符合，然而包太少（加上KCP社区包也还是很少），可惜....
+另一个[chakra](https://www.chakralinux.org/)也是包太少（这个有自己的CCR社区包，包也不多），KDE和Qt骨灰爱好者的宝藏，软件基本全套KDE和Qt（不过据说他们人手不够维护不过来了打算换到）
+
+此外还有各种层出不穷的真*Arch安装器
+<https://firerain.me/>
+<https://garudalinux.org/index.html>
 
 Antergos的继承者，EndeavourOS满足了前两点，貌似xfce主题魔改了点主题，KDE基本原封不动。当时Manjaro闹分裂，jonathon出走了，我也跟着跑路到了这个发行版;用了一段时间感觉还不错，接近原味Arch, 不像Manjaro一样整了很多超出自己驾驭能力的魔改。推荐各位Manjaro用户和想用pacman又嫌麻烦的用户尝试一下。
 现在看win10反而不习惯，索性把教研室搬砖那台win10全格了只装这个（要用到windows的时候上win7虚拟机 ps. win7 和KDE好像啊）
@@ -288,3 +333,18 @@ Antergos的继承者，EndeavourOS满足了前两点，貌似xfce主题魔改了
 ![](endeavouros-and-kde/akm.png)
 
 Arch的安装脚本和只是换了个皮的安装器层出不穷，目前看来EndeavourOS是最令人满意的一个（好吧，默认是xfce，这个离线装了然后改DE就好了）
+
+## 最后
+
+AUR包数量很庞大，但也有一些包目前还没有，有精力和意愿打包的可以去给AUR提交打包
+可以参看
+
+1. [Archlinux User Repository](https://aur.archlinux.org/)
+2. [Creating packages](https://wiki.archlinux.org/index.php/Creating_packages)
+3. [Arch用户仓库](https://wiki.archlinux.org/index.php/Arch_User_Repository_(简体中文))
+4. [AUR 纯萌新向入门教学(2)-创建一个软件包](https://blog.yoitsu.moe/arch-linux/aur_packaging_guidebook.html)
+5. [AUR 纯萌新向入门教学(3)-提交软件包到AUR](https://blog.yoitsu.moe/arch-linux/aur_sumbiting_guidebook.html)
+
+KDE的中文翻译也缺人，有精力的玩家可以去当翻译，中文翻译组在[这里](https://crowdin.com/project/kdeorg)
+KDE那边貌似挺缺打杂苦力的，熟悉Qt的同学可以去给社区做点贡献.
+

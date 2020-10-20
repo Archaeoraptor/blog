@@ -100,6 +100,9 @@ links_settings:
 links:
   uestc.icu: https://uestc.icu
   米米的博客: https://zhangshuqiao.org
+  花花: https://233hsysweb.ml
+  Sam's Blog: https://blog.samchu.cn
+
 
 read_more_btn: false
 
@@ -137,30 +140,30 @@ font:
 
   # Global font settings used for all elements inside <body>.
   global:
-    external: true
+    external: false
     family: "Noto Serif SC"
     size:
 
   # Font settings for site title (.site-title).
   title:
-    external: true
+    external: false
     family:
     size:
 
   # Font settings for headlines (<h1> to <h6>).
   headings:
-    external: true
+    external: false
     family:
     size:
 
   # Font settings for posts (.post-body).
   posts:
-    external: true
+    external: false
     family:
 
   # Font settings for <code> and code blocks.
   codes:
-    external: true
+    external: false
     family:
 
 disable_baidu_transformation: true
@@ -187,7 +190,7 @@ math:
     # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
     copy_tex: false
 
-pjax: false
+pjax: true
 
 mediumzoom: true
 
