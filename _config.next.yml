@@ -269,7 +269,7 @@ valine:
   enable: true
   appId: 9HDUS9zSiY41T0Vp4naCoqcC-MdYXbMMI
   appKey: ufiyQKIMrlBkEYcA4bk1TrYj
-  placeholder: 林妙妙，没事不要老在我评论区捣乱 # Comment box placeholder
+  placeholder: 留言可能会过一段时间才看到,急事请发邮件 # Comment box placeholder
   avatar: mm # Gravatar style
   meta: [nick, mail] # Custom comment header
   pageSize: 10 # Pagination size

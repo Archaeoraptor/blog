@@ -1,12 +1,12 @@
 ---
 layout: posts
-title: 为什么不试试EndeavourOS和KDE呢
+title: 为什么不试试EndeavourOS呢
 date: 2020-09-13 23:52:18
 tags:
  - KDE
  - EndeavourOS
 # hide: true
-abbrlink: 'endeavouros-and-kde-setting'
+abbrlink: 'why-not-try-endeavouros'
 categories:
   - 不务正业系列
 ---

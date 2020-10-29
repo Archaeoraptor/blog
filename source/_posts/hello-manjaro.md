@@ -374,7 +374,7 @@ sudo pacman -S wireguard-tools wireguard-dkms
 sudo pacman -S clash
 ```
 
-可以配置systemd让clash开机自启，[wiki](https://github.com/Dreamacro/clash/wiki/clash-as-a-daemon)上还提供了docker-compose和pm2的方法。(貌似pm2方便一点？尤其是装了nodejs的话，不过clash是go开发的官方推荐docker，不过docker和pm2要开机自启还是得用systemd)
+可以配置systemd让clash开机自启，[wiki](https://github.com/Dreamacro/clash/wiki/clash-as-a-daemon)上还提供了docker-compose和pm2的方法(配置文件放在`~/.config/clash` )。(貌似pm2方便一点？尤其是装了nodejs的话，不过clash是go开发的官方推荐docker，不过docker和pm2要开机自启还是得用systemd)
 
 上个月发布的clash1.0版本是和老版本不兼容的[^4]，AUR里打包的clash是不兼容的，所以要手动修改yml文件或者自己编译老版本的clash
 
