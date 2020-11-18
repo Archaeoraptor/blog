@@ -11,6 +11,7 @@ date: 2019-11-18 13:35:20
 ---
 <img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/emmm.jpg" alt="Picture" style="zoom:80%;" />
 <!-- more -->
+
 在Ubuntu和Debian里卸载iptables会发生严重的后果（大佬请无视）
 一开始我们觉得是防火墙把443端口给办了用不了https，结果我用UFW设置不管用，怀疑是iptables的问题，问了花花师兄，也不清楚，我们决定先把iptables禁用了。随手一谷歌，也忘了哪个神仙说的
 

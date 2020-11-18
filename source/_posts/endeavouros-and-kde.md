@@ -101,7 +101,7 @@ EndeavourOS有一个叫akm的图形界面，但是你要手动重装virtualbox�
 
 >so, nvidia f.....
 
-算了，3080那么强，不黑英伟达了
+算了，3080那么强，不黑英伟达了(更新，AMD新卡出了，好家伙
 
 他们从以前Antergos那fork了一个驱动安装脚本，有个包叫nvidia-installer（lts等用户请用nvidia-installer-dkms），看[这里](https://endeavouros.com/docs/hardware-and-network/graphic-cards-gpu-driver-and-setup/)。
 
@@ -112,6 +112,10 @@ EndeavourOS官方魔改定制了xfce的主题和图标，离线安装镜像也�
 如果要装其他DE的话
 
 紫红配色看个人喜好吧，其实我不太能欣赏的来（这个配色，Gitlab同款）
+
+更新，KDE 的 5.20.2 配色和EndeavourOS完全一致，建议他们火速从XFCE迁往KDE（不是
+
+![KDE新官网样子](endeavouros-and-kde/image-20201031190318540.png)
 
 多桌面环境可能出问题，非要这样做的话建议每个不同的桌面环境分配一个单独的用户名。
 （貌似xfce4和KDE一起用几乎问题（用ssdm），先装ssdm和KDE,然后装xfce4）

@@ -12,6 +12,7 @@ date: 2019-11-18 17:00:54
 <img width=100 src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/haixing.png" alt="Picture"/>
 祖传服务器传到了我的手里
 <!-- more -->
+
 上回书说到，服务器一不小心卸载了iptables
 现在准备重装。还是打算装Ubuntu Server（并不打算装Manjaro，也不适合搞桌面版，今天试过一下Ubuntu Desktop，图形化界面由于服务器没有独显直接卡到爆炸）
 ~~初步打算安装Ubuntu server 16.04.6LTS, 使用LVM分区~~

@@ -20,7 +20,7 @@ tags:
 
 1. 在“首选项-入站设置”的下方启用透明代理选项。
 
-   - 监听ipv4地址可填127.0.0.1或0.0.0.0，建议前者。若需双栈代理，则在监听ipv6地址填上[::1]（如果监听ipv4填了0.0.0.0则可不填）。
+   - 监听ipv4地址可填127.0.0.1或0.0.0.0，建议前者。若需双栈代理，则在监听ipv6地址填上`::1`（如果监听ipv4填了0.0.0.0则可不填）。
    - 在“网络模式”中勾选需要透明代理的协议。模式选择“tproxy”。
    - 如果希望在透明代理环境里让v2ray的内置dns接管本地dns，则勾选“dns拦截”。注意，在透明代理环境下，如果系统dns或v2ray的内置dns配置不当，可能导致系统无法解析域名从而无法正常上网。详见后文说明。
 
@@ -48,7 +48,7 @@ tags:
 
      - 安装Qvplugin-Command插件，在插件设置里的“pre-connection”栏里加上一句
 
-       ```
+       ```bash
        sh -c "cgnoproxy --pid $(pgrep -x qv2ray)"
        ```
 
@@ -56,7 +56,7 @@ tags:
 
 5. （重要）如果启用了udp的透明代理（dns也是udp），则给v2ray二进制文件加上相应的特权：
 
-   ```
+   ```bash
    sudo setcap "cap_net_admin,cap_net_bind_service=ep" /path/of/your/v2ray
    ```
 
