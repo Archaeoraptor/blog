@@ -269,19 +269,33 @@ comments:
 
    Valine
 # For more information: https://valine.js.org, https://github.com/xCss/Valine
-valine:
+# valine:
+#   enable: true
+#   appId: 9HDUS9zSiY41T0Vp4naCoqcC-MdYXbMMI
+#   appKey: ufiyQKIMrlBkEYcA4bk1TrYj
+#   placeholder: 留言可能会过一段时间才看到,急事请发邮件 # Comment box placeholder
+#   avatar: mm # Gravatar style
+#   meta: [nick, mail] # Custom comment header
+#   pageSize: 10 # Pagination size
+#   language: # Language, available values: en, zh-cn
+#   visitor: false # Article reading statistic
+#   comment_count: true # If false, comment count will only be displayed in post page, not in home page
+#   recordIP: false # Whether to record the commenter IP
+#   serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
+#   enableQQ: true # Whether to enable the Nickname box to automatically get QQ Nickname and QQ Avatar
+#   requiredFields: [] # Set required fields: ['nick'] | ['nick','mail']
+#   #post_meta_order: 0
+
+# DisqusJS
+# Alternative Disqus - Render comment component using Disqus API.
+# Demo: https://suka.js.org/DisqusJS/
+# For more information: https://github.com/SukkaW/DisqusJS
+disqusjs:
   enable: true
-  appId: 9HDUS9zSiY41T0Vp4naCoqcC-MdYXbMMI
-  appKey: ufiyQKIMrlBkEYcA4bk1TrYj
-  placeholder: 留言可能会过一段时间才看到,急事请发邮件 # Comment box placeholder
-  avatar: mm # Gravatar style
-  meta: [nick, mail] # Custom comment header
-  pageSize: 10 # Pagination size
-  language: # Language, available values: en, zh-cn
-  visitor: false # Article reading statistic
-  comment_count: true # If false, comment count will only be displayed in post page, not in home page
-  recordIP: false # Whether to record the commenter IP
-  serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
-  enableQQ: true # Whether to enable the Nickname box to automatically get QQ Nickname and QQ Avatar
-  requiredFields: [] # Set required fields: ['nick'] | ['nick','mail']
-  #post_meta_order: 0
+  # API Endpoint of Disqus API (https://disqus.com/api/).
+  # Leave api empty if you are able to connect to Disqus API. Otherwise you need a reverse proxy for it.
+  # For example:
+  # api: https://disqus.skk.moe/disqus/
+  api: https://disqus.skk.moe/disqus/
+  apikey: 3qJ515uApWlP58gXhzPCCk3L0NlOvrMLwt5dDITBndS8fp8She7PT1gvBdDcgwrt # Register new application from https://disqus.com/api/applications/
+  shortname: arcaheoraptor # See: https://disqus.com/admin/settings/general/
