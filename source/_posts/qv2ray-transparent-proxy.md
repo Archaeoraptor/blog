@@ -114,3 +114,77 @@ tags:
 
   由于iptables是在域名解析成ip之后，才对相应的流量进行重定向。因此，在透明代理环境中，访问一个域名s可能会需要解析至少2次dns（系统解析一次，重定向到v2ray之后v2ray分流模块再解析一次）。因此，响应理论上是会变慢一点的，变慢的幅度取决于系统dns及v2ray的dns的响应速度。
 
+## 以下是我自己写的更新
+
+### Docker和透明代理冲突的问题
+
+这也是一个频繁被问到的问题
+
+>你是装了某些可能会破坏 cgroup matching 的东西吗
+>比如 docker 之类的肮脏程序
+>docker 不仅会破坏cgroup matching
+>把网络搞炸
+>docker 还有 hairpin nat
+>巨坑
+
+
+我自己试了一下是这样的
+
+在`systemctl enable docker`后没有问题
+
+这个时候我没把当前用户添加到个人用户组，不能直接使用Docker，需要`sudo docker ...`
+在我把Docker添加到当前用户组后出问题了，重启后qv2ray和clash等失效了，延迟测试全部显示0ms
+
+报错
+
+```bash
+2020/11/19 20:34:03 192.168.1.105:58398 accepted tcp:211.72.35.152:80 [outBound_PROXY] 
+
+2020/11/19 20:34:10 [Warning] [4118491953] v2ray.com/core/app/proxyman/outbound: failed to process outbound traffic > v2ray.com/core/proxy/vmess/outbound: failed to find an available destination > v2ray.com/core/common/retry: [v2ray.com/core/transport/internet/websocket: failed to dial WebSocket > v2ray.com/core/transport/internet/websocket: failed to dial to (ws://feec8af.rf.cloudflare.systems/s/feec8af.fm.apple.com:29306):  > read tcp 192.168.1.105:58370->211.72.35.152:80: i/o timeout v2ray.com/core/transport/internet/websocket: failed to dial WebSocket > v2ray.com/core/transport/internet/websocket: failed to dial to (ws://feec8af.rf.cloudflare.systems/s/feec8af.fm.apple.com:29306):  > dial tcp: operation was canceled] > v2ray.com/core/common/retry: all retry attempts failed
+2020/11/19 20:34:10 [Warning] v2ray.com/core/transport/internet/tcp: failed to accepted raw connections > accept tcp 127.0.0.1:12345: accept4: too many open files
+2020/11/19 20:34:10 192.168.1.105:58946 accepted tcp:211.72.35.152:80 [outBound_PROXY]
+```
+
+一个办法是用docker的时候加`sudo`以root用户运行。
+
+另一个解决办法见：
+
+<https://github.com/springzfx/cgproxy/issues/>
+
+编辑`/etc/default/grub`，
+添加`cgroup_no_v1=net_cls,net_prio` 到`GRUB_CMDLINE_LINUX_DEFAULT`中,
+然后更新grub，重启
+示例：
+
+```bash
+GRUB_CMDLINE_LINUX_DEFAULT="text cgroup_no_v1=net_cls,net_prio"
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+但是，加了这些参数经常也不太好用。
+
+{% cq %}
+最简单的办法，扬了 docker，换 podman / podman-docker
+{% endcq %}
+
+```bash
+sudo pacman -Syu podman-docker
+```
+
+或者安装podman，然后
+
+```bash
+alias docker=podman
+```
+
+然后你需要编辑`/etc/subuid`和`/etc/subgid`加上`podman:165536:4096`，然后
+
+```bash
+usermod --add-subuids 165536-169631 --add-subgids 165536-169631 yourusername
+```
+
+不然会报错，没法pull images
+
+```
+ERRO[0000] cannot find UID/GID for user zjk: open /etc/subuid: no such file or directory - check rootless mode in man pages.
+```

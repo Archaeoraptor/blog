@@ -10,9 +10,7 @@ date: 2019-10-18 21:31:55
 开始折腾Docker，等待填坑
 <!-- more -->
 
-容器化到底拿来干什么呢
-
-Docker还可以套娃，Docker里面跑Docker
+好耶，是容器。坏耶，是容器。
 
 ## 基本设置和操作
 
@@ -80,9 +78,9 @@ Docker镜像（image）也是一堆文件，可以自己建或者从远程pull�
 
 ## 踩坑记录
 
-各位看官散了吧，都是一堆弱智操作搞的
-
 ### 一次弱智的踩坑
+
+各位看官散了吧，都是一堆弱智操作搞的
 
 `Failed to enable unit: Unit file /etc/systemd/system/docker.service is masked.`
 
@@ -228,7 +226,7 @@ emmm，被占用了
 
 被人骗入坑Docker，甚至教研室服务器上基本全是Docker跑的一个个容器，甚至MySQL都是跑在Docker上的。
 
-Docker 网络那里
 
-http://dockone.io/article/660
-https://jimmysong.io/docker-handbook/
+
+<http://dockone.io/article/660>
+<https://jimmysong.io/docker-handbook/>
