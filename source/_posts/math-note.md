@@ -14,7 +14,7 @@ mathjax: true
 
 <!-- more -->
 
-## 矩阵
+<!-- ## 矩阵
 
 ### 雅可比矩阵
 
@@ -56,7 +56,23 @@ cos\theta=\frac{|\vec{a}\cdot \vec{b}|}{|\vec{a}|*|\vec{b}|}
 $$
 
 余弦相似度：
-$sim(\theta)=1-cos(\theta)$
+$sim(\theta)=1-cos(\theta)$ -->
+
+
+## 网站和工具
+
+>手算是不可能手算的
+
+### 软件
+
+反正积分的时候扔到mathmatica里面算一下总没错。
+数值计算扔到Matlab里面跑一下总没错
+Mathpix截图转latex的效果相当好，之前免费的，后来开始收费，不过有信用卡可以提供免费的
+
+### 网站
+
+矩阵求导的网站，试了一下，看起来还不错。
+<http://www.matrixcalculus.org/>
 
 ## 一点闲话
 

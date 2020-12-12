@@ -120,16 +120,16 @@ nofollow:
     - 'https://blog.samchu.cn'
 
 
-# Demo: https://utteranc.es/  http://trumandu.github.io/about/
-utteranc:
-  enable: true
-  repo: Archaeoraptor/archaeoraptor.github.io #Github repo such as :TrumanDu/comments
-  pathname: pathname
-  # theme: github-light,github-dark,github-dark-orange
-  theme: github-light
-  cdn: https://utteranc.es/client.js
-  # If you want to modify priority, please config in **hexo**
-  #priority:
+# # Demo: https://utteranc.es/  http://trumandu.github.io/about/
+# utteranc:
+#   enable: true
+#   repo: Archaeoraptor/archaeoraptor.github.io #Github repo such as :TrumanDu/comments
+#   pathname: pathname
+#   # theme: github-light,github-dark,github-dark-orange
+#   theme: github-light
+#   cdn: https://utteranc.es/client.js
+#   # If you want to modify priority, please config in **hexo**
+#   #priority:
 
 mathjax:
   tags: none # or 'ams' or 'all'

@@ -114,7 +114,7 @@ tags:
 
   由于iptables是在域名解析成ip之后，才对相应的流量进行重定向。因此，在透明代理环境中，访问一个域名s可能会需要解析至少2次dns（系统解析一次，重定向到v2ray之后v2ray分流模块再解析一次）。因此，响应理论上是会变慢一点的，变慢的幅度取决于系统dns及v2ray的dns的响应速度。
 
-## 以下是我自己写的更新
+## 以下是我自己写的更新和我的一些问题
 
 ### Docker和透明代理冲突的问题
 
@@ -187,4 +187,39 @@ usermod --add-subuids 165536-169631 --add-subgids 165536-169631 yourusername
 
 ```
 ERRO[0000] cannot find UID/GID for user zjk: open /etc/subuid: no such file or directory - check rootless mode in man pages.
+```
+
+### pacman更新报错
+
+本来都是好的，突然有一天出问题了。浏览器等访问都没有问题，怀疑是透明代理的问题。Qv2ray输出看不到异常。
+
+```log
+:: Synchronizing package databases...
+error: failed retrieving file 'core.db' from mirrors.uestc.cn : Failed to connect to mirrors.uestc.cn port 80: Connection timed out
+error: failed to update core (download library error)
+error: failed to synchronize all databases
+error installing repo packages
+```
+
+使用`cgnoproxy yay -Syu` 看了一下，果然。
+然后在cproxy中将pacman和yay加入noproxy组中。编辑`/etc/cgproxy/config.json`
+
+```json
+{
+    "comment":"For usage, see https://github.com/springzfx/cgproxy",
+
+    "port": 12345,
+    "program_noproxy": ["v2ray", "qv2ray", "yay", "pacman"],
+    "program_proxy": [],
+    "cgroup_noproxy": ["/system.slice/v2ray.service"],
+    "cgroup_proxy": ["/"],
+    "enable_gateway": false,
+    "enable_dns": false,
+    "enable_udp": false,
+    "enable_tcp": true,
+    "enable_ipv4": true,
+    "enable_ipv6": true,
+    "table": 10007,
+    "fwmark": 39283
+}
 ```

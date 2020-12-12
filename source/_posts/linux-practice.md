@@ -250,7 +250,7 @@ wsl和虚拟机或者Jetbrains家、vscode的远程也挺香，感觉貌似比li
 
 ohmyzsh 广为人知的花里胡哨的东西，比bash花多了
 
-https://github.com/knqyf263/pet 一个terminal里的复制粘贴工具
+[pet](https://github.com/knqyf263/pet) 一个terminal里的复制粘贴工具
 
 ## 一些网站和文章
 

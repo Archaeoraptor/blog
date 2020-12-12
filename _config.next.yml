@@ -254,20 +254,19 @@ comments:
   style: tabs
   # Choose a comment system to be displayed by default.
   # Available values: changyan | disqus | disqusjs | gitalk | livere | valine
-  active:
+  active: disqusjs
   # Setting `true` means remembering the comment system selected by the visitor.
   storage: true
   # Lazyload all comment systems.
   lazyload: false
   # Modify texts or order for any navs, here are some examples.
   nav:
-    #disqus:
-    #  text: Load Disqus
-    #  order: -1
-    #gitalk:
-    #  order: -2
+    disqusjs:
+     text: Load Disqus
+     order: -1
+    utterances:
+     order: -2
 
-   Valine
 # For more information: https://valine.js.org, https://github.com/xCss/Valine
 # valine:
 #   enable: true
@@ -299,3 +298,13 @@ disqusjs:
   api: https://disqus.skk.moe/disqus/
   apikey: 3qJ515uApWlP58gXhzPCCk3L0NlOvrMLwt5dDITBndS8fp8She7PT1gvBdDcgwrt # Register new application from https://disqus.com/api/applications/
   shortname: arcaheoraptor # See: https://disqus.com/admin/settings/general/
+
+# Utterances
+# For more information: https://utteranc.es
+utterances:
+  enable: true
+  repo: Archaeoraptor/archaeoraptor.github.io # Github repository name
+  # Available values: pathname | url | title | og:title
+  issue_term: pathname
+  # Available values: github-light | github-dark | preferred-color-scheme | github-dark-orange | icy-dark | dark-blue | photon-dark | boxy-light
+  theme: github-light

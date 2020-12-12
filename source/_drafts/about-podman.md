@@ -2,6 +2,7 @@
 title: podman二三事
 date: 2020-11-26 17:32:20
 tags:
+ - podman
 abbrlink: 'about-podman'
 ---
 
