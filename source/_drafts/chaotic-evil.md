@@ -1,27 +1,32 @@
 ---
-title: 
+title: 事了拂衣去，深藏功与名
 tags:
  - magic
 abbrlink: 'chaotic-evil'
 ---
 
+请父母在未成年儿童陪同下观看
 <!-- more -->
 
 ## 守序善良
 
 ### 假装合群
 
-最早是kali-undercover之类的东西。
+#### 假装用win10
 
-KDEwin10主题
+最早是kali-undercover之类的东西，为了不引人注目，把kali伪装成win10（另起了一个xfce桌面）。没办法，kali名声在外，都成牢饭梗出圈了.....  
+Arch上有个kali-undercover，不过没什么必要，现在仿Mac和仿win的主题简直数不过来。  
+感觉仿苹果的主题更不容易露馅，（笔记本型号不对你就说在用黑苹果嘛
+
+#### 假装用微信
 
 Telegram微信主题
 
 ### 假装系统在更新
 
+这个网站值得拥有
 
-
-## 混乱中立
+## 不讲武德
 
 ```bash
 unset PATH
@@ -39,10 +44,6 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/ga
 /opt/pyenv/plugins/pyenv-virtualenv/shims:/home/zjk/.pyenv/shims:/opt/pyenv/plugins/pyenv-virtualenv/shims:/home/zjk/.pyenv/shims:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
 
 ## 混乱邪恶
-
-## Why so serious
-
-
 
 ```c
 #define true false
@@ -69,6 +70,7 @@ HTTrack的官网告诉你了不要干坏事：
 
 ## 见
 
-https://dev.to/devmount/9-evil-bash-commands-explained-4k5e
-https://zhuanlan.zhihu.com/p/27147501
-https://www.reddit.com/r/LinuxCirclejerk/comments/2qfk82/alias_lsrm_r
+<https://dev.to/devmount/9-evil-bash-commands-explained-4k5e>
+<https://zhuanlan.zhihu.com/p/27147501>
+<https://www.reddit.com/r/LinuxCirclejerk/comments/2qfk82/alias_lsrm_r>
+<https://www.kali.org/docs/introduction/kali-undercover/>

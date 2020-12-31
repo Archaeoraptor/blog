@@ -4,7 +4,7 @@ date: 2020-12-03 15:58:26
 tags:
  - pipewire
 categories:
-  - 不务正业系列
+ - 不务正业系列
 abbrlink: 'pipewire'
 ---
 听说fedora都上Pipiwire了，正好这几天有点空，那就试试吧
