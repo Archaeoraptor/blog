@@ -8,6 +8,7 @@ tags:
 categories:
  - 不务正业系列
 abbrlink: 'create-aur-packages'
+hide: true
 ---
 为什么arch包多呢，~~因为打包方便~~，因为肥猫
 <!-- more -->
