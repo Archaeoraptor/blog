@@ -109,15 +109,15 @@ deploy:
   branch: master
   message: 
 
-nofollow:
-  enable: true
-  field: site
-  exclude:
-    - 'https://uestc.icu'
-    - 'https://zhangshuqiao.org'
-    - 'http://mirrors.uestc.cn'
-    - 'https://233hsysweb.ml'
-    - 'https://blog.samchu.cn'
+# nofollow:
+#   enable: true
+#   field: site
+#   exclude:
+#     - 'https://uestc.icu'
+#     - 'https://zhangshuqiao.org'
+#     - 'http://mirrors.uestc.cn'
+#     - 'https://233hsysweb.ml'
+#     - 'https://blog.samchu.cn'
 
 
 # # Demo: https://utteranc.es/  http://trumandu.github.io/about/

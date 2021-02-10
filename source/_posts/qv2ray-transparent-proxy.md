@@ -114,7 +114,15 @@ tags:
 
   由于iptables是在域名解析成ip之后，才对相应的流量进行重定向。因此，在透明代理环境中，访问一个域名s可能会需要解析至少2次dns（系统解析一次，重定向到v2ray之后v2ray分流模块再解析一次）。因此，响应理论上是会变慢一点的，变慢的幅度取决于系统dns及v2ray的dns的响应速度。
 
-## 以下是我自己写的更新和我的一些问题
+## 以下是我自己写的更新和群友遇到的一些问题
+
+### 排查问题
+
+```bash
+systemd-cgls /noproxy.slice # 检查一下被排除代理的应用
+cgproxy curl -sSLv https://www.google.com/ # 开着代理连一下谷歌试试，检查一下你的透明代理是不是好的
+cgnoproxy firefox # 临时关掉透明代理运行某个应用（比如Firefox），检查一下是不是透明代理造成的问题
+```
 
 ### Docker和透明代理冲突的问题
 
@@ -191,7 +199,7 @@ ERRO[0000] cannot find UID/GID for user zjk: open /etc/subuid: no such file or d
 
 ### pacman更新报错
 
-本来都是好的，突然有一天出问题了。浏览器等访问都没有问题，怀疑是透明代理的问题。Qv2ray输出看不到异常。
+本来都是好的，突然有一次更新问题了。浏览器等访问都没有问题，怀疑是透明代理的问题。Qv2ray输出看不到异常。
 
 ```log
 :: Synchronizing package databases...
@@ -223,3 +231,9 @@ error installing repo packages
     "fwmark": 39283
 }
 ```
+
+### 透明代理和其他的代理设置冲突
+
+比如SwitchyOmega、Firefox的代理设置
+
+开了透明代理，理论上不需要对应用单独指定代理了，直接把SwitchyOmega关掉或者规则选 Direct，Firefox的代理设置也填不使用代理

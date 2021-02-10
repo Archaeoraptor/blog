@@ -1,6 +1,6 @@
 ---
 layout: posts
-title:  systemd-homed简介和homectl设置用户、用户组
+title:  systemd-homed简介(homectl设置用户、用户组)
 abbrlink: 'systemd-homed'
 date: 2020-11-08 13:52:42
 tags:
@@ -10,7 +10,7 @@ categories:
   - 不务正业系列
 ---
 
-在2020.3 发布的systemd 245增加了systemd-homed，改变了`/home`目录的加密和工作方式，采用homectl这个cli工具设置用户组。快来当小白鼠吧。
+在2020.3 发布的systemd 245增加了systemd-homed，改变了`/home`目录的加密和工作方式。用homectl设置用户组，直接加密整个`/home`目录更方便了，快来当小白鼠吧。
 <!-- more -->
 
 ## 太长不看版
@@ -18,6 +18,8 @@ categories:
 ### 使用homectl新建用户、用户组
 
 首先你的systemd要在245以后，版本较低或使用SysV或者OpenRC、Upstart的玩家请跳过。
+
+更新：systemd-247以后的版本默认采用Btrfs，还加了一个可选的恢复密码（recovery key），你的密钥丢了可以用这个重置
 
 homectl是systemd-homed.service的一个cli工具，用来配置用户组、用户，包括新建、删除、修改权限和密码等。考虑到systemd近乎一统江湖的的市场占有率，可能你们将不得不面对这种方式。
 
@@ -115,7 +117,7 @@ homectl activate zhixi
 
 退出当前用户并切换用户就可以了(你可能需要更改PAM设置才能正常使用su切换用户)
 
-### 从原来的用户组管理方式迁往systemd-home
+### 从原来的用户组管理方式迁往systemd-homed
 
 > 这里直接复读一下systemd官网的警告，需要手动操作、有风险、做好备份、出了事自行承担
 
@@ -163,9 +165,9 @@ homectl create zhixi --uid=1000 --real-name=zjk
 
 ### 注意
 
-systemd-home是一个用户一个私有用户组。如果你一个用户组设置了多个用户的话，可能要调整一下。
+systemd-homed是一个用户一个私有用户组。如果你一个用户组设置了多个用户的话，可能要调整一下。
 
-## systemd-home简介
+## systemd-homed简介
 
 ~~感觉这下子systemd接管的东西更多了~~
 
@@ -186,7 +188,7 @@ sudo useradd temp1 -m -G temp
 
 （虽然useradd有`-p`选项可以直接指定密码，通常不建议这样做，因为这样子恁的密码会明文留在历史命令里，如果有人不怀好意的执行一下`history`或者`more /home/$USER/.bash_history`或者`ctrl+r`搜索useradd，他将轻易获取你的密码），你用了sudo也可能会被找到，比如[这个](https://superuser.com/questions/309434/how-to-view-command-history-of-another-user-in-linux)
 
-https://www.freebuf.com/news/135845.html history -c 也不太保险
+<https://www.freebuf.com/news/135845.html> history -c 也不太保险
 
 你的用户名、密码、用户组、权限配置基本都放在`/etc`目录下面，比如`/etc/passwd`里面存你的密码，`etc/group`里面放用户组的设置。`/etc/sudoers`是超级用户的设置。每个用户的配置散落在各个地方，一些个人设置还被放在了`/home/user`底下。
 
@@ -196,9 +198,9 @@ https://www.freebuf.com/news/135845.html history -c 也不太保险
 
 主要的变化就是你的个人用户都扔到`/home/yourusername`下面了。（据说）这样更方便加密和迁移。默认采用LUKS，在用户登陆的时候解密并挂载`/home/user`，在用户退出登陆的时候加密并取消挂载。休眠挂起（Suspend）的时候也会加密锁住。
 
-比如你有一个u盘，里面装了你的用户目录，到别的电脑上插上去就能用了，不需要那边给你新建一个用户（现在基本不太行，对面电脑起码得也是systemd 245 版本以上还得启用`systemd-home`，我乐观估计等这玩意普及至少得两年吧，那些用老CentOS的万年钉子户更别想了）
+比如你有一个u盘，里面装了你的用户目录，到别的电脑上插上去就能用了，不需要那边给你新建一个用户（现在基本不太行，对面电脑起码得也是systemd 245 版本以上还得启用`systemd-homed`，我乐观估计等这玩意普及至少得两年吧，那些用老CentOS的万年钉子户更别想了）
 
-这样也方便全盘加密（我不是那种对物理安全都看的很在乎的申必人士，据说全盘加密会有点性能问题，而且休眠睡眠也比较容易起不来，所以我没试过）（不过恁不用这个systemd-home其实也能全盘加密）
+这样也方便全盘加密（我不是那种对物理安全都看的很在乎的申必人士，据说全盘加密会有点性能问题，而且休眠睡眠也比较容易起不来，所以我没试过）（不过恁不用这个systemd-homed其实也能全盘加密）
 
 现在使用`systemd-homed.service`和`systemd-userdbd.service`两个daemon管理用户，登陆的时候是`systemd-logind` 在管。大概是这么个流程：
 
@@ -374,7 +376,7 @@ Operation on home username failed: Failed to execute operation: File exists
 <https://systemd.io/HOME_DIRECTORY/> 官方文档
 
 <https://www.man7.org/linux/man-pages/man1/homectl.1.html>
-https://www.freedesktop.org/software/systemd/man/homectl.html
+<https://www.freedesktop.org/software/systemd/man/homectl.html>
 
 [systemd 245 released](https://lwn.net/Articles/814068/) systemd第245次更新详情
 

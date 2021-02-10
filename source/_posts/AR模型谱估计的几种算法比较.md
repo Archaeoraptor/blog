@@ -1,15 +1,16 @@
 ---
-title: AR模型谱估计的几种算法比较
+title: AR模型谱估计
 tags:
-  - 算法
+  - Signal
   - DSP
 categories:
   - 荒废的老本行
 mathjax: true
+hide: true
 abbrlink: fcd4
 date: 2019-06-15 22:48:58
 ---
-Burg法,L-D法等
+跟卡尔曼滤波挺像的，实际用的比卡尔曼滤波少
 <!-- more -->
 
 ### AR（自回归）模型

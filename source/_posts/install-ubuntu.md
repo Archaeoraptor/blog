@@ -1,19 +1,80 @@
 ---
-title: 给服务器重装Ubuntu
+title: 重装Ubuntu
 tags:
   - ubuntu
-  - 装机
+  - 重装
 categories:
   - 102网吧日常
 abbrlink: 2d5
 date: 2019-11-18 17:00:54
 ---
 
-<img width=100 src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/haixing.png" alt="Picture"/>
-祖传服务器传到了我的手里
+祖传服务器传到了我的手里, 行吧。其实我想把标题改成Ubuntu内部错误的解决办法（不是
 <!-- more -->
 
-上回书说到，服务器一不小心卸载了iptables
+## 更新（和洗手）
+
+19年写的这个20年不知道怎么在2020年有一段时间被扔到了`重装Ubuntu`搜索结果的最前面，我这个小破站访问量暴增。然而那个时候20.04LTS都出了，已经有点过时了，而我19年那会写的那个几乎属于个人吐槽，差不多是我博客迁到，完全不适合作为一个教程。可能骗了很多人进来，
+
+装什么Ubuntu啊，还是Arch香，群里个个都是人才，说话又好听
+
+![](install-ubuntu/1611832700.webp)
+
+但是祖传的是Ubuntu，但是假期我要回家滚又不敢远程滚, 但是我不想折腾显卡驱动了（Nvidia,fuck you!），但是这是工作站和服务器，上Arch天天滚可不太好。
+
+~~但是随便装个Ubuntu不仅快，他们跑深度学习的时候抄CSDN配置环境也方便~~
+
+~~最重要的，又不是我用。~~
+
+~~GNOME内存泄漏关我什么事~~
+
+~~Ubuntu内部错误关我什么事~~
+
+还是去用Ubuntu吧.jpg
+
+![](install-ubuntu/1611834396.webp)
+
+![](install-ubuntu/1611834449.webp)
+
+## 认真发言
+
+其实你可以试试Debian（Canonical强推snap太烦人了）
+
+### 关于桌面（DE）
+
+带桌面的版本建议避开Ubuntu的GNOME，那个东西。。。
+
+可以试试Linux Mint，或者Fedora（这个的GNOME应该比 Ubuntu 16、18 那几个整天内存泄露的GNOME版本稳多了）
+
+其实我推荐KDE，可以试试Kubuntu（或者KDE Neon？）
+
+机器配置较差请直接Lubuntu，稳如老狗，除了略简陋没有别的缺点。
+
+一众WM用户应该不会搜索这么蠢的关键词搜到我这里来，这里不谈WM了。
+
+### 关于服务器
+
+小作坊没有专职运维和技术支持，其实服务器建议试试Debian或者Ubuntu LTS，Debian stable稳如老狗
+
+~~众所周知，Debian testing 都比 Ubuntu LTS 稳（注意这个安全更新比较慢，个人用户可以testing，开了公网端口的工作站不要用这个）~~
+
+不过Ubuntu和CentOS6、7比起来，还是瞬间和蔼可亲了不少
+
+求求新入坑的别再跟着什么鸟哥私房菜之类的老教程用CentOS了，2020年CentOS8都被扬了，REHL马上就要给小作坊免费了，小作坊真迷信稳定上REHL吧
+
+没事不要用所谓稳定的老版本然后找不到包只能自己手动编译，就不说c/c++那一堆lib了，我已经见过不少人在编译python的时候没开ssl当场翻车。
+
+什么你说容器？你试过在CentOS6上面弄Docker和k8s吗，我在教研室的祖传阿里云上试过一次，从此再也不想看到CentOS了
+
+（整天在CentOS上手动编译凸显运维重要性和工作量的除外）
+
+### 太长不看
+
+我是说，除了Ubuntu（以及其默认捆绑的GNOME、gtk、rime输入法,强推的snap，祖传的内部错误）,还有很多选择
+
+或者你用WSL之类的东西也行呢（WSL2显卡驱动也差不多能用了，虽然io效率还有些问题）。
+
+<!-- 上回书说到，服务器一不小心卸载了iptables
 现在准备重装。还是打算装Ubuntu Server（并不打算装Manjaro，也不适合搞桌面版，今天试过一下Ubuntu Desktop，图形化界面由于服务器没有独显直接卡到爆炸）
 ~~初步打算安装Ubuntu server 16.04.6LTS, 使用LVM分区~~
 安装Ubuntu18.04LTS，之前VPS用过一阵18，也没注意有什么新特性，据说还是改了一些东西⬇
@@ -64,7 +125,7 @@ eno1网卡选择automatic自动获取ipv4和ipv6
 <img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/ssh-github.png" alt="Picture" style="zoom:80%;" />
 ） -->
 
-然后是漫长的installing kernal
+<!-- 然后是漫长的installing kernal
 （不知道为什么装server比desktop版慢那么多）
 
 bbr已经自带了，不用装了
@@ -116,16 +177,9 @@ network:
 ```
 
 (网关地址用`route -n`查看，配置参考[ubuntu 18.04 netplan yaml配置固定IP地址](http://blog.sina.com.cn/s/blog_5373bcf40102xk5g.html))
-
-然后
-
-```bash
-sudo netplan apply
-```
-
-不对啊，又炸了，ipv4的网关到底是啥啊
-
-看了一下官网[^5]，好像nameserver和gateway4都是可选项，可以空着默认
+d-homed\//g → /systemd-homed/
+INFO  Path converted: /(?<=[(<s])(.\/)?systemd-homed\//g → /systemd-homed/
+INFO  Path converted: /(?<=[(<s])(.\/)?systemd-home着默认
 直接改成这样试试
 
 ```yml
@@ -180,17 +234,12 @@ netmask = 255.255.255.0
 改成了这种格式
 >addresses : [192.168.225.50/24]
 
-滚去补习计网知识了
+滚去补习计网知识了 --> -->
 
 ## 安装参考
 
-[^1]:[tutorial-install-ubuntu-server](ttps://tutorials.ubuntu.com/tutorial/tutorial-install-ubuntu-server)
-
-[^2]:[Ubuntu16.04.5以lvm方式安装全记录](https://blog.51cto.com/3241766/2323927)
- [LVM arch-wiki](https://wiki.archlinux.org/index.php/LVM_(简体中文))
-[^3]:[Ubuntu 安装 Docker CE](https://yeasy.gitbooks.io/docker_practice/install/ubuntu.html)、[镜像加速器](https://yeasy.gitbooks.io/docker_practice/install/mirror.html)
-[^4]:[How to Configure Network Static IP Address in Ubuntu 18.04](https://www.tecmint.com/configure-network-static-ip-address-in-ubuntu/)
-[^5]:[netplan官网的配置示例](https://netplan.io/examples)
-
-223.5.5.5
-223.6.6.6
+[tutorial-install-ubuntu-server](ttps://tutorials.ubuntu.com/tutorial/tutorial-install-ubuntu-server)  
+ [LVM arch-wiki](https://wiki.archlinux.org/index.php/LVM_(简体中文))  
+[Ubuntu 安装 Docker CE](https://yeasy.gitbooks.io/docker_practice/install/ubuntu.html)、[镜像加速器](https://yeasy.gitbooks.io/docker_practice/install/mirror.html)  
+[How to Configure Network Static IP Address in Ubuntu 18.04](https://www.tecmint.com/configure-network-static-ip-address-in-ubuntu/)  
+[netplan官网的配置示例](https://netplan.io/examples)
