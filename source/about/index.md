@@ -7,9 +7,7 @@ comments: true
 
 {% centerquote %}龐眉書客感秋蓬，誰知死草生華風{% endcenterquote %}
 
-- 学生
-
-- 咸鱼，EE逃兵，编程渣
+- 咸鱼
 
 - 喜欢鳑鲏和鮈
 
