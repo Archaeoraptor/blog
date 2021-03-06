@@ -1,5 +1,5 @@
 ---
-title: 使用BERT进行电子病历的命名实体识别
+title: 基于BERT的电子病历的命名实体识别
 tags:
   - bert
   - NER

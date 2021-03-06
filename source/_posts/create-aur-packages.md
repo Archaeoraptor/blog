@@ -63,7 +63,7 @@ namcap XXX.tar.xz
 用`git clone`拉取一个
 
 ```bash
-git clone 
+git clone ssh://aur@aur.archlinux.org/your-package-name.git 
 ```
 
 AUR软件仓库需要[SRCINFO](https://wiki.archlinux.org/index.php/.SRCINFO_(简体中文)),不然会拒绝你的提交

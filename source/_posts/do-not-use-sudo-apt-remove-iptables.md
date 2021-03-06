@@ -27,7 +27,7 @@ sudo apt remove iptables # 不要乱试！
 
 <img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/iptables-docker.png" alt="Picture" style="zoom:80%;" />
 
-我现在心中一万头草泥马飘过
+好家伙
 
 <img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/cnm.png" alt="Picture" style="zoom:80%;" />
 

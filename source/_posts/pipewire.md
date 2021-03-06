@@ -78,6 +78,15 @@ sudo rm /usr/lib64/libjackserver.so.0.999.0
 sudo ldconfig
 ```
 
+用pacman包管理器装的就
+
+```bash
+systemctl disable pipewire-pulse --user
+systemctl disable pipewire --user
+yay -Rs pipewire-pulse
+yay -S pulseaudio
+```
+
 ## 更新一点实测
 
 ### 人耳效果和使用体验
@@ -240,6 +249,51 @@ TriggeredBy: ● pipewire-pulse.socket
 5. 切换外放麦克风和耳机之后再切回来没声了
 
 6. 有几个人之前说virtualbox会冲突，我这暂时没遇到
+
+7. 2021.2更新后再次出问题了,`pw-cli info 0`显示
+
+```bash
+Error: "failed to connect: Host is down"
+```
+
+检查了一下发现systemd daemon不知道怎么没了。
+
+```
+Unit pipewire.service could not be found.
+Unit pipewire-pulse.service could not be found.
+```
+
+执行`systemctl enable pipewire --user`后重启还是找不到
+
+`systemctl status pipewire-pulse --user`
+
+报错：
+
+```log
+● pipewire-pulse.service - PipeWire PulseAudio
+     Loaded: loaded (/usr/lib/systemd/user/pipewire-pulse.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2021-02-14 10:03:07 CST; 12min ago
+TriggeredBy: ● pipewire-pulse.socket
+   Main PID: 1168 (pipewire-pulse)
+     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/pipewire-pulse.service
+             └─1168 /usr/bin/pipewire-pulse
+
+2月 14 10:15:40 zjk-7591 pipewire-pulse[1168]: pulse-server 0x557a2d6b64f0: failed to connect client: Host is down
+2月 14 10:15:40 zjk-7591 pipewire-pulse[1168]: pulse-server 0x557a2d6ceab0: [QPulse] ERROR command:9 (SET_CLIENT_NAME) tag:1 error:6 >
+2月 14 10:15:41 zjk-7591 pipewire-pulse[1168]: pulse-server 0x557a2d6b64f0: failed to connect client: Host is down
+2月 14 10:15:41 zjk-7591 pipewire-pulse[1168]: pulse-server 0x557a2d6e1cb0: [QPulse] ERROR command:9 (SET_CLIENT_NAME) tag:1 error:6 >
+2月 14 10:15:42 zjk-7591 pipewire-pulse[1168]: pulse-server 0x557a2d6b64f0: failed to connect client: Host is down
+```
+
+### 退坑保平安
+
+换回PulseAudio了，不当小白鼠了，心累，好几次升级都有小问题，每次内核更新提心吊胆的。
+
+2021.2 
+
+最近更新了Pipewire和kernel，开机加载界面的时候只加载出壁纸，kwin慢了十秒，Pipewire daemon加载失败，不想修了，直接换回PulseAudio。
+
+在Pipewire出1.0稳定版和正式支持KDE之前一直用PulseAudio了。
 
 <!-- 如果需要屏幕共享，chrome需要启用WebRTC PipWire支持`chrome://flags/#enable-webrtc-pipewire-capturer`，可能需要用`libpipewire02` -->
 

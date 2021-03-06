@@ -5,6 +5,7 @@ date: 2020-11-12 22:08:30
 tags:
   - blackarch
 abbrlink: 'add-blackarch-repo-mirrors'
+hide: true
 ---
 
 我可没干坏事啊

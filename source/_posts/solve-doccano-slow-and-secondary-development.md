@@ -7,9 +7,8 @@ tags:
  - docker
  - Nuxt.js
  - Django
-categories:
- - 
 abbrlink: 'solve-doccano-slow-and-secondary-development'
+hide: true
 ---
 
 这是鸽了很久的一篇
