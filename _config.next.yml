@@ -140,26 +140,26 @@ font:
 
   # Global font settings used for all elements inside <body>.
   global:
-    external: false
+    external: true
     family: "Noto Serif SC"
     size:
 
   # Font settings for site title (.site-title).
   title:
-    external: false
-    family:
+    external: true
+    family: "Noto Serif SC"
     size:
 
   # Font settings for headlines (<h1> to <h6>).
   headings:
-    external: false
-    family:
+    external: true
+    family: "Noto Serif SC"
     size:
 
   # Font settings for posts (.post-body).
   posts:
-    external: false
-    family:
+    external: true
+    family: "Noto Serif SC"
 
   # Font settings for <code> and code blocks.
   codes:
@@ -267,23 +267,7 @@ comments:
     utterances:
      order: -2
 
-# For more information: https://valine.js.org, https://github.com/xCss/Valine
-# valine:
-#   enable: true
-#   appId: 9HDUS9zSiY41T0Vp4naCoqcC-MdYXbMMI
-#   appKey: ufiyQKIMrlBkEYcA4bk1TrYj
-#   placeholder: 留言可能会过一段时间才看到,急事请发邮件 # Comment box placeholder
-#   avatar: mm # Gravatar style
-#   meta: [nick, mail] # Custom comment header
-#   pageSize: 10 # Pagination size
-#   language: # Language, available values: en, zh-cn
-#   visitor: false # Article reading statistic
-#   comment_count: true # If false, comment count will only be displayed in post page, not in home page
-#   recordIP: false # Whether to record the commenter IP
-#   serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
-#   enableQQ: true # Whether to enable the Nickname box to automatically get QQ Nickname and QQ Avatar
-#   requiredFields: [] # Set required fields: ['nick'] | ['nick','mail']
-#   #post_meta_order: 0
+
 
 # DisqusJS
 # Alternative Disqus - Render comment component using Disqus API.

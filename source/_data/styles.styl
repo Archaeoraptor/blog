@@ -5,13 +5,16 @@ $content-desktop-largest = 100%
 body {
     background:url(/uploads/astro1.webp);
     background-repeat: no-repeat;
-    background-attachment:fixed; //不重复
-    background-size:100% 100%;     //
-    background-position:50% 50%;
+    background-attachment:fixed; //不滚动
+    background-size: cover; //填充
+    background-position: top center;
+//    @media (prefers-color-scheme: dark) {
+//    background-image: none;
+//  }
 }
 
 .content-wrap {
-  opacity: 0.95;
+  opacity: 0.85;
 }
 
 .sidebar {
