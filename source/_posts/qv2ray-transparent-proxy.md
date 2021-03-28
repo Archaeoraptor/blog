@@ -114,7 +114,7 @@ tags:
 
   由于iptables是在域名解析成ip之后，才对相应的流量进行重定向。因此，在透明代理环境中，访问一个域名s可能会需要解析至少2次dns（系统解析一次，重定向到v2ray之后v2ray分流模块再解析一次）。因此，响应理论上是会变慢一点的，变慢的幅度取决于系统dns及v2ray的dns的响应速度。
 
-## 以下是我自己写的更新和群友遇到的一些问题
+## 自己写的更新和群友遇到的一些问题
 
 ### 排查问题
 
@@ -237,3 +237,40 @@ error installing repo packages
 比如SwitchyOmega、Firefox的代理设置
 
 开了透明代理，理论上不需要对应用单独指定代理了，直接把SwitchyOmega关掉或者规则选 Direct，Firefox的代理设置也填不使用代理
+
+### 报错 too many open files
+
+报这种错:
+
+
+>2021/03/11 22:32:32 [Warning] github.com/v2fly/v2ray-core/v4/transport/internet/tcp: failed to accepted raw connections > accept tcp 127.0.0.1:8889: accept4: too many open files
+
+
+这个在开启UDP透明代理的时候常见, 可能是文件大小限制,也可能是你配置错误出现循环转发,比如[这个issue](https://github.com/v2ray/v2ray-core/issues/1563)
+
+编辑`/usr/lib/systemd/system/v2ray.service` 或 `/etc/systemd/system/v2ray.service`
+
+加入
+
+```
+[Service]
+LimitNPROC=500
+LimitNOFILE=1000000
+```
+
+然后: 
+
+```
+systemctl daemon-reload && systemctl restart v2ray
+```
+
+参考[v2ray配置指南的透明代理部分](https://toutyrater.github.io/app/tproxy.html#%E5%85%B6%E4%BB%96)
+
+或者修改`/etc/security/limits.conf`在末尾添加
+
+```
+user   soft   nofile    40690
+user   hard   nofile    40690
+```
+
+user改为你的用户名(`echo $USER`查看),或者想为所有用户设置就改为`*`（不推荐）
