@@ -7,6 +7,7 @@ abbrlink: about-medical-industry
 categories:
   - 荒废的老本行
 date: 2021-02-10 22:43:08
+hide: true
 ---
 
 半个局外人的流言谶语，以及乌鸦嘴。未完待续，不定期更新。

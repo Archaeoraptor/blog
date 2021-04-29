@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://archaeoraptor.netlify.app/*"
+  to = "https://zhangjk98.xyz/:splat"
+  status = 301
+  force = true

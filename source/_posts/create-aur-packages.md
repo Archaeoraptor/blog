@@ -117,7 +117,11 @@ debtap -p XXX.deb # -p 选项生成PKGBUILD
 
 ### pip2pkgbuilds
 
-将pip的包转成aur的包，这个工具很久没更新了（But it works）
+将pip的包转成aur的包，这个工具很久没更新了（But it works）。这个工具有不少情况不会帮你自动处理，python的不少pip包本身也不太遵循pip的打包规范，要做不少手动检查和调整。
+
+### npm-pkgbuild
+
+[npm-pkgbuild](https://github.com/arlac77/npm-pkgbuild#readme) 一个将npm包转成aur的包，和上面那个类似，也是自动生成PKGBUILD。没用过不好评价。
 
 ## 自动化
 
