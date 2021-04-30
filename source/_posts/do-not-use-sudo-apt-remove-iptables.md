@@ -9,7 +9,8 @@ categories:
 abbrlink: a7d1
 date: 2019-11-18 13:35:20
 ---
-<img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/emmm.jpg" alt="Picture" style="zoom:80%;" />
+<img src="do-not-use-sudo-apt-remove-iptables/emmm.png" alt="Picture" style="zoom:80%;" />
+
 <!-- more -->
 
 在Ubuntu和Debian里卸载iptables会发生严重的后果（大佬请无视）
@@ -25,15 +26,15 @@ sudo apt remove iptables # 不要乱试！
 
 随手一搜发现不止我一个人中招啊
 
-<img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/iptables-docker.png" alt="Picture" style="zoom:80%;" />
+<img src="do-not-use-sudo-apt-remove-iptables/iptables-docker.png" alt="Picture" style="zoom:80%;" />
 
 好家伙
 
-<img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/cnm.png" alt="Picture" style="zoom:80%;" />
+<img src="do-not-use-sudo-apt-remove-iptables/cnm.png" alt="Picture" style="zoom:80%;" />
 
 行吧，一堆依赖比python2还多
 
-不说了，准备重装系统了<img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/mmm.jpg" alt="Picture" style="zoom:80%;" />
+不说了，准备重装系统了<img src="do-not-use-sudo-apt-remove-iptables/mmm.jpg" alt="Picture" style="zoom:80%;" />
 
 ---
 
@@ -50,4 +51,4 @@ apt install network-manager
 既然把网卡配置删了那就再配置一遍
 等会，装了NetworkManager选了默认配置之后连22端口也连不上了。。。
 行吧，准备重装
-<img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/wa.jpg" alt="Picture" style="zoom:80%;" />
+<img src="do-not-use-sudo-apt-remove-iptables/wa.jpg" alt="Picture" style="zoom:80%;" />
