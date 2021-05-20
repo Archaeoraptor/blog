@@ -1,5 +1,5 @@
 ---
-title: 用疾病记录预测患者死亡风险
+title: 基于机器学习的ICU急性心肌梗死死亡率预测（MIMIC数据库）
 tags:
   - MIMIC
 abbrlink: morality-prediction
@@ -8,8 +8,8 @@ categories:
  - 102网吧日常
 ---
 
-以急性心肌梗死和MIMIC数据库为例
-
+更新：推荐使用新版的MIMIC数据库自行构建数据集，并尝试整合eICU的病人数据。据说LSTM等方法效果不错，可以试试。
+处理过程已经放在github上了：https://github.com/Archaeoraptor/AMI_morality_prediction.git
 <!-- more -->
 
 急性心肌梗死的发病率和死亡率都很高，MIMIC里面大概有5000次记录，用来构造数据集效果会比较好，这次就用MIMIC数据库里面的急性心肌梗死进行死亡风险的预测。

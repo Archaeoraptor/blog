@@ -274,3 +274,22 @@ user   hard   nofile    40690
 ```
 
 user改为你的用户名(`echo $USER`查看),或者想为所有用户设置就改为`*`（不推荐）
+
+## 番外
+
+### 其他平台和其他方案
+
+目前Linux透明代理的绝大多数方案都是基于iptables（nftables）的  
+[v2raya](https://github.com/v2rayA/v2rayA)有自带的透明代理，看起来设置比这个还要简单一些。 
+如果是软路由的透明代理，那Openwrt有很多成熟的方案。如果是非桌面版，请考虑软路由的ssr plus、clash或者v2raya等透明代理方案（或者自己写iptables规则）
+
+Win用户推荐使用Proxifier达到类似的效果
+
+### Qv2ray的gcc和rprx的纷争
+
+gcc几个月前宣布隐退，当时很多人（包括我）都在期待gcc回来。不过在前一阵gcc和rprx等人的争吵中，gcc被鸭鸭移除了权限并踢了出去。  
+为什么我要说这个事情呢？cgproxy已经在一年多以前停止维护了。现在Qv2ray的开发在gcc走后也大幅放缓了，而透明代理功能Qv2ray维护者表示这是祖传代码不会继续更新，所以————————（当然现在的版本已经够用了，继续用下去没有问题）
+
+ps：这件事上我是倾向于支持gcc的。之前我对鸭鸭和gcc印象比较好，很不怎么喜欢 rprx x 。
+这件事我不支持鸭鸭的做法，gcc作为qv2ray的创始人和主要贡献者，虽然隐退了，应该有对这个项目处置的权利（虽然qv2ray是一个社区项目，然而90%的贡献都是gcc的）。我心目中比较好的处理方式是Qv2ray分家，fork并改名出一个Qxray来作为支持xray的版本（就像Project V、v2fly和Project X那样）。  
+Qv2ray是Linux下这方面为数不多很棒的GUI图形化桌面软件（其他的有Trojan-Qt5,大都先于Qv2ray凉了），唉，Linux桌面的图形化软件前路迢迢  
