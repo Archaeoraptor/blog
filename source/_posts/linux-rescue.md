@@ -379,6 +379,12 @@ ArchLinux相关：
 [ArchWiki Debug - Getting Traces](https://wiki.archlinux.org/index.php/Debug_-_Getting_Traces)  
 [ArchWiki Bug reporting guidelines](https://wiki.archlinux.org/index.php/Bug_reporting_guidelines)  
 
+安全相关：
+
+https://madaidans-insecurities.github.io/guides/linux-hardening.html#choosing-the-right-distro
+https://wiki.archlinux.org/title/Security_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
+https://github.com/imthenachoman/How-To-Secure-A-Linux-Server#disable-root-login
+
 ### 喜欢折腾且有时间可以看看这些
 
 [Linux From Scratch](http://www.linuxfromscratch.org/lfs/view/stable/) 著名的LFS，教你从头编译，照着教程来不难，需要一点耐心和性能足够好的机器用来编译。这有个[中文翻译](https://lctt.github.io/LFS-BOOK/lfs-sysv/LFS-BOOK.html)可以参考。  

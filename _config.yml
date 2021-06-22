@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 止息的碎碎念
-subtitle: 阴，气温20℃至32℃
+title: 止息的小窝
+subtitle: 唯见月寒日暖，来煎人寿
 description: in darkest night
 keywords: Coding, BME
-author: Zhang.jk
+author: Zhi Xi
 language: zh-CN
 timezone: ''
 
@@ -109,8 +109,8 @@ deploy:
   branch: master
   message: 
 
-# nofollow:
-#   enable: true
+nofollow:
+  enable: false
 #   field: site
 #   exclude:
 #     - 'https://uestc.icu'
