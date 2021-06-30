@@ -63,8 +63,8 @@ creative_commons:
 # Schemes
 # scheme: Muse
 #scheme: Mist
-# scheme: Pisces
-scheme: Gemini
+scheme: Pisces
+# scheme: Gemini
 
 # Dark Mode
 darkmode: auto
@@ -231,12 +231,12 @@ motion:
   async: true
   transition:
     # All available transition variants: https://theme-next.js.org/animate/
-    post_block: fadeInDown
-    post_header: fadeInDown
-    post_body: fadeInDown
-    coll_header: fadeInLeft
+    post_block: none
+    post_header: none
+    post_body: none
+    coll_header: none
     # Only for Pisces | Gemini.
-    sidebar: fadeInDown
+    sidebar: none
 
 vendors:
   # Available values: local, jsdelivr, unpkg
