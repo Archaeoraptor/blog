@@ -5,7 +5,7 @@ date: 2019-12-26 12:25:12
 tags:
 - HRV
 - BCG
-katex: true
+mathjax: true
 categories:
   - 102网吧日常
 ---
@@ -16,7 +16,7 @@ categories:
 
 HRV测定的是NN间期(在正常的窦性心律时就是RR间期)的波动，主要与自主神经调控机制有关。标准的HRV根据正常窦性搏动的NN间期得出的（正常对正常间期，normal-to-normal,*NN* intervals，即由窦房结除极所致相邻QRS波群之间的所有间期）的变化来表示心率的变异性。
 
-<img src="heart-rate-varibility/201804091523323502.png" alt="提取心率变异性" style="zoom: 67%;" />
+![提取心率变异性](heart-rate-varibility/201804091523323502.png)
 
 ### 心电（ECG）
 
@@ -64,11 +64,9 @@ PPG法采集到的脉搏波经过去噪和整流等处理后提取PP间期可以
 
 精神情绪的波动也会影响HRV，和迷走神经和交感神经系统的兴奋性有关。
 
-<img src="heart-rate-varibility/image-20191225214555467.png" alt="image-20191225214555467" style="zoom:50%;" />
+![](heart-rate-varibility/image-20191225214555467.png)
 
-此外，非自主神经因素(如神经内分泌功能)也会影响HRV。
-
-心率变异性也和年龄、性别等因素有关。
+此外，非自主神经因素(如神经内分泌功能)也会影响HRV。心率变异性也和年龄、性别等因素有关。
 
 ## 主要指标和数据分析
 
@@ -117,13 +115,13 @@ $a\dot{b}c$
 
 ##### 洛伦兹散点图
 
-<img src="heart-rate-varibility/201804091524569747.png" alt="img" style="zoom:80%;" />
+![](heart-rate-varibility/201804091524569747.png)
 
 把前1个心动周期长度（ms）定为横坐标、后1个心动周期长度（ms）定为纵坐标，即可在直角坐标系中确定一点。这样一个点就由3个QRS波（R波）、2个RR间期决定。第1个RR间期R1R2和第2个RR间期R2R3为第1个点，第2个RR间期R2R3和第3个RR间期R3R4为第2个点，依次类推，从R1 -> Rn作图就可得到 n-2 个点，绘制心率散点图（洛伦兹散点图，Lorenz Plot），判断窦性心率、室上性和室性心率失常。正常窦性心律呈彗星状，心衰、房颤等症状会出现不同的散点图。窦性心律沿45°线分布，呈彗星状
 
-<img src="heart-rate-varibility/image-20191224202624859.png" alt="室性早搏" style="zoom: 67%;" />
+![室性早搏](heart-rate-varibility/image-20191224202624859.png)
 
-<img src="heart-rate-varibility/image-20191224202756257.png" alt="房性早搏" style="zoom: 67%;" />
+![房性早搏](heart-rate-varibility/image-20191224202756257.png)
 
 散点图可用于：
 

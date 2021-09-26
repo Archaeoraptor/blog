@@ -133,7 +133,7 @@ $ hello
 Hello, nerd!
 ```
 
-<img src="6.S081-lab-util/image-20210702150654556.png" alt="image-20210702150654556" style="zoom:67%;" />
+![image-20210702150654556](6.S081-lab-util/image-20210702150654556.png)
 
 
 ## gdb+qemu调试

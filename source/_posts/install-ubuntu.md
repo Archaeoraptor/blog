@@ -90,7 +90,7 @@ swap 文件来替代 swap 分区
 ### 安装
 
 下载iso，制作启动盘，这里用的Rufus
-<img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/rufus.png" alt="Picture" style="zoom:80%;" />
+![Picture](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/rufus.png)
 
 然后直接装，网卡直接自动识别了，配置也没什么好说的，可以参考这里[^1]或这里[^2],
 
@@ -122,7 +122,7 @@ eno1网卡选择automatic自动获取ipv4和ipv6
 `ssh-keygen -t rsa -C 'your_email@example.com'`
 再到Github的SSH设置里面把公钥填进去（id_rsa.pub里面的内容）
 然后测试一下是否成功
-<img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/ssh-github.png" alt="Picture" style="zoom:80%;" />
+![Picture](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/ssh-github.png)
 ） -->
 
 <!-- 然后是漫长的installing kernal
@@ -222,7 +222,7 @@ Address=211.83.111.224/23
 Ubuntu18安装时配置网卡时想选静态ip选择Manual进去填写subnet, 结果那个subnet选项是`XXX.XXX.XXX.XXX/XX`
 看了教研室其他设备相同频段的子网掩码是`255.255.254.0`，但是填了不行，用网上计算子网掩码的工具算了一下，就是`255.255.254.0`
 
-<img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/netmmask.png" alt="Picture" style="zoom:80%;" />
+![Picture](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/netmmask.png)
 
 暂时选了DHCP直接配置网卡，等进去再指定静态ip[^4]
 

@@ -275,6 +275,8 @@ btrfs用户可以使用btrfs snapshots
 不放心就用iptables/nftables设置一下防火墙，设置一下用户和文件的权限；还不放心可以用clamav等工具扫一扫rookit。
 虽然x11不少安全问题，桌面版sandbox隔离做的不好，可是这都不重要，你要小心的是流氓软件而不是所谓的CVE、0day。
 
+Archlinux用户可以按照这个配置: [Arch Secure Laptop Install](https://gist.github.com/Th3Whit3Wolf/2f24b29183be7f8e9c0b05115aefb693) 对于一个桌面用户已经差不多了
+
 ## 不想重启怎么办
 
 如果你用的是ArchLinux等滚动发行版，有不少更新是要重启后生效的。普通用户还是更新后重启一下比较好（这可能是最省心省力的）。

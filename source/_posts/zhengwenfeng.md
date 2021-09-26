@@ -10,10 +10,8 @@ date: 2019-08-21 21:18:03
 今天在[uestc.icu](https://uestc.icu)和微博上看见好几次，貌似出了个红头文件处理结果，无法确定真假。当时最早那个知乎问题上了知乎热搜第一的时候我也目睹了。在这里随便扯一下吧，夹杂大量个人主观判断。
 <!-- more -->
 
-<img width=200 src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/xzx.jpg" alt="镇楼"/>
-
 起因是一名研究生[在知乎发帖](https://www.zhihu.com/question/329495364/log)，想搞个大新闻，此前貌似就在河畔发帖试图搞个大新闻未遂，被獾狸猿删除后转战知乎。然而事与愿违，确实火了，但是是被喷上热搜的，而且登顶热搜第一。这里不得不再一次说你电公关确实了得，大半夜的热搜瞬间被撤，掉下来后又上了热搜，又瞬间从第二名掉到十几名;而且问题下面的回答还在以肉眼可见的速度不断减少，从接近两千变成一千五百多，又变成一千三百多，即便算上被折叠的评论，也是有问题的。而且该问题还被隐藏了，直接知乎站内搜索你是搜不到的（现在直接搜依然搜不到）
-![最初的问题](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/pic1.PNG)
+![最初的问题](zhengwenfeng/pic1.PNG)
 
 ### 想搞个大新闻的学生
 
@@ -21,13 +19,13 @@ date: 2019-08-21 21:18:03
 此外还有该生之前完全旷课理亏在先等，此处不表。
 
 电卫兵，电卫兵.jpg
-<img width=300 src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/student1.jpg" alt="电卫兵言论大赏"/>
+![电卫兵言论大赏](zhengwenfeng/student1.jpg)
 擦屁股言论可真是太搞笑了
 <https://www.zhihu.com/question/299389480/answer/516442387>
-![北风三号机](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/beifeng.PNG)
+![北风三号机](zhengwenfeng/beifeng.PNG)
 
 而一些难以证实的传言和截图表明此事行为更加恶劣
-<img width=300 src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/%E5%8A%88%E6%88%90.jpg" alt="小道消息"/>
+![小道消息](zhengwenfeng/%E5%8A%88%E6%88%90.jpg)
 
 ### 郑文锋老师
 
@@ -41,12 +39,12 @@ date: 2019-08-21 21:18:03
 
 再次表示本人与郑老师没有交集，但是看这几个月知乎微博河畔上我电学生的评价，绝大部分说好，一些人说不好。我觉得这个郑老师应该属于这种很“事多”的老师，不然这种课水水就过去了，大家都轻松愉快，何必呢。（不认识郑老师，随便猜测）。当然还有种可能就是老师拿着鸡毛当令箭，私货很多，类似侯伦广，像这个回答说的那样：
 [如何看待称「四大发明在世界上都不领先」高校老师因“师德失范”遭停课两年？ - 挤按睛明穴的回答 - 知乎](https://www.zhihu.com/question/342049298/answer/799577501)
-![知乎回答](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/20190827101306.png)
+![知乎回答](zhengwenfeng/20190827101306.png)
 [如何看待称「四大发明在世界上都不领先」高校老师因「师德失范」遭停课两年？ - 朝经暮史的回答 - 知乎](https://www.zhihu.com/question/342049298/answer/798456060)里面一些早期负面评价截图
 一个河畔回答，我看到好多人都说这门课全程录像，那不妨请学校把录像放出来我们看看
-![一个河畔回答](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/20190827100038.png)
+![一个河畔回答](zhengwenfeng/20190827100038.png)
 
-[河畔小道消息](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/%E5%8A%88%E6%9F%B4.jpg)
+[河畔小道消息](zhengwenfeng/%E5%8A%88%E6%9F%B4.jpg)
 
 ### 该课程（问题驱动的创新创业）
 
@@ -68,15 +66,15 @@ date: 2019-08-21 21:18:03
 
 但是很多人人说那个师德建设委员会不存在，妹听说过，学校官网上查不到这么个机构；我只想说，善用搜索引擎啊同志们，这个是真实存在的，我就随手这么一谷歌，就找到了你电官网上的相关新闻，而且还看到了那个盖章的党委教师工作部，这么看红头文件可不太像是假的啊。
 就是下面这个网址，谷歌搜索结果的第二名，赫然在列
-![谷歌结果](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/partment3.PNG)
+![谷歌结果](zhengwenfeng/partment3.PNG)
 <https://news.uestc.edu.cn/?n=UestcNews.Front.Document.ArticlePage&Id=67118>
-![电子科技大学师德建设委员会](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/partment2.PNG)
+![电子科技大学师德建设委员会](zhengwenfeng/partment2.PNG)
 点进去第一条：
 >一、加强组织保障，完善工作机制
 出台《电子科技大学师德师风建设实施办法》，构建学校党委统一领导、二级单位组织实施、教师主动参与的师德建设工作体系。组织成立学校师德建设工作委员会，负责师德建设工作总体规划；成立党委教师工作部，具体负责制度建设、组织落实、督导检查等工作。制定二级单位师德建设工作任务清单，明确二级单位党委师德建设职能职责，将师德师风建设纳入二级单位年度目标考核。强化教师自我教育，坚持将师德建设作为加强教师自身建设的重要内容，规定教师每年必须参加不少于2个学时的师德教育，并将学习情况纳入教师年度考核。
 
 而我们打开另一条新闻[学校举行第四期思政及师德师风培训班结业典礼暨师德师风建设专题会议](https://news.uestc.edu.cn/?n=UestcNews.Front.Document.ArticlePage&Id=72382)，还可以看到
-![师德建设委员会](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/partment4.PNG)
+![师德建设委员会](zhengwenfeng/partment4.PNG)
 >师德师风巡视员张开华、汤炎灿、徐全智、赵璧全、马立香、姜书艳，师德建设委员会成员单位负责人、312名培训学员，全体“青字号”人才，学院党委书记、学院分管教学、研究生、学生工作的副院长、副书记，全体教职工党支部书记、组织员，辅导员，学院教务科、研究生科工作人员等参加会议。教师发展中心主任罗小蓉主持会议。
 >
 师德建设委员会成员赫然在列
@@ -91,7 +89,7 @@ date: 2019-08-21 21:18:03
 
 什么？为什么官网没有这个机构？对不起，我电行政的办事速度、我电网站的维护更新速度和土豆服务器我不想和你解释，我也不知道怎么解释,两天前就发生过下图这种事:
 
-<img width=350 src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/%E9%97%A8%E6%88%B7.jpg"/>
+<img width=350 src="zhengwenfeng/%E9%97%A8%E6%88%B7.jpg"/>
 
 ### 如何看待知乎治校
 
@@ -105,7 +103,7 @@ date: 2019-08-21 21:18:03
 这次微博上以奥老师为首的正能量学阀以及狗公知们张口闭口哭的那个惨啊，把老师描绘成了楚楚可怜的弱势群体，向我们展示了学阀的无耻嘴脸。国内硕导博导掌握生杀大权，欺压学生时没见某些狗跳出来这么激动。武汉爸爸大学那会微博上某些教授的嘴脸可不是这样啊，不仅不出来伸张正义，卖惨装死可在行了。到底还是屁股决定立场啊。
 还有一些狗公知，监督政府时一口一个把权力关在笼子里，轮到自己了，满嘴自由；你们双标和上来就喷不是一天两天了，行为坦荡程度都不如境外轮子，和花公公周带鱼可真是势均力敌的对手。
 
-![如此厚颜无耻之徒](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/20190827111902.png)
+![如此厚颜无耻之徒](zhengwenfeng/20190827111902.png)
 颇有在Metoo那会鄢烈山刘瑜等一众老贼的嘴脸：Metoo运动too到公知圈，大喊Metoo是文革大字报民粹
 [“何不食肉糜”的劉瑜——自由派公知的衰落](https://medium.com/@moreless/装外宾的刘瑜-b9612e4c007c)，[端传媒地址](https://theinitium.com/article/20180806-notes-metoo-liuyu/)
 这里节选一段：
@@ -118,7 +116,7 @@ date: 2019-08-21 21:18:03
 [胡涵Marvin：告别公知时代](https://chinadigitaltimes.net/chinese/2018/07/胡涵marvin：告别公知时代/)
 
 什么时候能这样义，什么时候才有资格谈不要知乎治校，不要举报，不要贴大字报
-![我也很好奇](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/20190827112537.png)
+![我也很好奇](zhengwenfeng/20190827112537.png)
 
 [如何评价电子科技大学对于郑文锋老师做出的处理决定？ - 琅邪杨文理的回答 - 知乎](https://www.zhihu.com/question/341876584/answer/803466413)
 
@@ -133,16 +131,16 @@ date: 2019-08-21 21:18:03
 #### 谁之过
 
 一群人就乱喷吧，也不看看某委员会委员长是谁，也不看看章上那镰刀锤子，能把锅扣在校长头上，校长确实咳咳咳，他一个致公党员可管不了党委和师德委员会的事，但也不能啥锅都往校长头上扣， 是吧，网络喷子们？
-![这回不是云法官，这回是真律师](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/pica.jpg)
-![不评价](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/pica2.jpg)
+![这回不是云法官，这回是真律师](zhengwenfeng/pica.jpg)
+![不评价](zhengwenfeng/pica2.jpg)
 无中生蛆，反正这次我看到的护校蛆连微博协会拉皮条事件中的十分之一都不到（那又是什么事件？无可奉告，微博自己搜吧，古战场遗迹应该还在）。恁比女拳还会隔空打拳。
-![恁比女拳还会隔空打拳](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/pica3.jpg)
+![恁比女拳还会隔空打拳](zhengwenfeng/pica3.jpg)
 说起处分学生，甚至一堆大吼开除学生的，这时候就不言论自由、学术自由啦，这回就不处罚过重啦？还有一堆法律博主，恁依据哪条法律，哪条规定啊？这个时候不提什么合不合法辣，上图中律师连是不是那个女研究生干的都不还不确定呢，看到几张图捕风捉影，就开始骂辣，恁名字里还宪法呢。
 
 ### 补充和后续
 
 郑老师的官网个人主页打不开了
-![8.22日官网个人主页](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/page1.PNG)
+![8.22日官网个人主页](zhengwenfeng/page1.PNG)
 
 >微博id@Kakyouin
 6月15日，郑文锋问题被发到知乎。
@@ -153,17 +151,17 @@ date: 2019-08-21 21:18:03
 这样的话貌似涉及秋后算账，程序有问题
 
 看来处罚应该七月那会就已经落实了
-![河畔小道消息](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/pic6.jpg)
+![河畔小道消息](zhengwenfeng/pic6.jpg)
 
 在8.22晚8至9点，万转千转的几篇微博评论区先后遭到和谐
-![未经证实的消息](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/byxf.jpg)
-![疑似控评](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/pic8.jpg)
-![补充](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/tognhzhiwei.jpg)
+![未经证实的消息](zhengwenfeng/byxf.jpg)
+![疑似控评](zhengwenfeng/pic8.jpg)
+![补充](zhengwenfeng/tognhzhiwei.jpg)
 
 之前凤凰搜狐等几家媒体的评论区早早关闭
 一天之前博主琉璃厂人质问是否是教育部指使的微博被删除
-![琉璃厂人](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/%E7%90%89%E7%92%83.jpg)
-![琉璃厂人](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/%E7%90%89%E7%92%832.jpg)
+![琉璃厂人](zhengwenfeng/%E7%90%89%E7%92%83.jpg)
+![琉璃厂人](zhengwenfeng/%E7%90%89%E7%92%832.jpg)
 
 聊天记录中提到的书《中国的发明创造-古往今来话中国》：[如何看待电子科技大学副教授郑文锋关于四大发明的争议言论？ - skywear的回答 - 知乎](https://www.zhihu.com/question/329495364/answer/799207500)
 
@@ -176,33 +174,33 @@ date: 2019-08-21 21:18:03
 更新，发现许多地方有一些三无小号跑出来疑似洗地，包括但不限于知乎微博河畔，请你们上大号
 怂到用三无小号，不如自挂贫血楼
 <https://www.zhihu.com/question/341876584/answer/797359224>
-![知乎上的](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/washfloor2.PNG)
-![河畔上的](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/washfloor.PNG)
+![知乎上的](zhengwenfeng/washfloor2.PNG)
+![河畔上的](zhengwenfeng/washfloor.PNG)
 
 更新，河畔同学发帖称征集当事人接受采访
-![法制日报](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/fazhiribao.png)
+![法制日报](zhengwenfeng/fazhiribao.png)
 
 更新，博主黄少卿在微博扬言抵制某电，转发过五千，被删除。暂时不知道自己隐藏的还是渣浪干的，他的六月之后的微博内容一下子全没了。河畔有人称该博主控评并删除其评论。
-![](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/hsq.jpg)
-![](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/hsq2-390x357.jpg)
+![](zhengwenfeng/hsq.jpg)
+![](zhengwenfeng/hsq2-390x357.jpg)
 某电表白墙开始怼黄某人，目前黄某人再次发了一条微博。
-![](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/hjs.jpg)
+![](zhengwenfeng/hjs.jpg)
 恁这发个声明还要想几天，恁是树獭吗？开口就拒绝一切有关合作，郑老师也是电子科大的，他还有些商业创新项目，找你合作你要不要抵制？
 被怼了又重申“我尊重电子科大的每一位老师和每一位同学”，那几个你口中的红卫兵你尊不尊重？还重申，说的你好像之前尊重过一样。
-![我佛辣](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/dddsx.jpg)
+![我佛辣](zhengwenfeng/dddsx.jpg)
 跟个铁憨憨一样，真是，看看武汉爸爸大学那会当时一群人怎么抵制的：宣布从18年开始，如果武汉理工不道歉、不悔改、王攀不处理，高考报考武汉理工入学的学生不再录用。没有搞得已经在武理的学生为难，试图通过打击武理分数线来在不伤及无辜的情况下给校方施压。
 武理当时冒着查水表危险广场写字的学生、放白花的学生，大家要是照宁这种抵制法抵制武理，怕是都要遭重，学生何辜？
 当初那个知乎问题可是被骂上热搜的，当时我目测成电学生及校友骂题主的超过95成，就是现在，河畔等地骂那几个研究生支持老师的怕是也超过9成。至于成电老师，你觉得会有老师喜欢举报？你上来就抵制，恁这做法比抵制日货还牛逼，简直战狼在世，就这恁还在微博当公知骂五毛喷抵制日货的愤青呢。反正恁逼逼两句自己也没损失，微博一片叫好，几千转发，一天涨粉几千，死道友不死贫道。
-![我佛辣](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/dddsx.jpg)
+![我佛辣](zhengwenfeng/dddsx.jpg)
 
 更新，河畔有人发帖悬赏，目前赏金已经上千
-![悬赏帖子](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/capture.PNG)
+![悬赏帖子](zhengwenfeng/capture.PNG)
 更新, 河畔上泥巴同学的消息
-<img width=400 src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/20190906132928.png" alt="picture"/>
-<img width=400 src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/20190906132859.png" alt="picture"/>
+![picture](zhengwenfeng/20190906132928.png)
+![picture](zhengwenfeng/20190906132859.png)
 
 更新，我大概知道是什么事了
-![隐情](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/pic10.jpg)
+![隐情](zhengwenfeng/pic10.jpg)
 那一年，20岁，事个学生
 ![小道消息](https://i.imgur.com/oA0Zc27.jpg?1)
 那这样的话就更新到这里了，最后祝你，身体健康，再见。
@@ -216,7 +214,6 @@ date: 2019-08-21 21:18:03
 #### 文革红小兵要来了？
 
 兔区八组晋江粉红部分狗粉丝，早就来了，当然还有看上去特别正义的Metoo，是[举报污蔑重要推手](https://www.zhihu.com/question/291521391/answer/477410124)，不过，我觉得你们该担心的根本不是红小兵
-<img width=400 src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/kaiser.jpg" alt="影帝离任讲话0.5倍速限定"/>
 
 #### 你怎么看
 
@@ -256,7 +253,7 @@ date: 2019-08-21 21:18:03
 
 这个，学校行政部门及领导可能还在放假哎，你看主楼好多办公室都没开门（手动滑稽）
 难道学校不着急吗？这个可能还真不急，毕竟见得多了。
-![tgchannel](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/20190826104258.png)
+![tgchannel](zhengwenfeng/20190826104258.png)
 另外指望师德委员会怎样怎样恐怕希望不大，你看委员长是谁，挡尾苏吉wyf哦（不用查了，约等于泥电一把手）
 
 ### 详情参考

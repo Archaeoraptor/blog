@@ -9,7 +9,7 @@ categories:
 abbrlink: a7d1
 date: 2019-11-18 13:35:20
 ---
-<img src="do-not-use-sudo-apt-remove-iptables/emmm.png" alt="Picture" style="zoom:80%;" />
+![Picture](do-not-use-sudo-apt-remove-iptables/emmm.png)
 
 <!-- more -->
 
@@ -26,15 +26,15 @@ sudo apt remove iptables # 不要乱试！
 
 随手一搜发现不止我一个人中招啊
 
-<img src="do-not-use-sudo-apt-remove-iptables/iptables-docker.png" alt="Picture" style="zoom:80%;" />
+![Picture](do-not-use-sudo-apt-remove-iptables/iptables-docker.png)
 
 好家伙
 
-<img src="do-not-use-sudo-apt-remove-iptables/cnm.png" alt="Picture" style="zoom:80%;" />
+![Picture](do-not-use-sudo-apt-remove-iptables/cnm.png)
 
 行吧，一堆依赖比python2还多
 
-不说了，准备重装系统了<img src="do-not-use-sudo-apt-remove-iptables/mmm.jpg" alt="Picture" style="zoom:80%;" />
+不说了，准备重装系统了![Picture](do-not-use-sudo-apt-remove-iptables/mmm.jpg)
 
 ---
 
@@ -51,4 +51,4 @@ apt install network-manager
 既然把网卡配置删了那就再配置一遍
 等会，装了NetworkManager选了默认配置之后连22端口也连不上了。。。
 行吧，准备重装
-<img src="do-not-use-sudo-apt-remove-iptables/wa.jpg" alt="Picture" style="zoom:80%;" />
+![Picture](do-not-use-sudo-apt-remove-iptables/wa.jpg)

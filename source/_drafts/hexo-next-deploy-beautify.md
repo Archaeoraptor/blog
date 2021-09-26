@@ -270,9 +270,9 @@ INFO  140 files generated in 3.07 s
 
 好像是快了点
 等等，更新了Hexo4.0以后下面的分页突然变成这个样子了，我先报个修
-<img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/20191016094709.png" alt="bug" style="zoom:80%;" />
+![bug](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/20191016094709.png)
 
-<img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/20191016095007.png" alt="bug" style="zoom:80%;" />
+![bug](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/20191016095007.png)
 
 找到了问题了，已经在[issue#3729](https://github.com/hexojs/hexo/issues/3729)里解决了
 现在直接升级到master分支就行了
@@ -288,7 +288,7 @@ git checkout master
 >Already on 'master'
 Your branch is up to date with 'origin/master'.
 
-<img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/foot.png" alt="Picture" style="zoom:80%;" />
+![Picture](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/foot.png)
 好了，开心。目前没看到其他bug了，请放心更（cai）新（keng）
 
 更新，现在最新的master报这样的错：
@@ -311,7 +311,7 @@ Your branch is up to date with 'origin/master'.
 ## Google Search Console 验证和配置
 
 这里以netlify为例，namesilo等域名商也可进行验证
-<img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/20190830141615.png" alt="dns验证" style="zoom:80%;" />
+![dns验证](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/20190830141615.png)
 有自己的域名可以直接选择domian验证，看[这里](https://www.woguide.com/archives/4861.html)
 打开netlify，找到dns setting，点击下方add new record 按钮
 ![添加验证](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/20190830142257.png)

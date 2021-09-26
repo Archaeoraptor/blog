@@ -10,7 +10,7 @@ mathjax: true
 
 ---
 数理基础太差，被关了起来
-<img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/found.png" alt="Picture" style="zoom:40%;" />
+![Picture](https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/found.png)
 
 <!-- more -->
 

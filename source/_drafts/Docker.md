@@ -64,17 +64,17 @@ Docker镜像（image）也是一堆文件，可以自己建或者从远程pull�
 
 ## 常用命令
 
-| Command              | 功能                 |
-| -------------------- | -------------------- |
-| Docker build         | 创建镜像             |
-| Docker create        | 创建镜像（并不启动） |
-| Docker exec          | 在Docker里面执行命令 |
-| Docker images        | 查看镜像             |
-| Docker pull/push     | 下载/上传镜像        |
-| Docker rm/rmi        | 删除容器/镜像        |
-| Docker export/import | 导出导入容器         |
-| Docker import/load   | 导出导入镜像         |
-| Docker start/stop/restart/pause/unpause/kill   | 略 |
+| Command                                      | 功能                 |
+| -------------------------------------------- | -------------------- |
+| Docker build                                 | 创建镜像             |
+| Docker create                                | 创建镜像（并不启动） |
+| Docker exec                                  | 在Docker里面执行命令 |
+| Docker images                                | 查看镜像             |
+| Docker pull/push                             | 下载/上传镜像        |
+| Docker rm/rmi                                | 删除容器/镜像        |
+| Docker export/import                         | 导出导入容器         |
+| Docker import/load                           | 导出导入镜像         |
+| Docker start/stop/restart/pause/unpause/kill | 略                   |
 
 ## 踩坑记录
 
@@ -215,8 +215,6 @@ emmm，被占用了
 看来是http神奇的逃脱了没钱的制裁
 行吧，在这里排查了四五天，期间还重装过好几次Ubuntu Server
 果然还是得充钱啊
-
-<img src="https://raw.githubusercontent.com/Archaeoraptor/image_resources/ImageofBlog/jiaqian.png" alt="Picture" style="zoom:60%;" />
 
 ## 参考
 

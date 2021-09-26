@@ -7,6 +7,7 @@ categories:
  - 不务正业系列
 abbrlink: 'pipewire'
 ---
+2021年9月更新：
 听说fedora都上Pipiwire了，正好这几天有点空，那就试试吧
 <!-- more -->
 
@@ -304,44 +305,4 @@ TriggeredBy: ● pipewire-pulse.socket
 <https://zh.wikipedia.org/wiki/PulseAudio>  
 <https://lwn.net/Articles/734103/>  
 <https://blogs.gnome.org/uraeus/2020/09/04/pipewire-late-summer-update-2020/>  
-[pipewire 0.3的一些局限和问题](https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Limitations-in-0.3)
-
-## 番外：Arch滚动更新pyhton3.9
-
-昨天晚上回去本来想直接装上pipewire试一下的，结果发现我笔记本外接4k显示器只有一个最高2k的显示选项。而且开机的混合驱动变成只有Intel集显了。
-
-检查了一下是更新python3.9后optimus-manager坏了。
-
-到群里看了一下好多都是因为Optimus Manger更新出了问题，貌似这此升级python3.9的桌面用户黑屏进不去的基本都是Nvidia显卡，Optimus-manager出问题直接SDDM进不去了。
-
-本来以为出问题的只有一个autojump
-
-```log
-  File "/usr/bin/autojump", line 39, in <module>
-    from autojump_argparse import ArgumentParser
-ModuleNotFoundError: No module named 'autojump_argparse'
-```
-
-然后检查了一下python 3.8 升级 python 3.9 失败的包
-
-```bash
-cd /usr/lib/python3.8/site-packages
-```
-
-```bash
-/usr/lib/python3.8/site-packages $ ls
-optimus_manager  optimus_manager-1.3-py3.8.egg-info  __pycache__  tcping-0.1.1rc1-py3.8.egg-info  tcping.py
-```
-
-只有Optimus,autojump和tcping，还好。
-
-重新rebuild编译一下然后再重启Optimus Manager就好了，其他几个同理（如果还不行就用python 3.8 rebuild）
-
-```bash
-yay -Rsc optimus-manager-qt
-yay -S optimus-manager-qt # package to clean build 选 ALL
-sudo systemctl enable optimus-manager
-sudo systemctl start optimus-manager
-```
-
-相关issue见 <https://github.com/Askannz/optimus-manager/issues/174>
+[pipewire 0.3的一些局限和问题](https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Limitations-in-0.3)  
