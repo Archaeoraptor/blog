@@ -1,6 +1,7 @@
 ---
 title: 6.S081 Lab Syscall 笔记
 date: 2021-09-15 20:01:25
+abbrlink: '6.s081-lab-syscall'
 tags:
 - 6.S081
 - syscalls
@@ -36,7 +37,7 @@ Lab2就两个，简单熟悉一下系统调用，不难。
 
 ### System call tracing (moderate)
 
-这个不是很难，不过要改的东西很多，按照提示一点一点做就行了。先添加
+这个不是很难，不过要改的东西很多，按照提示一点一点做就行了。
 
 ## 链接
 

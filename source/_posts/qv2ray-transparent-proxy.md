@@ -2,7 +2,7 @@
 layout: posts
 title: 『转载』使用Qv2ray+cgproxy配置透明代理（仅限Linux）
 date: 2020-10-29 19:46:13
-hide: true
+hide: false
 abbrlink: 'qv2ray-transparent-proxy'
 tags:
  - qv2ray
@@ -293,3 +293,45 @@ gcc几个月前宣布隐退，当时很多人（包括我）都在期待gcc回�
 ps：这件事上我是倾向于支持gcc的。之前我对鸭鸭和gcc印象比较好，很不怎么喜欢 rprx x 。
 这件事我不支持鸭鸭的做法，gcc作为qv2ray的创始人和主要贡献者，虽然隐退了，应该有对这个项目处置的权利（虽然qv2ray是一个社区项目，然而90%的贡献都是gcc的）。我心目中比较好的处理方式是Qv2ray分家，fork并改名出一个Qxray来作为支持xray的版本（就像Project V、v2fly和Project X那样）。  
 Qv2ray是Linux下这方面为数不多很棒的GUI图形化桌面软件（其他的有Trojan-Qt5,大都先于Qv2ray凉了），唉，Linux桌面的图形化软件前路迢迢  
+
+### 关于Qv2ray停止维护的事
+
+现在star最多的那个组织[Qv2ray](https://github.com/Qv2ray) 停止维护了，意料之中吧。这件事我不想多评价了，我要评价肯定忍不住对rprx的脏话。下面简单说一下qv2ray的事。
+
+如果你想用老版本的Qv2ray（Qv2ray 3 以前）
+
+目前AUR里面的qv2ray 2.7.0 版本是无法正常使用插件的。如果想使用可以自行降级到2.6然后用插件。
+
+更推荐的方式是换[qv2ray-dev-git](https://aur.archlinux.org/packages/qv2ray-dev-git/) (这个也停止维护了，是[Qv2ray/qv2ray](https://github.com/Qv2ray/Qv2ray)的打包) 这个要新一点（众所周知dev版本比稳定版稳定）
+
+上面两个版本足够正常使用，但是都停止更新了。
+
+```bash
+yay -S qv2ray-dev-git qv2ray-plugin-command-dev-git 
+```
+
+如果你想用gcc还在开发中的新版的Qv2ray 3.0，可以自行编译或下载release（完全移除了xray的支持，gcc原班人马开发维护，是的，你们永远喜欢的gcc又回来了）。这个版本变化比较大，迁移到了Qt6，重写了不少东西，插件也不通用，只是界面看起来一样而已。
+
+下面是Gcc的新版本Qv2ray，**Conflict With xray**
+
+Archlinux可以用[qv2ray-static-bin-nightly](https://aur.archlinux.org/packages/qv2ray-static-bin-nightly/)这个包，想追最新的可以用`qv2ray-git`
+
+```bash
+yay -S qv2ray-static-bin-nightly
+```
+
+### 关于grpc
+
+grpc经常进行不兼容的更新（对，小版本号也会有破坏性改动）
+
+所以经常出现滚动更新grpc后，qv2ray就炸掉不能用了（这个时候建议降级grpc先应急）
+
+或者你依赖grpc的其他包不多的话，可以考虑直接锁grpc的版本。`sudo downgrade grpc`
+
+事实上不仅是qv2ray会随着grpc的更新出问题，其他的包也会，比如sysdig。经常出现grpc版本更新的但是API变了，其他依赖grpc的包没有更改API还是用老版本就出事了。
+
+```log
+error: failed to prepare transaction (could not satisfy dependencies)
+:: installing grpc (1.41.0-1) breaks dependency 'libgrpc++_unsecure.so=1.39-64' required by sysdig
+error installing repo packages
+```

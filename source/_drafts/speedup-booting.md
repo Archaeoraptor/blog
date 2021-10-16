@@ -28,4 +28,4 @@ grub换成systemd-boot
 [把操作系统linux运行在内存上](https://www.bo-song.com/把操作系统linux运行在内存上/)  
 https://en.wikipedia.org/wiki/List_of_Linux_distributions_that_run_from_RAM  
 
-Archlinux可以直接用ramroot
+Archlinux可以直接用ramroot。

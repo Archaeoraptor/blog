@@ -30,7 +30,11 @@ texlive的不少宏包在Arch上都有系统的包，你可以用`yay`等AUR hel
 
 ## Zotero配置
 
-首先是中文论文网站引用和pdf抓取的问题，可以用下面这个github repo：[Zotero translators 中文维护小组](https://github.com/l0o0/translators_CN)
+### 参考文献抓取和管理
+
+首先是中文论文网站引用和pdf抓取的问题，可以用下面这个插件：[Zotero translators 中文维护小组](https://github.com/l0o0/translators_CN)
+
+知网文献可以用这个插件：[jasminum](https://github.com/l0o0/jasminum)
 
 下载并放到translater文件夹中(Linux下默认应该是`~/Zotero/translators`)
 
@@ -48,6 +52,40 @@ VSCode有一个Zotero LaTeX插件，可以用快捷键直接插入文献。安�
 具体使用请参考：[VScode使用说明(Zotero插件) 刘再华](http://xugee.com/images/3/3a/VScode使用说明.pdf)
 
 安装好之后按`Alt+z`就可以方便的插入参考文献了。
+
+然后要插入GB/T 7714格式化的参考文献，可以参考[符合 GB/T 7714-2015 标准的 biblatex 参考文献样式](https://ctan.math.illinois.edu/macros/latex/contrib/biblatex-contrib/biblatex-gb7714-2015/biblatex-gb7714-2015.pdf)
+
+有模板可以直接套模板，模板应该会处理参考文献格式。没有特殊喜好可以用 等支持GB/T格式的模板。
+
+ps：如果单纯为了插入GB/T格式的参考文献可以用一点脏办法: [电子科技大学LaTeX模板参考文献问题解决](https://zhuanlan.zhihu.com/p/141805704) (不得已的办法)
+
+### 自建同步
+
+Zotero的文件同步免费的只有300M，而且很慢。
+
+我们可以自建文件同步，只要支持WebDAV协议就行了。这个好办，Nginx就能做到。
+
+## VSCode配置
+
+### LaTex插件选择
+
+通常推荐装Latex Workshop这个插件。配置可以参考[官方文档](https://github.com/James-Yu/LaTeX-Workshop/wiki), wiki写的很全。功能当然没有TeXStudio全，但是已经满足我的日常需求了（一般只装这一个插件就够了）
+
+另一个插件叫LaTeX。LaTeX Workshop功能比LaTeX插件多一点，如果只想把VSCode当一个普通的文本编辑器不想要额外的snippet等功能的话，装LaTeX这个插件就可以了。
+
+#### 编译配置
+
+编译配置推荐使用`latexmk`的方案，可以省去xelatex-bibtex-xelatex*2的多次编译。  
+
+比如你电的毕业论文模板，完整的编译需要
+
+```bash
+xelatex main.tex
+bibtex main.aux
+bibtex accomplish.aux
+xelatex main.tex
+xelatex main.tex
+```
 
 编译的时候需要先latexmk编译一遍，再bibtex编译一遍，再latexmk编译一遍，见[](https://liam.page/2016/01/23/using-bibtex-to-generate-reference/)
 
@@ -69,7 +107,7 @@ VSCode有一个Zotero LaTeX插件，可以用快捷键直接插入文献。安�
 ]
 ```
 
-**更新：这样需要编译四次，有一个更好的方法是`latexmk`增量编译**
+**这样需要编译四次，有一个更好的方法是`latexmk`增量编译**
 
 我们将`settings.json`**改成这个样子**（方案来自[在 VSCode 的 LaTeXworkshop 插件中使用 LaTeXmk](https://liam.page/2020/04/24/using-LaTeXmk-with-LaTeXworkshop-with-VSCode/)）
 
@@ -101,16 +139,11 @@ VSCode有一个Zotero LaTeX插件，可以用快捷键直接插入文献。安�
 
 这样只需要`latexmk`一个编译命令，`latexmk`的增量编译也比原来快了。
 
-然后要插入GB/T 7714格式化的参考文献，可以参考[符合 GB/T 7714-2015 标准的 biblatex 参考文献样式](https://ctan.math.illinois.edu/macros/latex/contrib/biblatex-contrib/biblatex-gb7714-2015/biblatex-gb7714-2015.pdf)
+### 其他功能
 
-有模板可以直接套模板，模板应该会处理参考文献格式。没有特殊喜好可以用 等支持GB/T格式的模板。
-
-ps：如果单纯为了插入GB/T格式的参考文献可以用一点脏办法: [电子科技大学LaTeX模板参考文献问题解决](https://zhuanlan.zhihu.com/p/141805704) (不得已的办法)
-
-## VSCode开始写东西
-
-装Latex Workshop这个插件。配置可以参考[官方文档](https://github.com/James-Yu/LaTeX-Workshop/wiki), wiki写的很全。  
-编译配置推荐使用`latexmk`的方案，可以省去xelatex-bibtex-xelatex*2的多次编译  
+LaTeX Workshop 左侧边栏可以查看字数统计  
+可以自定义snippest快捷命令  
+可以插入参考文献（需要手打`\cite{}，支持搜索bib文件里的文献（可以用zotero导出并开启同步））, 这样就不用装zotero latex插件了。
 
 ### json配置
 
@@ -319,7 +352,7 @@ insertPattern选项请根据模板自己修改，比如你电的学位论文模�
 
 另外需要注意的是paste image插件的快捷键`ctrl+alt+v`和LaTeX Workshop冲突，要在`Keyboard Shortcuts`里面换掉一个，不然快捷键粘贴图片不起作用。
 
-### 参考文献设置问题
+### 参考文献报错
 
 设置参考文献这两行要放在`\end{document}`前面
 

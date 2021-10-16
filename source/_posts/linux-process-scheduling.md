@@ -332,10 +332,6 @@ https://www.linux-magazine.com/Online/News/Con-Kolivas-Introduces-New-BFS-Schedu
 
 [调度系统设计精要 - 面向信仰编程](https://draveness.me/system-design-scheduler/)
 
-https://baike.baidu.com/item/Linux 调度器
-https://baike.baidu.com/reference/6127724/4e4bylHvCZPg6lHqd9Cdp4K6NMPCJB5XjXgh_EH859gg7WiRs5efN-WbGXTCdksABUmAQapE8HOgNls6VjH0kOotzWHjWLcLiZ1EkOGhp2nWKw
-https://zhuanlan.zhihu.com/p/72754729
-
 http://ck.kolivas.org/
 
 https://liquorix.net/ 这个内核是基于zen内核加了一些其他的补丁和改动（有ck补丁，但是没有MuQSS，原因`I'm severely prejudiced against MuQSS, so it will continue "giving a null".`, 见这里https://bugs.archlinux.org/task/56312）
@@ -346,11 +342,11 @@ https://blog.ihypo.net/15279557709685.html
 
 http://linuxperf.com/?p=42
 
-https://blog.csdn.net/XD_hebuters/article/details/79623130
+<!-- https://blog.csdn.net/XD_hebuters/article/details/79623130
 
 https://cloud.tencent.com/developer/article/1603970
 
-https://cloud.tencent.com/developer/article/1603974
+https://cloud.tencent.com/developer/article/1603974 -->
 
 https://www.cnblogs.com/hellokitty2/p/14199741.html
 
@@ -359,4 +355,3 @@ https://github.com/theanarkh/read-linux-0.11
 http://www.wowotech.net/process_management/449.html
 
 [Linux进程调度-组调度及带宽控制](https://www.cnblogs.com/LoyenWang/p/12459000.html)
-
