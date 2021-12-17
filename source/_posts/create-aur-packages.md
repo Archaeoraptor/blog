@@ -11,6 +11,7 @@ hide: false
 date: 2020-12-20 16:36:47
 ---
 （长期施工中，未完待续）
+
 <!-- more -->
 
 {% cq %}
@@ -46,7 +47,7 @@ namcap PKGBUILD
 makepkg -s
 ```
 
-生成的`XXX.tar.xz`可以再用`namcap`检查一下
+生成的 `XXX.tar.xz`可以再用 `namcap`检查一下
 
 ```bash
 namcap XXX.tar.xz
@@ -60,7 +61,7 @@ namcap XXX.tar.xz
 
 新建一个账号，然后上传你的SSH公钥和密钥指纹。
 
-用`git clone`拉取一个
+用 `git clone`拉取一个
 
 ```bash
 git clone ssh://aur@aur.archlinux.org/your-package-name.git 
@@ -113,7 +114,7 @@ debtap -p XXX.deb # -p 选项生成PKGBUILD
 ## 然后稍等一会，会比较慢
 ```
 
-然后`pacman -U XXX.tar.xz`可以装到你的电脑上试一下。
+然后 `pacman -U XXX.tar.xz`可以装到你的电脑上试一下。
 
 ### pip2pkgbuilds
 
@@ -145,7 +146,7 @@ Github Action的好处是可以白嫖（划掉
 
 ### AUR的依赖包makepkg无法自动识别
 
-打包的时候如果依赖AUR的包，在`makepkg -s`pacman是不会自动安装的需要手动安装
+打包的时候如果依赖AUR的包，在 `makepkg -s`pacman是不会自动安装的需要手动安装
 
 ```bash
 error: target not found: python-django-cors-headers
@@ -153,19 +154,19 @@ error: target not found: python-django-cors-headers
 ==> ERROR: Could not resolve all dependencies.
 ```
 
-如果依赖太多装不过来，可以加`makepkg -d`参数忽略依赖，然后对生成的`XXX.tar.xz`使用yay或者pikaur之类的AUR helper
+如果依赖太多装不过来，可以加 `makepkg -d`参数忽略依赖，然后对生成的 `XXX.tar.xz`使用yay或者pikaur之类的AUR helper
 
 ### git初次commit不包含SRCINFO导致拒绝提交
 
-可以用`git filter branch`
+可以用 `git filter branch`
 
-（其实直接删了重新`git init`可能更快）
+（其实直接删了重新 `git init`可能更快）
 
 ## 常见写法和命令
 
 ### install命令
 
-用过`cmake`等编译工具的人应该对`make install`很熟了，它在PKGBUILD里面大概像这样
+用过 `cmake`等编译工具的人应该对 `make install`很熟了，它在PKGBUILD里面大概像这样
 
 ```bash
 package() {
@@ -173,7 +174,7 @@ package() {
 }
 ```
 
-在PKGBUILD里面，还经常用它把文件安装到制定目录，并指定权限（一般不用`cp`来干这种事）
+在PKGBUILD里面，还经常用它把文件安装到制定目录，并指定权限（一般不用 `cp`来干这种事）
 
 ```bash
 package() {
@@ -186,7 +187,7 @@ package() {
 
 将可执行文件和LICENSE分别放到指定目录，像LICENSE或者doc权限644就好了，其他的可执行文件酌情给个755权限。
 
-如果有需要打印详细安装信息方便调试，可以加`-v`选项，像这样`install -Dvm755`
+如果有需要打印详细安装信息方便调试，可以加 `-v`选项，像这样 `install -Dvm755`
 
 ### 常见写法
 
@@ -237,19 +238,19 @@ Archlinux安装弄的这么难初衷可能是为了筛掉一部分小白和伸�
 
 小白倒没什么，主要是被伸手党搞怕了。
 
-独立打一个包应该不会比独立装一个Archlinux难（不考虑Nvidia双显卡博通网卡阴间主板诡异驱动等....）。  
-如果一个用户能参照ArchWiki独立装好、配置好自己的Arch，那就应该有能力自己打包。  
+独立打一个包应该不会比独立装一个Archlinux难（不考虑Nvidia双显卡博通网卡阴间主板诡异驱动等....）。
+如果一个用户能参照ArchWiki独立装好、配置好自己的Arch，那就应该有能力自己打包。
 Arch没有Mac、Windows、ChromeOS那样的财大气粗的公司和掏钱买服务的客户，甚至不能跟RHEL和Ubuntu比，社区纯靠热情。而且由于deb系和rpm系用户众多，基本大部分软件如果支持Linux会给出deb或者rpm的包，有的可能会给个appimage的包，Arch的支持基本没太多上游会管，很多包都是Arch的维护者和用户自行编译打包的（不少还是deb拆包转的）。
-伸手党太多而打包者太少，那就离凉凉不远了。  
-下次看到没有包当伸手党可不好，没有包就自己打一个吧。  
+伸手党太多而打包者太少，那就离凉凉不远了。
+下次看到没有包当伸手党可不好，没有包就自己打一个吧。
 
 ## 参考和推荐阅读
 
-[DeveloperWiki](https://wiki.archlinux.org/index.php/DeveloperWiki:Index) 里面关于打包的部分可以看看  
-[Arch package guidelines](https://wiki.archlinux.org/index.php/Arch_package_guidelines) Arch官方的打包指南  
-[PKGBUILD_(简体中文)]https://wiki.archlinux.org/index.php/PKGBUILD_(简体中文) PKGBUILD的简要介绍  
-[Makepkg_(简体中文)](https://wiki.archlinux.org/index.php/Makepkg_(简体中文)) Makepkg也比较重要，有需要可以参考维基修改一下参数  
-[给 Arch 打一个包 – Python 模块篇](https://felixc.at/2017/08/make-an-arch-package-for-python-module/) python的包经常没什么人愿意打（确实依赖比较麻烦，好在有肥猫，打了一大堆python包），希望多来点熟悉python的大佬  
-[PKGBUILD参考手册](https://man.archlinux.org/man/PKGBUILD.5) Arch官网的参考手册，话说Arch最近新上的[手册索引](https://man.archlinux.org/)挺香的（btw I use tldr）  
-[Building Packages on Arch Linux (Including the AUR)](https://www.vultr.com/docs/building-packages-on-arch-linux) Vultr的教程（我也不知道Vultr怎么会有这种东西）  
-[Arch Linux 第一次打包就上手](https://junyussh.github.io/p/arch-linux-package-quick-start/)  新手可以看看这个  
+[DeveloperWiki](https://wiki.archlinux.org/index.php/DeveloperWiki:Index) 里面关于打包的部分可以看看
+[Arch package guidelines](https://wiki.archlinux.org/index.php/Arch_package_guidelines) Arch官方的打包指南
+[PKGBUILD_(简体中文)]https://wiki.archlinux.org/index.php/PKGBUILD_(简体中文) PKGBUILD的简要介绍
+[Makepkg_(简体中文)](https://wiki.archlinux.org/index.php/Makepkg_(简体中文)) Makepkg也比较重要，有需要可以参考维基修改一下参数
+[给 Arch 打一个包 – Python 模块篇](https://felixc.at/2017/08/make-an-arch-package-for-python-module/) python的包经常没什么人愿意打（确实依赖比较麻烦，好在有肥猫，打了一大堆python包），希望多来点熟悉python的大佬
+[PKGBUILD参考手册](https://man.archlinux.org/man/PKGBUILD.5) Arch官网的参考手册，话说Arch最近新上的[手册索引](https://man.archlinux.org/)挺香的（btw I use tldr）
+[Building Packages on Arch Linux (Including the AUR)](https://www.vultr.com/docs/building-packages-on-arch-linux) Vultr的教程（我也不知道Vultr怎么会有这种东西）
+[Arch Linux 第一次打包就上手](https://junyussh.github.io/p/arch-linux-package-quick-start/)  新手可以看看这个
