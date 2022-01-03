@@ -5,7 +5,7 @@ tags:
 abbrlink: ff2b
 date: 2019-10-12 15:58:43
 categories:
-  - 笔记&札记
+  - 笔记
 ---
 动态语言一时爽，维护重构火葬场
 <!--more-->

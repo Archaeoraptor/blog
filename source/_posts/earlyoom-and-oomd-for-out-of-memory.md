@@ -6,6 +6,8 @@ tags:
 - oomd
 - OOM
 abbrlink: 'early-oom-and-oomd-for-out-of-memory'
+categories:
+- Linux&Unix
 ---
 太长不看：就是把原来内核的OOM killer挪到用户空间（userspace）去，这样就可以在系统卡住之前（通常桌面卡住的时候OOM killer认为还不用kill）提前kill掉占内存最大的一个，让桌面和鼠标可以正常工作。
 <!-- more -->

@@ -6,7 +6,7 @@ tags:
  - MySQL
  - Database
 categories:
- - 笔记&札记
+ - 笔记
 ---
 
 用了这么久数据库，现在还只会增删查改，开个坑学学优化。

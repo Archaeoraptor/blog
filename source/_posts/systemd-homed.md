@@ -7,7 +7,7 @@ tags:
  - homectl
  - systemd-homed
 categories:
-  - 不务正业系列
+- Linux&Unix
 ---
 
 在2020.3 发布的systemd 245增加了systemd-homed，改变了`/home`目录的加密和工作方式。用homectl设置用户组，直接加密整个`/home`目录更方便了，快来当小白鼠吧。

@@ -4,7 +4,7 @@ title: 数学知识补习
 tags:
  - 矩阵
 categories:
- - 笔记&札记
+ - 笔记
 date: 2019-10-9 15:58:43
 mathjax: true
 

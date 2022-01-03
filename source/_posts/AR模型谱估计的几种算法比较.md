@@ -4,7 +4,7 @@ tags:
   - Signal
   - DSP
 categories:
-  - 荒废的老本行
+  - 笔记
 mathjax: true
 hide: true
 abbrlink: fcd4

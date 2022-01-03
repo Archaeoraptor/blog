@@ -6,7 +6,7 @@ tags:
 - scheduler
 abbrlink: 'linux-processing-scheduling'
 categories:
- - 不务正业系列
+ - Linux&Unix
 ---
 用了一周linux-ck和MuQSS，发现没有想象中的那么好。哦，这还要从一个麻醉师说起。
 

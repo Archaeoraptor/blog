@@ -3,10 +3,10 @@ title: 数字频率计
 abbrlink: '9824'
 date: 2019-9-23 20:52:42
 tags:
- - VHDL
+ - VHD
  - 频率计
 categories:
-  - 荒废的老本行
+- 笔记
 ---
 补档
 <!-- more -->

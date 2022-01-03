@@ -4,6 +4,8 @@ tags:
 - btrfs
 - fs
 abbrlink: 'filesystem-note-btrfs-introduction'
+categories:
+- Linux&Unix
 ---
 
 ![](https://imgs.xkcd.com/comics/dark_arts.png)

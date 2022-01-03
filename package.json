@@ -12,9 +12,9 @@
     "version": "5.4.0"
   },
   "dependencies": {
-    "hexo": "^5.4.0",
+    "hexo": "5.4",
     "hexo-asset-link": "^2.1.0",
-    "hexo-cli": "^4.2.0",
+    "hexo-cli": "^4.3.0",
     "hexo-deployer-git": "^2.1.0",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",

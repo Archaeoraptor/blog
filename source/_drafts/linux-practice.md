@@ -2,7 +2,7 @@
 title: Linux从入门到入土
 tags: linux
 categories:
-  - 笔记&札记
+  - 笔记
 abbrlink: '193'
 date: 2019-10-11 16:48:51
 ---

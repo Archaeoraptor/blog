@@ -6,10 +6,9 @@ tags:
 - kernel
 - debug
 - 6.S081
-categories:
-  - 笔记&札记
 abbrlink: kernel-debugging
-hide: true
+categories:
+- Linux&Unix
 ---
 之前写那个Linux抢救和维护的时候提过一下，现在做6.S081的Lab又碰到的这个问题，单独开一篇记录一下（水平不够，调试来凑）
 <!-- more -->

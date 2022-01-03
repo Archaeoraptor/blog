@@ -2,7 +2,7 @@
 title: 毕竟狂澜挽不回，遽怜遗蜕化飞灰
 # hide: true
 categories:
-  - 彼黍离离
+  - 杂七杂八
 abbrlink: 'SARS-cov-2'
 date: 2020-02-15 17:26:34
 tags:

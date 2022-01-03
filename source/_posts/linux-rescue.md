@@ -6,7 +6,7 @@ tags:
 - rescue
 abbrlink: 'linux-rescue'
 categories:
- - 不务正业系列
+- Linux&Unix
 ---
 这篇水文主要是写给桌面玩家看的，如果您的服务器打出了GG/被黑了/库被删了，可能不适合来这里找答案。
 <!-- more -->

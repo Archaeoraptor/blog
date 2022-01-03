@@ -5,7 +5,7 @@ date: 2020-09-18 22:00:47
 abbrlink: 'farewell-firefox'
 tags:
 categories:
-  - 彼黍离离
+  - 杂七杂八
 hide: true
 ---
 

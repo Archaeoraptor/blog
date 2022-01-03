@@ -6,7 +6,7 @@ tags:
 - 6.S081
 - syscalls
 categories:
-- 笔记&札记
+- Linux&Unix
 ---
 暑假摸了一个月的鱼，回来接着做Lab。2021 spring 的6.S081已经开始了，直接做2021的吧（看了一下好像没有太大变化）。而且xv6-labs-2021这个repo貌似修复了Archlinux上新版gdb不兼容的问题，不用再降级包或者去用Ubuntu 20了。
 <!-- more -->

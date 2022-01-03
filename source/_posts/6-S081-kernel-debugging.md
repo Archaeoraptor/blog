@@ -6,7 +6,8 @@ tags:
 - 6.S081
 - VSCode
 abbrlink: 6.S081-VSCode-prepare-and-kernel-debugging
-hide: true
+categories:
+- Linux&Unix
 ---
 6.S081的调试和VSCode环境配置，还有一些踩坑和小技巧，杂七杂八的都放在这一篇里面了。（遇到什么情况就更新，准备一直更到做完Lab）
 <!-- more -->

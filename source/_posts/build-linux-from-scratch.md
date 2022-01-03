@@ -5,6 +5,8 @@ tags:
 - Linux
 - LFS
 abbrlink: 'build-linux-from-scratch'
+categories:
+- Linux&Unix
 ---
 久闻大名，然而真的编译了几圈下来，和想象中的不太一样。照着手册一步一步来并不难，但是特别繁琐。其实我更建议去看一看Alpine等更精简的Linux的构建过程。哦，对了，我等编译的时候通关了蔚蓝a面
 <!-- more -->

@@ -238,11 +238,7 @@ motion:
     # Only for Pisces | Gemini.
     sidebar: none
 
-vendors:
-  # Available values: local, jsdelivr, unpkg
-  internal: local
-
-  # ---------------------------------------------------------------
+# ---------------------------------------------------------------
 # Comments Settings
 # See: https://theme-next.js.org/docs/third-party-services/comments
 # ---------------------------------------------------------------

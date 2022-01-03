@@ -5,7 +5,9 @@ date: 2020-11-12 22:08:30
 tags:
   - blackarch
 abbrlink: 'add-blackarch-repo-mirrors'
-hide: false
+hide: fals
+categories:
+- 不务正业系列
 ---
 
 更新：BlackArch镜像源的很多包质量很差，请谨慎添加，必要时请修改PKGBUILD或自行打包。
