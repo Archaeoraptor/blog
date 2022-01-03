@@ -104,7 +104,6 @@ links:
   花花: https://233hsysweb.ml
   uestc.icu: https://uestc.icu
 
-
 read_more_btn: false
 
 tag_icon: true
@@ -129,7 +128,7 @@ github_banner:
   title: Follow me on GitHub
 
 font:
-  enable: true
+  enable: false
 
   # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
   host: https://fonts.loli.net
@@ -243,7 +242,6 @@ vendors:
   # Available values: local, jsdelivr, unpkg
   internal: local
 
-
   # ---------------------------------------------------------------
 # Comments Settings
 # See: https://theme-next.js.org/docs/third-party-services/comments
@@ -263,12 +261,10 @@ comments:
   # Modify texts or order for any navs, here are some examples.
   nav:
     disqusjs:
-     text: Load Disqus
-     order: -1
+      text: Load Disqus
+      order: -1
     utterances:
-     order: -2
-
-
+      order: -2
 
 # DisqusJS
 # Alternative Disqus - Render comment component using Disqus API.
@@ -293,3 +289,18 @@ utterances:
   issue_term: pathname
   # Available values: github-light | github-dark | preferred-color-scheme | github-dark-orange | icy-dark | dark-blue | photon-dark | boxy-light
   theme: github-light
+
+codeblock:
+  # Code Highlight theme
+  # All available themes: https://theme-next.js.org/highlight/
+  theme:
+    light: default
+    dark: tomorrow-night
+  prism:
+    light: prism
+    dark:
+  # Add copy button on codeblock
+  copy_button:
+    enable: true
+    # Available values: default | flat | mac
+    style:
