@@ -5,7 +5,6 @@ date: 2020-11-12 22:08:30
 tags:
   - blackarch
 abbrlink: 'add-blackarch-repo-mirrors'
-hide: fals
 categories:
 - 不务正业系列
 ---

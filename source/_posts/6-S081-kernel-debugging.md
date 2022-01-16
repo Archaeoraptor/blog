@@ -69,7 +69,7 @@ make: *** [Makefile:165: qemu] Error 127
 sudo downgrade liburing
 ```
 
-![](6.S081-lab-util/1625406448.png)
+![](6-S081-kernel-debugging/1625406448.png)
 
 然后一个sh就出现了，按Ctrl-a x退出。
 
@@ -82,10 +82,6 @@ sudo downgrade liburing
 ```bash
 sudo apt-get install git build-essential gdb-multiarch qemu-system-misc gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu
 ```
-
-直接`make qemu`试试，耗时5s，舒服了
-
-![image-20210702145048984](6.S081-lab-util/image-20210702145048984.png)
 
 ### Hello, World
 
@@ -134,7 +130,7 @@ $ hello
 Hello, nerd!
 ```
 
-![image-20210702150654556](6.S081-lab-util/image-20210702150654556.png)
+![image-20210702150654556](6.S081-kernel-debugging/image-20210702150654556.png)
 
 
 ## gdb+qemu调试

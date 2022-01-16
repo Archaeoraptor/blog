@@ -1,5 +1,5 @@
 ---
-title: "新年开箱一个Canokey Pigeon"
+title: "新年开箱一个 Canokey Pigeon"
 date: 2022-01-02 14:05:36
 tags:
 - canokey
@@ -38,7 +38,9 @@ Canokey就是tuna那一帮人弄的重置版yubikey啦，stm32版本完全开源
 打开了一直关闭的iphone NFC功能试了一下，然而没有成功。据说这一批的确不太行，可能还不如之前的透明探索版。见[对 NFC 的一些说明和建议](https://github.com/canokeys/canokey-pigeon/discussions/4)。
 
 更新：读取成功了！弹出提示 网站NFC标签 “在Safari浏览器中打开"canokeys.org"”（当然，没有webUSB，console用不了），NFC Tools成功读到标签类型和序列号。试了一下Google的两步验证，登陆成功。  
-iphone读NFC的位置非常靠上，大概在刘海屏的背面那里，其他位置读不到。  
+iphone读NFC的位置非常靠上，大概在刘海屏的背面那里，其他位置读不到。 
+
+更新：如果NFC不好使请试试：[NFC修复指南](https://github.com/canokeys/canokey-pigeon/discussions/6)
 
 3.sudo免密码
 

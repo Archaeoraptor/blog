@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: 将VSCode作为Neovim的GUI客户端——VSCode Neovim插件配置
+title: VSCode Neovim插件配置——将VSCode作为Neovim的GUI客户端
 abbrlink: 'vscode-neovim-setting'
 date: 2021-10-30 0:0:0
 tags:

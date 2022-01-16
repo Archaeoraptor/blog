@@ -8,3 +8,5 @@ abbrlink: 'aware-docker-yaml'
 ---
 大聪明yaml将60以下的数字识别成60进制，所以需要用引号括起来。自作聪明程度直追Excel将身份证号识别成科学计数法然后直接末尾四位变零。  
 珍爱生命，远离yaml  
+
+更新：发现了一个网站：<https://noyaml.com/>

@@ -7,7 +7,7 @@ tags:
 - kiss
 abbrlink: 'migrating-from-kde-to-i3'
 ---
-逐渐开始认同Keep it Simple, Stupid
+这样又将一部分鼠标干的活还给了键盘。
 <!-- more -->
 
 前一阵不是KDE 25周年吗，然后KDE推出了25周年纪念版，从这开始的几个版本，小问题不断。迫害GNOME是KDE群友的传统艺能，然而，最近似乎KDE用户受到的迫害比GNOME还多。KDE怎么会变成了这个样子？ 于是决定从KDE先迁移到i3之类的wm去。（当然，最主要的原因是我逐渐不需要一个完整DE的那么功能了）
