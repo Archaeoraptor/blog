@@ -24,7 +24,7 @@ VSCode在编辑模式下的舒服体验和插件、Vim在Normal模式下的操�
 
 ## 安装
 
-VSCode插件市场装VSCode Neovim，Archlinux安装neovim`sudo pacman -S neovim`
+VSCode插件市场装VSCode Neovim，安装neovim`sudo pacman -S neovim`
 然后在设置里面填上路径
 
 ```json
@@ -113,11 +113,34 @@ if has('nvim')
 endif
 ```
 
+## 在使用VSCode时选择性启用Neovim插件
+
+Vim/Neovim的插件和VSCode的插件有功能重叠，我目前各选了一部分。目前我的LSP插件用VSCode的插件，其他像Markdown插件、LaTeX插件和各种杂七杂八不常用的功能也都是用的VSCode插件。我装了EasyMotion的替代品MetaJump（VSCode插件），用于进行跳转。Neovim插件我保留了`vim-surround`等键盘操作的插件。
+
+但是很多时候我要在终端用Neovim的时候要启用一些插件，使用VSCode的时候要禁用Neovim部分插件。
+
+推荐按照官方文档在使用VSCode时禁用Neovim的自动补全、LSP类、语法高亮等插件
+
+>You don't need any code, highlighting, completion, lsp plugins as well any plugins that spawn windows/buffers (nerdtree and similar), fuzzy-finders, etc.
+
+具体参考[官方文档](https://github.com/vscode-neovim/vscode-neovim#conditional-initvim), 我用的vim-plug可以这样设置
+
+```
+" inside plug#begin:
+" 在使用neovim的时候启用vim-easymotion插件
+Plug 'easymotion/vim-easymotion', Cond(!exists('g:vscode'))
+" 在vscode-neovim插件模式下启用另一个插件
+Plug 'asvetliakov/vim-easymotion', Cond(exists('g:vscode'), { 'as': 'vsc-easymotion' })
+```
+
+不过后来我的画风逐渐变成了这样：
+Neovim专心给vscode当backend用，terminal里面用vim，这样就不用管插件何时启用了。
+
 ## 后记
 
 之前只在编辑小文件的时候临时用Vim, 这两年内Vim使用次数逐渐增多，Vim也逐渐熟练，一度产生过将主力编辑器从VSCode换成Vim的想法。VSCode在Linux平台上频繁内存泄漏、VSCode的渲染速度比Vim慢很多（尤其是打开大文件的时候），这些原因导致VSCode在某些时候的体验比Vim差了好多。
 
-但是Vim我没有找到合适的GUI界面来打造一个对我而言比较舒服的编辑器，gvim在当年上嵌入式课的时候在Ubuntu下就试过一次了，感觉体验和
+但是Vim我没有找到合适的GUI界面来打造一个对我而言比较舒服的编辑器，gvim在当年上嵌入式课的时候在Ubuntu下就试过一次了，感觉体验不是很好。
 
 SpaceVim试过，装了一堆插件之后太卡，性能不是太好，性能表现几乎和VSCode不相上下，在我的超低配七年老电脑上失去了Vim流畅的优势，而且这一套界面的颜值和使用体验远不如VSCode。
 
@@ -127,7 +150,22 @@ Neovim的GUI界面有[goneovim](https://github.com/akiyosi/goneovim)和neovide�
 
 而且VSCode在我从18年开始使用它的三年内，肉眼可见的进步。未来的前景也很光明，微软掏钱养着也不用担心倒闭的问题，除非微软倒闭（真倒闭了那不是更好吗，还有这种好事，苏联笑话.jpg）  
 现在我除了要写一万行以上的屎山项目才会打开Goland等全家桶IDE，编辑100行以下的配置文件等会打开vim。
-剩下的绝大多数编辑都是用VSCode,用VSCode来写Go、C、Python、shell，用VSCode来写Markdown和LaTeX, 逐渐抛弃了typora和Word，也放弃了曾经很喜欢的sublime text（纯粹是因为好看和启动速度比vscode快一点）
+剩下的绝大多数编辑都是用VSCode,用VSCode来写Go、C、Python、shell，用VSCode来写Markdown和LaTeX, 逐渐抛弃了typora和Word，也放弃了曾经很喜欢的sublime text（但是这个好看、比VSCode丝滑，VSCode的渲染和响应速度没有那种丝滑的感觉）
+
+### 2022.4更新
+
+用VSCode Neovim插件半年了，多多少少有点小bug，偶尔出现一些光标不灵和Neovim后端没有启动的小问题。大部分时候reload一下就好了。大多数时候编辑小文件的体验都是alacritty中打开vim更好，打开速度飞快而且打字延迟低、渲染都比VSCode舒服。但是vim/neovim要想配置出vscode/sublime写大一点的项目的工作界面来比较麻烦，所以大多数时间还在用VSCode，没啥迁移的动力。
+
+用久了发现VSCode的很多图形界面实在没有必要，很多边框和按钮基本用不到还占地方那个。比如最上面的边框（用i3wm等wm不要边框就好了），然后是那个`Menu Bar`，用鼠标点`Menu Bar`是很浪费时间的，建议隐藏了。需要进行什么操作建议`F1`搜索，比拿鼠标点点点舒服。
+
+然后比较讨厌的的是下方terminal和编辑界面中间宽大的框，左侧边栏（Side Bar）也特别宽（这个间距还不能调，只能`Ctrl+“-“`进行zoom缩放变相调小）。这个特别难受，当时我刚用VSCode的时候我就觉得VSCode的界面比sublime和jetbrains家的IDE浪费空间好多。
+
+这个极为浪费空间的UI布局就像新版firefox的proton和新版gnome的移动平板风格，太讨厌了。大概就是这个对比的感觉：[Firefox-UI-Fix](https://github.com/black7375/Firefox-UI-Fix)  
+
+我最早一直看VSCode的界面不顺眼，换上atom或者sublime的主题也不行。后来想了很久这是为什么，最后发现就是这个布局太不紧凑了，太浪费空间了。  
+我心目中好的界面是像大部分QT应用那样的，虽然第一眼颜值没有electron高，但是紧凑高效。比如WPS、Photoshop、Krita这样的，没有特别宽的没用边框出来浪费空间。AutoCAD、Altium Designer和JB家的编辑器也比较紧凑。就连VSCode的竞品atom和sublime也远比VSCode紧凑。
+
+不过我在找VSCode紧凑布局的办法的时候，发现VSCode有像Vim差不多的 Zen Mode，`Ctrl+k z`切换为禅意模式，临时进入一个全屏的清爽的编辑界面，默认只有一个居中的编辑界面。有点像typora的全屏+专注模式，感觉还行。
 
 ## 链接
 
@@ -137,3 +175,5 @@ https://ddadaal.me/articles/from-vscode-to-vim-to-both
 [Vim 和 Neovim 的前世今生](https://jdhao.github.io/2020/01/12/vim_nvim_history_development/)  
 [vscode 集成 Neovim](https://www.jianshu.com/p/ac739c6ea541)  
 [VSCode with embedded Neovim](https://www.youtube.com/watch?v=g4dXZ0RQWdw)  
+[在 neovim 中使用 Lua](https://github.com/glepnir/nvim-lua-guide-zh)  
+[vscode-neovim](https://github.com/vscode-neovim/vscode-neovim)  

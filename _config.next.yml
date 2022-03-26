@@ -300,3 +300,11 @@ codeblock:
     enable: true
     # Available values: default | flat | mac
     style:
+
+post_meta:
+  item_text: true
+  created_at: true
+  updated_at:
+    enable: false
+    another_day: true
+  categories: true
