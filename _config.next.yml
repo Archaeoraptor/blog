@@ -101,8 +101,6 @@ links:
   米米的博客: https://zhangshuqiao.org
   Karuboniru's Blog: https://yanqiyu.info
   Sam's Blog: https://blog.samchu.cn
-  花花: https://233hsysweb.ml
-  uestc.icu: https://uestc.icu
 
 read_more_btn: false
 
@@ -291,7 +289,7 @@ codeblock:
   # All available themes: https://theme-next.js.org/highlight/
   theme:
     light: default
-    dark: tomorrow-night
+    dark: stackoverflow-dark
   prism:
     light: prism
     dark:

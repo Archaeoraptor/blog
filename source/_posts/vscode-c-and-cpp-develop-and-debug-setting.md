@@ -2,7 +2,7 @@
 title: VSCode C/C++ 开发环境和调试配置：Clangd+Codelldb
 date: 2022-03-20 20:02:25
 tags:
-- vscode
+- VSCode
 - clangd
 abbrlink: 'vscode-c-and-cpp-develop-and-debug-setting'
 ---

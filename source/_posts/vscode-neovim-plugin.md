@@ -177,3 +177,8 @@ https://ddadaal.me/articles/from-vscode-to-vim-to-both
 [VSCode with embedded Neovim](https://www.youtube.com/watch?v=g4dXZ0RQWdw)  
 [在 neovim 中使用 Lua](https://github.com/glepnir/nvim-lua-guide-zh)  
 [vscode-neovim](https://github.com/vscode-neovim/vscode-neovim)  
+[LunarVim](https://www.lunarvim.org/) 这个项目不错，从这学了不少Neovim的配置  
+[LunarVim Core plugins](https://www.lunarvim.org/plugins/#configuration) 这里面的插件质量都还不错，挑几个拿过来用挺好的  
+[Neovim IDE from Scratch - Introduction (100% lua config)
+](https://www.youtube.com/watch?v=ctH-a-1eUME) LunarVim作者的教程  
+[Neovim from Scratch](https://github.com/LunarVim/Neovim-from-scratch)  

@@ -78,7 +78,13 @@ asmlinkage long sys_getms_sinceboot(unsigned int __user *secs);
 
 ## 手动编译内核
 
-编译内核的时候可以直接
+编译内核的时候可以直接copy目前linux的config:
+
+```bash
+zcat /proc/config.gz > .config
+```
+
+或者自己手动选择一些配置：
 
 ```bash
 make menuconfig
