@@ -52,7 +52,7 @@ ps: 如果你用闭源的VSCode，那就直接在M$的插件市场装。Code-OSS
 
 ### 安装clangd LSP
 
-然后按`F1`，选`clangd:Downlaod Language Server`, 下载clangd LSP （如果你想用系统包管理器装clangd也可以, Archlinux在`llvm`这个包里，Debian等发行版有单独的`clangd`包）
+然后按`F1`，选`clangd:Download Language Server`, 下载clangd LSP （如果你想用系统包管理器装clangd也可以, Archlinux在`llvm`这个包里，Debian等发行版有单独的`clangd`包）
 
 ## Debug和运行
 
@@ -160,3 +160,44 @@ VSCode的插件良莠不齐，而VSCode本体也逐渐和我想要的编辑器�
 
 <https://code.visualstudio.com/docs/editor/debugging>
 <https://code.visualstudio.com/docs/introvideos/debugging>
+
+## 番外：linux源码阅读环境配置
+
+一般看这种源码几乎都是Vim下用gtags或者在vscode下用 gnu global 插件，不过clangd配置完成后有语义分析，体验更好一点（虽然clangd会对一些注释和宏报Warning）。  
+
+看这种大项目的代码，首先不能卡，然后要有语法高亮和跳转。然后各种头文件和宏不要一堆飘红报错。我之前一直以为VSCode打开这种特别大的项目的表现不堪大任，后来发现只是插件的问题，clangd表现相当不错。 
+
+下载kernel的源码，如果只是阅读的话推荐只下载当前版本的，不要下整个 git repo，vscode打开repo会比打开普通文件夹要吃内存。
+
+```bash
+wget https://mirrors.tuna.tsinghua.edu.cn/kernel/v5.x/linux-5.16.15.tar.xz
+tar xf linux-5.16.15.tar.xz
+cd linux-5.16.15
+```
+
+我们需要生成`compile_commands.json`，这个可以用bear或者`scripts/clang-tools/gen_compile_commands.py`这个自带的脚本。不过这两种方法都需要你编译一遍内核。
+
+```bash
+zcat /proc/config.gz > .config  # 复制本机的config作为编译的config，有需要请自行定制
+bear -- make -j 12  # 生成compile_commands.json
+
+## 或者用提供的python脚本生成
+make    # 编译
+python scripts/clang-tools/gen_compile_commands.py
+```
+
+编译要等一段时间，我用5600G编译大概40分钟。然后clangd会自动开始indexing，我这里有两万多个index，indexing大概花了20多分钟。到这里头文件和自动跳转都正常了，此时浏览代码的时候vsc内存占用占用大概1-2G左右。
+我还加了这几个参数: 采用gnu89标准（新版的linux 5.18 要升到c11了，如果你是master，换成`-std=gnu11`）、将预编译头文件放到内存里、关闭 clangd format （这个挺吃资源的，就看个源码不需要自动format）
+
+```json
+{
+    "clangd.arguments": [
+        "-std=gnu89",
+        "--pch-storage=memory",
+        "-j=12",
+    ],
+    "editor.formatOnSave": false
+}
+```
+
+由于这里只是阅读源码，所以 clangd-tidy 和全局自动补全这些参数（"--clang-tidy","--all-scopes-completion",）我都没有启用。

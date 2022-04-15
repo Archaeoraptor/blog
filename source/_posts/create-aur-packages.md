@@ -253,4 +253,5 @@ Arch没有Mac、Windows、ChromeOS那样的财大气粗的公司和掏钱买服�
 [给 Arch 打一个包 – Python 模块篇](https://felixc.at/2017/08/make-an-arch-package-for-python-module/) python的包经常没什么人愿意打（确实依赖比较麻烦，好在有肥猫，打了一大堆python包），希望多来点熟悉python的大佬
 [PKGBUILD参考手册](https://man.archlinux.org/man/PKGBUILD.5) Arch官网的参考手册，话说Arch最近新上的[手册索引](https://man.archlinux.org/)挺香的（btw I use tldr）
 [Building Packages on Arch Linux (Including the AUR)](https://www.vultr.com/docs/building-packages-on-arch-linux) Vultr的教程（我也不知道Vultr怎么会有这种东西）
-[Arch Linux 第一次打包就上手](https://junyussh.github.io/p/arch-linux-package-quick-start/)  新手可以看看这个
+[Arch Linux 第一次打包就上手](https://junyussh.github.io/p/arch-linux-package-quick-start/)  新手可以看看这个  
+[Packaging for Arch Linux](https://sleepmap.de/2022/packaging-for-arch-linux/)  一个TU写的

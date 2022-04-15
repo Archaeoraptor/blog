@@ -52,7 +52,7 @@ autocmd BufLeave *  :silent !fcitx5-remote -c " 离开 Buf 时禁用输入法
 
 我用的vim-plug管理插件，放到`~/.config/nvim/init.vim`下面就可以了
 
-```vim
+```viml
 call plug#begin()
 Plug 'https://github.com/h-hg/fcitx.nvim.git'
 call plug#end()
@@ -60,10 +60,9 @@ call plug#end()
 
 ## 一些按键绑定设置
 
-首先我不要hjkl这几个上下左右键（根本无法接受，我的肌肉记忆明明是键盘上上下左右四个经典方向键，玩空洞骑士和Ballance用的极其熟练，其次是WASD这个4399键位，其次是鼠标，我鼠标可熟练了）  
-我知道hjkl移动距离短而且移动后方便按距离近的i键进入Insert模式，但是我的肌肉记忆是上下左右，你再给我十年我也改不过来。
+我将Capslock映射为ESC，这个万年不用的键放在这么重要的位置还有一个比Tab键还大的键帽，简直浪费。我用`interception-caps2esc`交换了ESC和Capslock，并且让原Caps键作为组合键的时候是Ctrl（这个是利用udev交换的）
 
-然后我将Casplock映射为ESC，这个万年不用的键放在这么重要的位置还有一个比Tab键还大的键帽，简直浪费。编辑`～/Xmodmap`修改键盘映射就可以了。
+这样还有一个好处是换到Caps的ESC键离和a（append）非常近，这样只要按Caps和a就可以切换normal和insert模式了。
 
 或者如果喜欢也可以将`jj`（连按两次）绑定成ESC`inoremap jj <Esc>`^`
 
@@ -102,6 +101,42 @@ call plug#end()
 ```
 
 这样就基本上把Ctrl的功能还给VSCode了。
+
+更新：让VSCode的左侧文件侧栏（file explorer）能用jk进行上下浏览文件。
+如果装了vscodevim插件会有这个功能。vscode默认没有这个设置选项，看起来官方也不打算加，我们借助插件the multi-command extension实现，`settings.json`加上
+
+```json
+"multiCommand.commands": [
+  {
+    "command": "multiCommand.navigateExplorerDownAndPreviewFile",
+    "sequence": ["list.focusDown", "filesExplorer.openFilePreserveFocus"]
+  },
+  {
+    "command": "multiCommand.navigateExplorerUpAndPreviewFile",
+    "sequence": ["list.focusUp", "filesExplorer.openFilePreserveFocus"]
+  }
+]
+```
+
+`keybingdings.json`加上
+
+```json
+{
+  "key": "down",
+  "command": "multiCommand.navigateExplorerDownAndPreviewFile",
+  "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+},
+{
+  "key": "up",
+  "command": "multiCommand.navigateExplorerUpAndPreviewFile",
+  "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+}
+```
+
+我是不喜欢用hjkl，我用上下左右四个方向键，玩空洞骑士和蔚蓝上下左右的方向键已经用习惯了。而且单独的方向键有个好处是可以在 insert mode 直接进行移动，不用进入  normal mode 再按hjkl。
+
+大部分标准键盘的上下左右是符合操作直觉的，上就在上面下就在下面。hjkl那么扭曲我不想去用。不过有些阴间键盘，尤其是笔记本.......
+
 
 ## Neovim插件默认instert模式
 

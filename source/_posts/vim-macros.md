@@ -3,7 +3,9 @@ title: Vim中的宏：自动化魔法
 date: 2022-04-01 20:21:15
 abbrlink: 'vim-macros'
 tags:
-- vim
+- Vim
+categories:
+- 不务正业系列
 ---
 清明节闲着没事写点Vim的东西。我对Vim有诸多怨念，不过Vim有几个地方我很喜欢，最重要的一个就是操作可以组合和自动化。
 <!-- more -->
@@ -27,14 +29,31 @@ print("Hello, World!")
 
 但是如果想连续执行一段`;.`, 就需要用宏了（`11;.`的结果是先执行11次;再执行11次.）
 
-如果要输出从1到1000，那就要用宏了：
+如果要输出从1到1000，用vim的循环也可以完成
 
+```vim
+:for i in range(6)
+:   call setline(i, i.' '.getline(i))
+:endfor
+```
 
-## 稍微正经点的用途
+如果用宏来操作是这样的，`Ctrl+a`和`Ctrl+x`分别是对数字自增和自减，我们可以将操作分解成复制粘贴自增，然后重复998次就可以了
+
+```vim
+第一行输入1
+
+qa 开始宏录制
+yyp 复制并粘贴第一行
+C-a 自增1
+q   结束宏录制
+998@ 重复998次，输出1-1000
+```
+
+## 稍微正经点的用途的例子
 
 注释几行文本：
 
-```
+```vim
 qa  开始宏录制
 I#  insert模式行首加#
 Esc 退出insert
@@ -45,13 +64,13 @@ q   完成宏录制
 
 同理，我们想要把开头序号`1.`都变成`1)`的样子
 
-```
+```vim
 qa	q开始录制，保存到a寄存器中
 0f. 跳转到开头并查找第一个.
 j	跳转到下一行
 ```
 
-大多数时候这种情况正则更方便，但是有的时候一堆混乱的文本容易误伤
+大多数时候这种情况正则更方便，但是有的时候一堆混乱的文本容易误伤，宏的操作加入了位置信息等操作比较容易控制
 
 ```
 1. X1..XX
@@ -70,3 +89,9 @@ j	跳转到下一行
 Vim的键位用好了可以形成肌肉记忆将操作交给小脑解放大脑，而宏这些操作是要开动大脑的。  
 我觉得吸引玩家入坑vim就应该从录制宏等操作讲起，这些才是图形界面的点击操作不具备的优势。  
 
+宏适合干的就是重复的动作，比较适合处理一些枯燥的工作。比如经典的某些大道至简的语言sublime多光标实现泛型这样的事情，我们可以写一个宏去完成它。（其实我个人还是喜欢多光标）
+
+![Go Type Parameters in Sublime](/uploads/generic.gif)
+
+[【译】Vim 不需要多光标编辑功能](https://macplay.github.io/posts/vim-bu-xu-yao-duo-guang-biao-bian-ji-gong-neng/)  
+[You don’t need more than one cursor in vim](https://medium.com/@schtoeffel/you-don-t-need-more-than-one-cursor-in-vim-2c44117d51db)   

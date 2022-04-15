@@ -5,6 +5,8 @@ abbrlink: '6.S081-lab-page-table'
 tags:
 - 6.S081
 - page table
+categories:
+- Linux&Unix
 ---
 这个Lab前几个月写的，最近比较闲整理一下之前做的Lab。内存管理这块比较复杂，当时做Lab的时候对内存这块理解也浅，实现有些挺蠢的地方，重新整理了一下。接下来的笔记会多一点和Lab作业关系不是特别大的东西，闲着没事看OS相关的东西觉得有意思就一起记到笔记里了。
 <!-- more -->

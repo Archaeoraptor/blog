@@ -1,12 +1,12 @@
 ---
-title: 文件系统的Reflink（Reflink、hardlink、symlink的区别）
+title: 文件系统的Reflink
 date: 2021-12-19 13:24:54
 tags:
 - fs
 - reflink
 abbrlink: 'reflink-hardlink-symlink'
 ---
-reflink暂且翻译成引用链接吧，新版coreutils的cp和mv的默认行为就是reflink（如果文件系统支持）
+reflink暂且翻译成引用链接吧，新版coreutils的cp和mv的默认行为就是reflink（如果文件系统支持）。硬链接和软链接的
 <!-- more -->
 
 ## Reflink
@@ -48,7 +48,7 @@ reflink暂且翻译成引用链接吧，新版coreutils的cp和mv的默认行为
 
 ## 链接
 
-https://blogs.oracle.com/linux/post/xfs-data-block-sharing-reflink
+https://blogs.oracle.com/linux/post/xfs-data-block-sharing-reflink  
 [Deduplication Btrfs Wiki](https://btrfs.wiki.kernel.org/index.php/Deduplication)  
 [Should You Defrag an SSD? ](https://www.crucial.com/articles/about-ssd/should-you-defrag-an-ssd) 
 
