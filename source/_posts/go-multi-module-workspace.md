@@ -1,5 +1,5 @@
 ---
-title: 使用 Go Multi-Module Workspace：本地可以愉快的replace了
+title: Go Workspace：本地可以愉快的replace了
 date: 2022-03-18 10:45:03
 tags:
 - go

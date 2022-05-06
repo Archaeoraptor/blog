@@ -202,6 +202,16 @@ Neovim的GUI界面有[goneovim](https://github.com/akiyosi/goneovim)和neovide�
 
 不过我在找VSCode紧凑布局的办法的时候，发现VSCode有像Vim差不多的 Zen Mode，`Ctrl+k z`切换为禅意模式，临时进入一个全屏的清爽的编辑界面，默认只有一个居中的编辑界面。有点像typora的全屏+专注模式，感觉还行。
 
+## 2022.5更新
+
+建议添加，可以缓解卡顿的问题，详见[Extensions using the "type" command (for ex. Vim) have poor performance due to being single-threaded with other extensions](https://github.com/microsoft/vscode/issues/75627) 和 [Overriding the default 'type' command and then calling the default 'type' command results in significantly slower execution time](https://github.com/microsoft/vscode/issues/65876)
+
+```json
+"extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+```
+
 ## 链接
 
 [从VSCode到Vim到……两个都用？](https://www.ahonn.me/blog/the-vim-guide-for-vs-code-users)   

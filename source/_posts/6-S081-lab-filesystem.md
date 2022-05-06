@@ -128,6 +128,153 @@ Btrfs性能不好的说法主要来源于跑分跑不过ext4等等。不过跑�
 
 其实没啥好说的，但是这一篇一开始是6.S081的Lab笔记，一点Lab的内容都没有有点挂羊头卖狗肉的嫌疑。还是写点吧。
 
+## xv6中的文件系统
+
+这里简化起见不讲磁盘结构了。不考虑底层差异，磁盘直接被文件系统视为一连串块（block），xv6中block大小是1024k。block0一般是引导块，然后block1是superblock，然后是log, inodes，bitmap，这些统称为Metadata block。再后面都是 data block
+
+![](6-S081-lab-filesystem/1650031214.png)
+
+这里xv6的精简实现比较简单，不像linux那样很复杂，我们直接看源码好了。超级块superblock用来记录总共有多少个block、inode block、log block，以及它们的开始位置
+
+```c
+// super block describes the disk layout:
+struct superblock {
+  uint magic;        // Must be FSMAGIC
+  uint size;         // Size of file system image (blocks)
+  uint nblocks;      // Number of data blocks
+  uint ninodes;      // Number of inodes.
+  uint nlog;         // Number of log blocks
+  uint logstart;     // Block number of first log block
+  uint inodestart;   // Block number of first inode block
+  uint bmapstart;    // Block number of first free map block
+};
+```
+
+inode的定义也非常简单，inode在磁盘中大概就记录文件类型、大小、链接数量这些信息。
+
+```c
+// On-disk inode structure
+struct dinode {
+  short type;           // File type
+  short major;          // Major device number (T_DEVICE only)
+  short minor;          // Minor device number (T_DEVICE only)
+  short nlink;          // Number of links to inode in file system
+  uint size;            // Size of file (bytes)
+  uint addrs[NDIRECT+1];   // Data block addresses
+};
+
+// in-memory copy of an inode
+struct inode {
+  uint dev;           // Device number
+  uint inum;          // Inode number
+  int ref;            // Reference count
+  struct sleeplock lock; // protects everything below here
+  int valid;          // inode has been read from disk?
+
+  short type;         // copy of disk inode
+  short major;
+  short minor;
+  short nlink;
+  uint size;
+  uint addrs[NDIRECT+1];
+};
+```
+
+在内存中inode有 refernce conut，这个就是引用计数，删除文件的时候只有当引用计数减为0的时候才会真正删除
+
+![](6-S081-lab-filesystem/1650032123.png)
+
+## sleeplock
+
+```c
+// Long-term locks for processes
+struct sleeplock {
+  uint locked;       // Is the lock held? 0是没有， 1是hold
+  struct spinlock lk; // spinlock protecting this sleep lock
+  
+  // For debugging:
+  char *name;        // Name of lock.
+  int pid;           // Process holding lock
+};
+```
+
+xv6的文件系统用的是睡眠锁而不是spinlock，因为读写这种io操作耗时很长。相关定义在`kernel/sleeplock.c`，其中`wakeup`和`sleep`定义在`kernel/proc.c`， 这里就简单认为sleep操作干了`p->state = SLEEPING;`这一件事，而`wakeup`干了`p->state = RUNNABLE;`，作用是让process睡眠和唤醒
+
+```c
+// Wake up all processes sleeping on chan.
+// Must be called without any p->lock.
+void
+wakeup(void *chan)
+{
+  struct proc *p;
+
+  for(p = proc; p < &proc[NPROC]; p++) {
+    if(p != myproc()){
+      acquire(&p->lock);
+      if(p->state == SLEEPING && p->chan == chan) {
+        p->state = RUNNABLE;  // 这里我们只关注这一行就行了
+      }
+      release(&p->lock);
+    }
+  }
+}
+```
+
+```c
+void initsleeplock(struct sleeplock *lk, char *name)
+{
+  initlock(&lk->lk, "sleep lock");
+  lk->name = name;
+  lk->locked = 0; //locked = 0 没上锁，= 1 表示被锁住了
+  lk->pid = 0;
+}
+
+void acquiresleep(struct sleeplock *lk)
+{
+  acquire(&lk->lk); // 获取spinlock
+  while (lk->locked) {  // 如果其他pid持有锁
+    sleep(lk, &lk->lk); //睡眠
+  }
+  lk->locked = 1;       // 上锁
+  lk->pid = myproc()->pid;  //拿锁进程的pid
+  release(&lk->lk); //释放spinlock
+}
+
+void releasesleep(struct sleeplock *lk)
+{
+  acquire(&lk->lk);
+  lk->locked = 0; // 释放锁
+  lk->pid = 0;
+  wakeup(lk); // 唤醒
+  release(&lk->lk);
+}
+
+// 检查是否持有sleeplock锁
+int holdingsleep(struct sleeplock *lk)
+{
+  int r;
+  acquire(&lk->lk);
+  r = lk->locked && (lk->pid == myproc()->pid); // r表示当前proc的pid是否持有锁
+  release(&lk->lk);
+  return r;
+}
+```
+
+sleeplock是用spinlock实现的，在中断（IO）操作的时候可以持有锁。实现比较精简，我加了点注释，不多说了。
+
+ps：睡眠锁类似linux里面的信号量semaphore（后来改用mutex了）
+
+### xv6的日志
+
+xv6的日志实现比较简单，在磁盘上有一段固定的block。
+日志这里不多说了，log-structured的文件系统和COW这些有点跑题了。掉电恢复什么的建议买个UPS电源。
+
+### block cache
+
+这里就是经典的LRU和睡眠锁
+
+## Lab内容
+
 ### Large Files
 
 >In this assignment you'll increase the maximum size of an xv6 file. Currently xv6 files are limited to 268 blocks, or 268*BSIZE bytes (BSIZE is 1024 in xv6). This limit comes from the fact that an xv6 inode contains 12 "direct" block numbers and one "singly-indirect" block number, which refers to a block that holds up to 256 more block numbers, for a total of 12+256=268 blocks.
@@ -138,17 +285,19 @@ ext3支持4TB的大文件，ext4支持16TB的大文件，ZFS、Btrfs等现代文
 
 ### Symbolic Links
 
-这个也很简单，实现一个符号链接就行了。
+这个也很简单，实现一个符号链接就行了。之前看了醉卧沙场写的XFS的符号链接的实现，这里做的很顺利。
 
 ## 链接
+
+[Chapter 6 File system](https://pekopeko11.sakura.ne.jp/unix_v6/xv6-book/en/File_system.html)  
 
 下面放的链接是一些文件系统相关的文章，跟这个Lab关系并不是特别大，适合无聊的时候读着玩
 
 [fc老师的fs笔记](https://farseerfc.me/zhs/tag/fsbi-ji.html)  
 [Analyzing IO Amplification in Linux File Systems](https://arxiv.org/pdf/1707.08514.pdf)    
 [XFS: There and back ... and there again?](https://lwn.net/Articles/638546/)  
-[Btrfs vs ZFS 实现 snapshot 的差异](https://farseerfc.me/zhs/btrfs-vs-zfs-difference-in-implementing-snapshots.html)  
-[醉卧沙场 README - 计算机专业性文章及回答总索引](https://zhuanlan.zhihu.com/p/67686817) 这个知乎答主写了好多XFS的文章
+[Btrfs vs ZFS 实现 snapshot 的差异](https://farseerfc.me/zhs/btrfs-vs-zfs-difference-in-implementing-snapshots.html)   
+[醉卧沙场 README - 计算机专业性文章及回答总索引](https://zhuanlan.zhihu.com/p/67686817) 这个知乎答主写了好多XFS的文章  
 
 [Filesystem Hierarchy Standard](https://www.pathname.com/fhs/2.2/index.html)  
 [BTRFS documentation](https://btrfs.readthedocs.io/) 偏向使用文档，没怎么介绍原理   
