@@ -4,8 +4,9 @@ date: 2022-04-14 16:43:18
 tags:
 - trackball
 abbrlink: 'unboxing-trackball-kensington-k72337'
+hide: true
 categories:
-- 不务正业系列
+- 杂七杂八
 ---
 这么圆润的球球，老了逛公园可以放在手上盘
 <!-- more -->

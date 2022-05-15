@@ -282,9 +282,6 @@ RISC-V的寄存器有32个，比ARM多，已经超过了我的记忆容量。有
 
 `info threads`查看进程
 
-
-
-
 ## VSCode配置
 
 ### 代码提示和自动补全
@@ -295,57 +292,14 @@ RISC-V的寄存器有32个，比ARM多，已经超过了我的记忆容量。有
 
 ![](6-S081-kernel-debugging/1626526305.png)
 
+用clangd你需要一个`compile_commands.json`，我们可以安装bear，然后用bear生成`compile_commands.json`
 
-### gdb调试
-
-参照这篇博客设置[MIT 6.S081 xv6调试不完全指北](https://www.cnblogs.com/KatyuMarisaBlog/p/13727565.html)，改一改那个`launch.json`。
-
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "debug xv6",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/kernel/kernel",
-            "args": [],
-            "stopAtEntry": true,
-            "cwd": "${workspaceFolder}",
-            "miDebuggerServerAddress": "211.83.111.224:26000",
-            "miDebuggerPath": "/usr/bin/gdb-multiarch",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "description": "pretty printing",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ],
-            "logging": {
-                // "engineLogging": true,
-                // "programOutput": true,
-            }
-        }
-    ]
-}
+```bash
+sudo pacman -S bear
+bear -- make qemu
 ```
 
-然后删掉`.gdbinit`里`target remote 127.0.0.1:26000`
-
-然后其他的都跟这篇博客里的差不多，以`ls`为例：
-
-```gdb
--exec file user/_ls
-```
-
-![](6-S081-kernel-debugging/1626579434.png)
-
-于是就可以并不太愉快的debug了。试了一下发现其实体验还没直接在gdb里面敲命令好，vscode的debugger跟IDE差距很大，鼠标点来点去可能都没有gdb直接敲命令舒服。
-
-**如果真想找一个好的图形化debugger推荐nemiver**
+然后clangd插件就可以正常的跳转和识别头文件了
 
 ### 使用clangd-format进行xv6代码风格的格式化
 
@@ -390,13 +344,6 @@ make: *** [<builtin>: user/pingpong.o] Error 1
 
 ps：如果你想要xv6Lab的风格，可以用Mozilla的风格改一改。
 
-### clion等IDE
-
-大多数时候用的VSCode，clion不怎么用。（不是我不想用，教研室那个七年前的老电脑用Jetbrains家的IDE实在是有点卡，而且JB还经常封你电邮箱，要用学生证照片去申请学生帐号）
-
-clion的配置可以参考
-https://zhuanlan.zhihu.com/p/166413604
-
 ## 其他问题
 
 ### gdb调试报错Cannot access memory at address
@@ -410,4 +357,5 @@ https://zhuanlan.zhihu.com/p/166413604
 [MIT 6.S081 xv6调试不完全指北](https://www.cnblogs.com/KatyuMarisaBlog/p/13727565.html)  
 [Using the GNU Debugger](https://pdos.csail.mit.edu/6.828/2020/lec/gdb_slides.pdf)
 
-https://github.com/wabscale/xv6-public
+<https://github.com/wabscale/xv6-public>   
+<https://github.com/rizsotto/Bear>

@@ -255,3 +255,9 @@ Arch没有Mac、Windows、ChromeOS那样的财大气粗的公司和掏钱买服�
 [Building Packages on Arch Linux (Including the AUR)](https://www.vultr.com/docs/building-packages-on-arch-linux) Vultr的教程（我也不知道Vultr怎么会有这种东西）
 [Arch Linux 第一次打包就上手](https://junyussh.github.io/p/arch-linux-package-quick-start/)  新手可以看看这个  
 [Packaging for Arch Linux](https://sleepmap.de/2022/packaging-for-arch-linux/)  一个TU写的
+
+### 其他的一些打包的阅读资料
+
+下面这些和AUR关系不是很大，闲着没事可以看着玩
+
+[FatELF: universal binaries for Linux](https://lwn.net/Articles/359070/)  

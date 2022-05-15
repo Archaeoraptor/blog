@@ -16,6 +16,17 @@ categories:
 由于本人水平有限，而且这篇写的比较仓促，文中可能有不少错误，光临我博客的大佬们发现了请告诉我。
 暂时先写这么多，还有很多有意思的、重要的、不好写的没有写，以后再更新。
 
+
+## 更新:在群里发送报错信息的方式
+
+请选择你的截图导师.jpg
+
+不要再贴一大段巨长的报错了，能联网的情况也不要发一张拍的模糊不清的截图了。就算图形界面挂了，在tty环境下只要有网也是可以将报错信息上传到在线剪切板的，比如Ubuntu paste，比如pastebin，比如fars.ee。然后你就可以在另一台机子上搜索报错或者将链接放到群里面问人了（记得阅读提问的智慧）
+
+```bash
+fcitx5-diagnose | curl -F "c=@-" https://fars.ee/
+```
+
 ## 通常的卡死解决流程
 
 ### 说明
@@ -128,7 +139,7 @@ HUP INT QUIT ILL TRAP ABRT BUS FPE KILL USR1 SEGV USR2 PIPE ALRM TERM STKFLT CHL
 
 ```bash
 sudo pacman -S base base-devel linux linux-firmware linux-headers xorg plasma kde-applications
-``` 
+```
 
 ### 文件系统损坏
 
@@ -169,6 +180,8 @@ https://wiki.archlinux.org/index.php/Core_dump#Examining_a_core_dump
 
 遇到解决不了的问题先把报错和版本信息记下来，然后去谷歌一下，搜不到的就去拿着详细的报错去相应的地方请教大佬（希望您提问之前已经阅读了[《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blo%20b/main/README-zh_CN.md)、[X-Y Problem](https://coolshell.cn/articles/10804.html)等）
 
+#### systemd
+
 进入急救模式
 
 ```bash
@@ -176,9 +189,35 @@ systemctl rescue
 systemctl emergency
 ```
 
+查看systemd日志
+
 ```bash
 journalctl -x
+journalctl -k # 查看内核日志
+journalctl -b # 查看从启动以来的日志
+journalctl -b -1 # 上次启动的日志
 ```
+
+查看某个守护进程
+
+```bash
+systemctl status NetworkManager
+journalctl -u unit
+```
+
+
+
+#### 输入法
+
+fcitx5的诊断
+
+```bash
+fcitx5-diagnose
+```
+
+#### vscode
+
+`cmd-shift-p` -> Search `Show Logs` -> `Extension Host`
 
 ### 如何调试内核
 
@@ -383,9 +422,8 @@ ArchLinux相关：
 
 安全相关：
 
-https://madaidans-insecurities.github.io/guides/linux-hardening.html#choosing-the-right-distro
-https://wiki.archlinux.org/title/Security_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
-https://github.com/imthenachoman/How-To-Secure-A-Linux-Server#disable-root-login
+[Security (简体中文)](https://wiki.archlinux.org/title/Security_(简体中文))  
+[How-To-Secure-A-Linux-Server](https://github.com/imthenachoman/How-To-Secure-A-Linux-Server#disable-root-login)  
 
 ### 喜欢折腾且有时间可以看看这些
 
@@ -397,4 +435,7 @@ https://github.com/imthenachoman/How-To-Secure-A-Linux-Server#disable-root-login
 [awesome-systemtap-cn](https://github.com/lichuang/awesome-systemtap-cn)  
 [动态追踪技术漫谈](https://blog.openresty.com.cn/cn/dynamic-tracing/) 强烈推荐  
 [Monitoring and Tuning the Linux Networking Stack: Receiving Data](https://blog.packagecloud.io/eng/2016/06/22/monitoring-tuning-linux-networking-stack-receiving-data/#)  
-[Monitoring and Tuning the Linux Networking Stack: Sending Data](https://blog.packagecloud.io/eng/2017/02/06/monitoring-tuning-linux-networking-stack-sending-data/) 这两篇是讲网络栈监控和调优的，经典文章。流传很广，也有很多中文翻译，不过原文直白简练，推荐直接看原文
+[Monitoring and Tuning the Linux Networking Stack: Sending Data](https://blog.packagecloud.io/eng/2017/02/06/monitoring-tuning-linux-networking-stack-sending-data/) 这两篇是讲网络栈监控和调优的，经典文章。流传很广，也有很多中文翻译，不过原文直白简练，推荐直接看原文  
+
+[Linux fontconfig 的字体匹配机制](https://catcat.cc/post/2020-10-31/)  对字体有疑问的强烈推荐阅读
+[用 fontconfig 治理 Linux 中的字体](https://catcat.cc/post/2021-03-07/)  
