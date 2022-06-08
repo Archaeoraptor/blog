@@ -1,9 +1,9 @@
 ---
-title: 光阴的故事：分布式系统中的时间
+title: Lamport时间戳：分布式系统中的时间
 date: 2022-03-08 15:27:36
 tags:
 - timestamp
-- heartbeat
+- Lamport
 abbrlink: 'time-in-distributed-system'
 categories:
 - Concurrency&Go
@@ -11,7 +11,13 @@ categories:
 世界始于1970.1.1
 <!-- more -->
 
-## 晶振时间的产生和校准
+## Lamport时间戳
+
+如果看过Paxos或者Raft, 是不是有种似曾相识的感觉？在没有一个统一的可靠时间
+
+## 时间
+
+### 晶振时间的产生和校准
 
 曾经家里有个挂在墙上的钟，每天都要快几秒。每过几个月都要调一下。后来家里看时间逐渐变成了看手机，我以为再也不用苦哈哈的对时间了。后来遇到了STM32的RTC日历，真的谁做谁麻，晶振如果频率不太行一天能差个几分钟，严重的一小时差一分钟都不奇怪。
 
@@ -31,7 +37,7 @@ CONFIG_HZ_1000=y
 CONFIG_HZ=1000
 ```
 
-## 时间的格式和约定
+### 时间的格式和约定
 
 时间开始于1970年1月1日，Unix时间戳和UTC都是从1970开始算的。
 
@@ -44,17 +50,11 @@ $ date +%s
 
 现在我除非要打印出来给人看，一律Unix时间戳，省了很多日期格式换算的麻烦。
 
-## 时间的同步
-
-## 心跳
-
-## 逻辑时钟
-
-## linux中的time系统调用
+### linux中的time系统调用
 
 需要注意localtime不是线程安全的，要用localtime_r
 
-## 关于go的time包
+### 关于go的time包
 
 go time 包的标准时间格式挺迷的，不是yymmdd那种，是"01/02 03:04:05PM '06 -0700"，意味着"2006年01月02日15时04分05秒"。后来查了一下这个时间是Unix时间戳``，用`date`命令打出来是
 
@@ -76,10 +76,12 @@ t, _ = time.ParseInLocation(shortForm, "2012-Jul-09", loc)
 
 设置一个发送心跳用的定时器直接用`time.Tick(time.Second)`
 
+### 直接用NTP等，认为全局时间一致
+
+Coackroach就是直接500ms（或者）的时间偏移，然后
+
 ## 链接
 
-[](https://ericfu.me/timestamp-in-distributed-trans/)
-
-[高精度事件计时器](https://zh.wikipedia.org/wiki/高精度事件计时器)
-
-[how](https://lwn.net/Articles/145973/)
+[高精度事件计时器](https://zh.wikipedia.org/wiki/高精度事件计时器)  
+[How fast should HZ be?](https://lwn.net/Articles/145973/)   
+[分布式事务中的时间戳](https://ericfu.me/timestamp-in-distributed-trans/)  

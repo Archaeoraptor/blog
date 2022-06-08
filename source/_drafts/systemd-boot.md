@@ -93,11 +93,64 @@ editor vim
 ├── vmlinuz-linux
 ```
 
-然后我们可以把grub卸了
+写好之后`bootctl status`检查一下，没有报错就可以重启了
+
+```bash
+❯ bootctl status
+System:
+     Firmware: UEFI 2.70 (American Megatrends 5.17)
+  Secure Boot: disabled (setup)
+ TPM2 Support: no
+ Boot into FW: supported
+
+Current Boot Loader:
+      Product: systemd-boot 250.5-1-arch
+     Features: ✓ Boot counting
+               ✓ Menu timeout control
+               ✓ One-shot menu timeout control
+               ✓ Default entry control
+               ✓ One-shot entry control
+               ✓ Support for XBOOTLDR partition
+               ✓ Support for passing random seed to OS
+               ✓ Load drop-in drivers
+               ✓ Boot loader sets ESP information
+          ESP: /dev/disk/by-partuuid/c9d89129-dc40-0b4c-b9af-db4c0e9a47b8
+         File: └─/EFI/SYSTEMD/SYSTEMD-BOOTX64.EFI
+```
+
+然后我们可以把grub卸了(留着吧，万一哪天生成rootflags参数或者又想用grub的好看主题了呢)
 
 ### 使用Unified Kernel image
 
-就是把vmlinuz、ucode、initramfs的img都揉到一起做了一的大的可执行的内核镜像
+就是把vmlinuz、ucode、initramfs的img都揉到一起做了一的大的可执行的内核镜像。当然这个可以手动制作，不过很多发行版提供了工具来生成它，比如Arch的mkinitcpio， 比如gentoo的genkernel, 再比如dracut
+
+手动工作大概是这样的， 见： [sd-boot: add EFI boot manager and stub loader](https://github.com/systemd/systemd/commit/0fa2cac4f0cdefaf1addd7f1fe0fd8113db9360b#commitcomment-55422970), 就是用objcopy把那几个img文件拼起来  
+
+```bash
+$ cat /boot/cpu_manufacturer-ucode.img /boot/initramfs-linux.img > /tmp/combined_initrd.img
+$ objcopy \
+    --add-section .osrel="/usr/lib/os-release" --change-section-vma .osrel=0x20000 \
+    --add-section .cmdline="/etc/kernel/cmdline" --change-section-vma .cmdline=0x30000 \
+    --add-section .splash="/usr/share/systemd/bootctl/splash-arch.bmp" --change-section-vma .splash=0x40000 \
+    --add-section .linux="vmlinuz-file" --change-section-vma .linux=0x2000000 \
+    --add-section .initrd="initrd-file" --change-section-vma .initrd=0x3000000 \
+    "/usr/lib/systemd/boot/efi/linuxx64.efi.stub" "linux.efi"
+$ cp linux.efi esp/EFI/Linux/
+```
+
+其实既然都手动了，不妨再手动一下，连systemd-boot这个bootloader都不要了，直接用efibootmgr去生成一个`.efi`文件，这样UEFI会直接读这个文件引导进linux， 大概像这样：
+
+```bash
+efibootmgr --create --disk /dev/nvme0n1p1 --loader /EFI/Linux/archlinux_x64.efi --label "Archliux Boot" --verbose
+```
+
+mkinitcpio大概像这样，和用grub的时候差不多， 见： [ArchWiki Unified Kernel Image](https://wiki.archlinux.org/title/Unified_kernel_image#mkinitpcio)  
+
+```bash
+mkinitcpio -p linux -- --uefi esp/EFI/Linux/test-systemd.efi
+```
+
+systemd-boot会自动识别`boot/EFI/Linux`下面的unified kernel image文件。
 
 ### systemd-boot如何设置内核参数（参数是怎么传递的）
 
@@ -105,9 +158,9 @@ editor vim
 
 我以前看名字以为systemd直接就接管了，传给systemd之后就是熟悉的sysctl那一套`systemd-sysctl`。后来发现systemd-boot就是一个`bootctl`那种efi引导文件生成的一个工具（可以理解为一个bootloader差不多的东西），bootloader的界面那个时候就跟其他的bootloader差不多， 那个时候还没systemd什么事呢。
 
-内核参数的传递大概是这样的：grub等bootloader的配置中配置了一些内核参数，然后grub在引导过程中将参数传给initramfs ，initramfs 先掛載一遍根，然後 initramfs 裡面的 init switch-root 到根裡面的 systemd ，然後 systemd 讀 fstab 生成 mount 文件，對根做 remount 。有些參數能在 remount 的時候改，比如 rw
+如果你用mkinitcpio和unified kernel image， 那就`cp /proc/cmdline /etc/kernel/cmdline`， 改一下这个配置文件，然后再生成一遍initramfs的img，initramfs挂载根文件的时候会把参数传过去
 
-### 怎么指定启动时的kernel
+### 怎么启动时指定kernel parameters
 
 在systemd-boot的开机选择画面按e
 
@@ -243,3 +296,6 @@ systemd-boot也算是个bootloader，不过相比其他的booloader已经精简�
 <https://github.com/arcmags/ramroot>  
 <https://www.kernel.org/doc/html/v4.14/admin-guide/kernel-parameters.html>  
 <https://www.kernel.org/doc/Documentation/efi-stub.txt>  
+
+<https://wiki.gentoo.org/wiki/Genkernel> 隔壁gentoo的genkernel，感觉比Arch的mkinitcpio定制性高不少  
+[systemd-boot 中文手册](http://www.jinbuguo.com/systemd/systemd-boot.html)  

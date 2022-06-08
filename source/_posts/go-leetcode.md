@@ -224,6 +224,12 @@ sort.Slice(len(arr), func(i, j int) bool {
 })
 ```
 
+比较是否有序可以用`sort.SliceIsSorted`， 相当于C++ STL里面的is_sorted
+
+```go
+func SliceIsSorted(x any, less func(i, j int) bool) bool
+```
+
 ### 数学运算
 
 go的%是取余，不是取模。

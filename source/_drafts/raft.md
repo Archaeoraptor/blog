@@ -1,14 +1,14 @@
 ---
-title: Raft笔记1：选举过程
+title: Raft笔记
 date: 2022-03-07 20:53:01
 tags:
 - raft
+- 6.824
 abbrlink: 'raft-election'
 categories:
 - Concurrency&Go
 ---
 一年前就再看Raft和Paxos，然后想做6.824的Lab，结果当时研一那会一边上课一边做骗钱项目哄客户还要准备毕设开题，6.824的Lab就做了MapReduce和Raft，Raft的那个Lab2有的测试怎么也跑不过，debug捉虫越找越头i。这次想把6.824重新做一遍，索性把原来的代码全删了从头写。
-Raft是分布式一致性共识算法Paxos的一种特例
 <!-- more -->
 
 # Raft算法简介
@@ -30,14 +30,13 @@ Raft算法通过选举使得一个集群的节点达成一致，实现了最终�
 
 首先初始状态没有 Leader，进行 Leader 的选举。首先从一群 Followers 中选出candidate
 
+### 6.824 Lab2A
 
-## 6.824 Lab2A
-
-### go实现状态机和选举过程
-
-节点就用一个 `struct` 来表示。状态机的状态转移就用`switch`配合`channel`实现就好了。
+首先我们要用go实现状态机和选举过程，节点就用一个 `struct` 来表示。状态机的状态转移就用`switch`配合`channel`实现就好了。
 
 ## 链接
 
-[Raft Made Simple](https://lamport.azurewebsites.net/pubs/paxos-simple.pdf)  Lamport的文章  
+[Paxos Made Simple](https://lamport.azurewebsites.net/pubs/paxos-simple.pdf)  Lamport的文章  
 [In Search of an Understandable Consensus Algorithm](https://web.stanford.edu/~ouster/cgi-bin/papers/raft-atc14) Raft的论文  
+
+<https://pdos.csail.mit.edu/6.824/labs/lab-raft.html>  

@@ -1,5 +1,5 @@
 ---
-title: zram和zswap：选择困难症又犯了
+title: 还是用上了zram
 tags:
 - zram
 abbrlink: 'zram-vs-zswap-swapfile'
@@ -12,3 +12,7 @@ abbrlink: 'zram-vs-zswap-swapfile'
 ## 链接
 
 https://www.kernel.org/doc/html/latest/admin-guide/blockdev/zram.html#writeback
+
+https://lwn.net/Articles/545244/
+http://www.wowotech.net/memory_management/zram.html
+
