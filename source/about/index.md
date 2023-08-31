@@ -1,6 +1,5 @@
 ---
 title: About
-  
 date: 2019-05-27 23:05:25
 comments: true
 ---
@@ -10,9 +9,9 @@ comments: true
 ## 关于我
 
 - 阴差阳错来到了缺少日照的成都
-- 从此痛失海鲜和好吃的水果
-- 成都饭菜不好吃，真不好吃
-- 喜欢鰟鮍和鱊
+- 从此痛失海鲜和便宜的水果
+- 喜欢鰟鮍和鱊，可惜住宿舍不方便养
+- 去青岛啦，我TM吃吃吃
 
 ## 要饭中
 
@@ -28,9 +27,6 @@ comments: true
 
 ## 联系方式
 
-Mail to <zhixi@uestclug.org>  
+原来的<zhixi@uestclug.org>邮箱因为毕业跑路了，不知道什么时候就要被你电网管回收了，暂时不用了
+Mail to <zhangjk67@gmail.com>  
 [GPG key](https://gist.github.com/Archaeoraptor/061339607f40960d7a64008a51fdc7c5) updated at Jan.21 2021
-
-
-
-
