@@ -1,7 +1,7 @@
 ---
 title: 安装并配置Hyperland桌面
 tags:
-- Hyperland
+- Hyprland
 date: 2020-10-30 06:15:00
 ---
 
@@ -11,16 +11,18 @@ date: 2020-10-30 06:15:00
 
 ## 又在折腾桌面哦，休息一下好不好
 
-在Hyper-v里面使用Hyperland，好怪哦
+在Hyper-v里面使用Hyprland，好怪哦
 
-Hyperland是又又又一个桌面啦，是最近Wayland下大火的，人气已经盖过了sway和Wayfire
+Hyprland是又又又一个桌面啦，是最近Wayland下人气盖过了sway和Wayfire的新桌面
 
 ## 安装
 
 目前Wayland比前两年成熟不少了，
 
 ```bash
-yay -S 
+yay -S hyprland
+# Wallpaper
+yay -S hyprpaper
 ```
 
 
