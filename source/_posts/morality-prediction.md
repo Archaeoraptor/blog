@@ -4,8 +4,6 @@ tags:
   - MIMIC
 abbrlink: morality-prediction
 date: 2020-05-31 11:06:54
-categories:
- - 102网吧日常
 ---
 
 更新：推荐使用新版的MIMIC数据库自行构建数据集，并尝试整合eICU的病人数据。据说LSTM等方法效果不错，可以试试。

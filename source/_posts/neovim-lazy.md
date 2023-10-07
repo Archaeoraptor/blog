@@ -6,14 +6,8 @@ tags:
 - neovim
 - lazy
 ---
-很久没写博客了，工作之后折腾不动了。Neovim这些插件的半衰期太短了，几个月不折腾就跟不上了。之前刚接触Neovim的时候就听说过当时很火的Packer.nvim插件管理器，当时Neovim可以用vim-plug当插件管理器，从vim迁过来
-
-几个月不折腾看到一大堆插件都停止维护/被后浪拍死了，这期间vim之父也去世了，颇有一种访旧半为鬼的感觉。年纪大了，害。
+很久没写博客了，工作之后折腾不动了。Neovim这些插件的半衰期太短了，几个月不折腾就跟不上了。之前刚接触Neovim的时候就听说过当时很火的Packer.nvim插件管理器，当时Neovim可以用vim-plug当插件管理器，就一直懒得往packer迁移，结果我还没迁移packer就已经凉了，emmmm
 <!-- more -->
-
-Packer.nvim插件停止更新
-
-从Plug插件迁移
 
 ## lazy.nvim安装
 
@@ -56,10 +50,6 @@ require("lazy").setup("plugins")
 
 然后nvim启动，按照提示按i安装就行了。
 
-## 其他
-
-### language server protocal
-
 之前从vim迁到neovim的时候，用的coc.nvim。今年coc的作者已经不怎么更新了，曾经在知乎和推上很活跃的作者也不怎么网上冲浪了（记得曾经是位emacs铁粉，ghhn网上热情极高）。
 
 用了Neovim默认的lsp, 然后加了个美化插件，功能依然不如coc.nvim。
@@ -87,7 +77,3 @@ return {
 ## 链接
 
 <https://github.com/folke/lazy.nvim>
-
-其他
-
-https://github.com/neovim/nvim-lspconfig

@@ -1,8 +1,8 @@
 ---
-title: 大道甚夷，而民好径
+title: 什么是一个好的终端模拟器
 date: 2022-04-11 18:13:47
 tags:
-abbrlink: 'da-dao-shen-yi'
+abbrlink: 'what-is-a-nice-terminal-emulator'
 categories:
   - 杂七杂八
 hide: true
@@ -100,9 +100,9 @@ freebsd捐款高达3位数：[Apple Donated $100-$249 to FreeBSD in 2021](https:
 
 ![](da-dao-shen-yi/1649753651.png)
 
-我当年看了《effective modern c++》，那一堆auto和眼花缭乱的语法最后让我决定再也不学 moderm C++了，不能将有限的生命和无限的语言律师死磕。也是从那以后，我开始喜欢上了看起来功能残废的go  
+我当年看了《effective modern c++》，那一堆auto和眼花缭乱的语法最后让我决定再也不学 moderm C++了，不能将有限的生命和无限的语言律师死磕。也是从那以后，我开始喜欢上了看起来功能残废的go，似乎有点老旧的C
 
-Alacritty作为一个比较新的终端模拟器，界面远比Konsole等终端模拟器简洁，回到了90年代以前的样子。看起来就像一个终端，文艺复兴了属于是。
+Alacritty作为一个比较新的终端模拟器，界面远比Konsole等终端模拟器简洁，回到了90年代以前的样子。看起来就像一个终端，这是对一个终端模拟器的最高赞扬，修旧如旧。
 
 >Keep it Simple, Stupid！
 

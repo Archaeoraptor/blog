@@ -4,8 +4,6 @@ tags:
   - iptables
   - 删库跑路
   - 服务器
-categories:
-  - 102网吧日常
 abbrlink: a7d1
 date: 2019-11-18 13:35:20
 ---
