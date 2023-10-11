@@ -6,8 +6,10 @@ tags:
 - neovim
 - lazy
 ---
-很久没写博客了，工作之后折腾不动了。Neovim这些插件的半衰期太短了，几个月不折腾就跟不上了。之前刚接触Neovim的时候就听说过当时很火的Packer.nvim插件管理器，当时Neovim可以用vim-plug当插件管理器，就一直懒得往packer迁移，结果我还没迁移packer就已经凉了，emmmm
+很久没写博客了，工作安定下来终于可以继续摸鱼了。
 <!-- more -->
+
+Neovim这些插件的半衰期太短了，几个月不折腾就跟不上了。刚用Neovim的时候就听说过很火的Packer.nvim插件管理器，当时Neovim可以用vim的vim-plug当插件管理器，就一直懒得往packer迁移，一直拖到现在，结果我还没迁移packer就已经凉了，emmmm
 
 ## lazy.nvim安装
 
@@ -45,10 +47,15 @@ require("lazy").setup("plugins")
 然后添加插件，在`~/.config/nvim/lua/plugins.lua`中或者`~/.config/nvim/lua/plugins/*lua`中，比如im-select插件：
 
 ```lua
-
+{
+    "keaising/im-select.nvim",
+    config = function()
+        require("im_select").setup({})
+    end,
+}
 ```
 
-然后nvim启动，按照提示按i安装就行了。
+然后启动nvim，按照提示按i安装就行了。
 
 之前从vim迁到neovim的时候，用的coc.nvim。今年coc的作者已经不怎么更新了，曾经在知乎和推上很活跃的作者也不怎么网上冲浪了（记得曾经是位emacs铁粉，ghhn网上热情极高）。
 
