@@ -1,14 +1,15 @@
 ---
-title: Linux添加系统调用：在Archlinux下编译内核
-date: 2022-03-22 19:59:43
+title: 在Archlinux下编译Linux内核（以添加系统调用为例）
 tags:
-- linux
-- syscall
-- archlinux
-abbrlink: 'add-a-syscall-to-linux-kernel'
+  - linux
+  - syscall
+  - archlinux
+abbrlink: add-a-syscall-to-linux-kernel
 categories:
-- Linux&Unix
+  - Linux&Unix
+date: 2023-11-02 19:59:43
 ---
+
 今天手痒玩一下Archlinux的编译内核，顺便观摩一下Arch内核打包是什么样的（不知道用什么举例子就添加个syscall算了）
 <!-- more -->
 
@@ -90,29 +91,25 @@ zcat /proc/config.gz > .config
 make menuconfig
 ```
 
-## 试试看
+### 减少编译时间
 
-
-
-## 如果想打包
-
-下面是将你自己改过的内核打包，如果你不用Archlinux
+可以用modprobed-db生成配置（`make localmodconfig`）
 
 ```bash
-pacman -S base-devel
+yay -S modprobed-db
 ```
+
+然后编辑`~/.config/modprobed-db.conf`
+
+这个工具可以在编译内核的时候忽略不需要的module，加快编译速度。我这里编译的速度缩短了大概三分之一左右。
 
 ### 给kernel打patch
 
 在PKGBUILD中打patch请参考：[Patching_packages_(简体中文)#应用补丁](https://wiki.archlinux.org/title/Patching_packages_(简体中文)#应用补丁)  
 
-### 编译和打包
-
-
-
 ## 链接
 
 [ArchWiki Patching pacakages](https://wiki.archlinux.org/title/Patching_packages)   
 [Kernel/Traditional compilation](https://wiki.archlinux.org/title/Kernel/Traditional_compilation)   
-[Arch Build System (简体中文)](ttps://wiki.archlinux.org/title/Arch_Build_System_(简体中文))   
+[Arch Build System (简体中文)](https://wiki.archlinux.org/title/Arch_Build_System_(简体中文))   
 [X86_64 架构增加一个系统调用](https://biscuitos.github.io/blog/SYSCALL_ADD_NEW_X86_64/#header)  
