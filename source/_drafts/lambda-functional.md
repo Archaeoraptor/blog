@@ -3,23 +3,16 @@ title: λ演算&函数式编程
 abbrlink: a10f
 date: 2019-10-29 21:59:33
 tags:
- - λ-calcus
- - js
+ - λ
+ - lisp
 katex: true
 categories:
  - 不务正业系列
 hide: true
 ---
-等待填坑
 
 <!-- more -->
 
-## 摸鱼一时爽
-
-函数式编程(Functional Programming)好像比面向对象抽象程度更高。但是之前折腾硬件的时候都没有用到过，可能是不太适合处理IO接口和操作时序吧。
-之前在图书馆乱翻，看到一本七周七语言的书，翻到函数式，感觉还挺有意思，教研室的摸鱼生活就搞点这个吧，反正干正事是不可能干正事的
-~~正在进JavaScript的坑，将就着用js来练练手吧。~~
-javascript味不对，还是直接上了Lisp
 
 ## λ演算(λ-calculus)
 
@@ -40,7 +33,7 @@ Arch下安装mit-sheme包就好了，SICP的练习环境。这个操作基本跟
 yay -S mit-scheme
 ```
 
-不过我用的是这个Chez Scheme，前几年开源了的东西，速度很快
+也可以用 Chez Scheme，语法略有不同
 
 ```bash
 yay -S chez-scheme
@@ -63,4 +56,7 @@ scheme < test.scm
         }
 ```
 
-详见 https://github.com/cisco/ChezScheme
+## 链接
+
+<https://github.com/cisco/ChezScheme>  
+
