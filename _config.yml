@@ -48,18 +48,19 @@ render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: true
+# _config.yml
 highlight:
   enable: true
-  line_number: true
   auto_detect: false
-  tab_replace: ""
+  line_number: true
+  line_threshold: 0
+  tab_replace: '  '
+  exclude_languages:
+    - example
   wrap: true
   hljs: false
 prismjs:
-  enable: true
-  preprocess: true
-  line_number: true
-  tab_replace: ""
+  enable: false
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')

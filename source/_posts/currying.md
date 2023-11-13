@@ -96,7 +96,7 @@ function curry(fn){
              (cdr t))))
 ```
 
-那柯里化有什么用呢，可以用来实现多参数函数，在$\lambda$演算中，柯里化做了这样一个事情:
+那柯里化有什么用呢，可以用来实现多参数函数。（lambda演算是匿名的，并且只接收一个输入）在$\lambda$演算中，柯里化做了这样一个事情:
 
 $$
 \lambda x.(\lambda y.xy) = \lambda x.(\lambda y. xy)

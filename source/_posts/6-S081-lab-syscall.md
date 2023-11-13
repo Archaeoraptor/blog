@@ -83,8 +83,8 @@ vDSO（virtual dynamic shared object）是一个虚拟的动态库(linux-vdso.so
 
 ## 链接
 
-<https://man7.org/linux/man-pages/man2/syscalls.2.html>
-<https://filippo.io/linux-syscall-table/>
+<https://man7.org/linux/man-pages/man2/syscalls.2.html>  
+<https://filippo.io/linux-syscall-table/>  
 
 
 [Anatomy of a system call, part 1](https://lwn.net/Articles/604287/)    
