@@ -6,6 +6,7 @@ abbrlink: currying
 categories:
   - 笔记
 date: 2023-11-09 14:00:18
+mathjax: true
 ---
 
 柯里化（Currying）把接受多个参数的函数变成单个参数的函数
@@ -95,10 +96,15 @@ function curry(fn){
              (cdr t))))
 ```
 
-那柯里化有什么用呢，可以用来实现多参数函数（逃
+那柯里化有什么用呢，可以用来实现多参数函数，在$\lambda$演算中，柯里化做了这样一个事情:
+
+$$
+\lambda x.(\lambda y.xy) = \lambda x.(\lambda y. xy)
+$$
 
 在手搓自制scheme中，我们已经实现了有一个接收一个输入、返回一个输出的函数，那么可以通过柯里化实现一个接收多参数的函数。
 
-## link
+## 链接
 
 [柯里化](https://zh.wikipedia.org/wiki/柯里化)  
+[Lambda Calcus](https://en.wikipedia.org/wiki/Lambda_calculus)  

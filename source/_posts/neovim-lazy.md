@@ -47,7 +47,7 @@ require("lazy").setup("plugins")
 然后添加插件，在`~/.config/nvim/lua/plugins.lua`中或者`~/.config/nvim/lua/plugins/*lua`中，比如im-select插件：
 
 ```lua
-{
+return {
     "keaising/im-select.nvim",
     config = function()
         require("im_select").setup({})
