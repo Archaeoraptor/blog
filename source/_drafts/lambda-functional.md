@@ -39,13 +39,17 @@ scheme等语言虽然已经比较像$\lambda$演算，但毕竟不是
 
 ### scheme环境配置
 
-Arch下安装mit-sheme包就好了，SICP的练习环境。这个操作基本跟Emacs差不多，是SICP的作业环境。
+Arch下如果要照着sicp入门，安装mit-sheme包就好了，SICP的练习环境。
 
 ```bash
 yay -S mit-scheme
 ```
 
-也可以用 Chez Scheme，语法略有不同
+但是mit-scheme很老了，而且自动补全历史和高亮都没有。可以用rlwrap增强repl的体验。
+
+推荐使用racket等体验更好的scheme方言
+
+也可以用 Chez Scheme，这两年被Cisco开源了，语法略有不同，但是性能很强，自动补全也好
 
 ```bash
 yay -S chez-scheme

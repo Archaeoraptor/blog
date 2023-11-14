@@ -20,7 +20,16 @@ $$
 scheme版本的实现长这样
 
 ```lisp
-(define Y)
+;; call by value
+(lambda (f)
+  ((labmda (x) (f (lambda (V) ((x x) v))))
+    (lambda (x) (f (lambda (V) ((x x) v))))))
+
+
+;; call by name
+(lambda (f)
+  ((lambda (x) (f (x x)
+    (lambda (x) (f (x x)))))))
 ```
 
 蟒蛇版本的长这样：
@@ -29,11 +38,19 @@ scheme版本的实现长这样
 Y=lambda f: (lambda x: f(x(x)))(lambda x: f(x(x)))
 ```
 
-y组合子是一种不动点组合子，不动点组合子作用于自身不变。除了y组合子还有
+y组合子是一种不动点组合子，不动点组合子作用于自身不变。
 
 $$
 (Y \, g) = (g(Yg))
 $$
+
+可以由$\beta$规约推导得到：
+
+$$
+
+$$
+
+除了y组合子还有其他的不动点组合子，比如z组合子。
 
 不动点组合子有什么用呢，不动点组合子可以实现递归。
 
