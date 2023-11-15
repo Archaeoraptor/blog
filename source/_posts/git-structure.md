@@ -147,7 +147,9 @@ git add newname
 
 
 
-git采用的保存方式是快照（snapshot），比较像
+git采用的保存方式是快照（snapshot），比较像zfs和btrfs的快照（当然那个是块级别的，这个只是对每个文件做快照），tree和blob内容都是zlib压缩后
+
+>Commits, trees, and blobs are immutable
 
 git的增量，是当每次更改的时候
 
@@ -159,14 +161,422 @@ git的增量，是当每次更改的时候
 
 ## 实现
 
-初版git的实现比较简单，代码量也比较少，可以观摩一下。
+初版git的实现比较简单，代码量也比较少，可以观摩一下。先看一下第一次提交的版本。"initial revision of "git", the information manager from hell"
 
 ```bash
 git clone https://github.com/git/git.git
 git checkout e83c5163316f89bfbde7d9ab23ca2e25604af290
 ```
 
-初版代码量很少，没有今天常用的`git add`和`git commit`等功能。直接`make`会报错，需要修改
+README依然狂野`GIT - the stupid content tracker`
+
+初版代码量很少，没有今天常用的`git add`和`git commit`等功能，实现很精简，完成了自举。
+
+>This is a stupid (but extremely fast) directory content manager.  It
+>doesn't do a whole lot, but what it _does_ do is track directory
+>contents efficiently. 
+
+
+直接`make`会报错，需要修改makefile，
+
+先看一下README的介绍：There are two object abstractions: the "object database", and the
+"current directory cache".
+
+初版的BLOB和TREE Object和现在的差不多，以及一个CHANGESET。
+
+>CHANGESET: The "changeset" object is an object that introduces the notion of history into the picture.  In contrast to the other objects, it doesn't just describe the physical state of a tree, it describes how we got there, and why. 
+
+changeset用来记录提交信息
+
+>Note on changesets: unlike real SCM's, changesets do not contain rename
+>information or file mode chane information.  All of that is implicit in
+>the trees involved (the result tree, and the result trees of the
+>parents), and describing that makes no sense in this idiotic file
+>manager.
+
+可以看到，git一开始最早设计的时候就没有其他源码管理系统的重命名功能，这些操作被视为tree的删除和添加替代了。
+
+init-db.c比较简单，用来初始化，类似现在的`git init`，创建repo并初始化，会在当前目录创建一个`.dircache`目录，类似`.git`
+
+```c
+	/*
+	 * The default case is to have a DB per managed directory. 
+	 */
+	sha1_dir = DEFAULT_DB_ENVIRONMENT;
+	fprintf(stderr, "defaulting to private storage area\n");
+	len = strlen(sha1_dir);
+	if (mkdir(sha1_dir, 0700) < 0) {
+		if (errno != EEXIST) {
+			perror(sha1_dir);
+			exit(1);
+		}
+	}
+	path = malloc(len + 40);
+	memcpy(path, sha1_dir, len);
+	for (i = 0; i < 256; i++) {
+		sprintf(path+len, "/%02x", i);
+		if (mkdir(path, 0700) < 0) {
+			if (errno != EEXIST) {
+				perror(path);
+				exit(1);
+			}
+		}
+	}
+```
+
+cache结构体用来存储时间、SHA、大小等信息
+
+```c
+struct cache_entry {
+	struct cache_time ctime;
+	struct cache_time mtime;
+	unsigned int st_dev;
+	unsigned int st_ino;
+	unsigned int st_mode;
+	unsigned int st_uid;
+	unsigned int st_gid;
+	unsigned int st_size;
+	unsigned char sha1[20];
+	unsigned short namelen;
+	unsigned char name[0];
+};
+```
+
+`update-cache.c`实现了文件缓冲区的功能，类似`git stage`。
+
+```c
+static int add_cache_entry(struct cache_entry *ce)
+{
+	int pos;
+    // 获取pos
+	pos = cache_name_pos(ce->name, ce->namelen);
+
+	/* existing match? Just replace it */
+	if (pos < 0) {
+		active_cache[-pos-1] = ce;
+		return 0;
+	}
+
+	/* Make sure the array is big enough .. */
+	if (active_nr == active_alloc) {
+		active_alloc = alloc_nr(active_alloc);
+		active_cache = realloc(active_cache, active_alloc * sizeof(struct cache_entry *));
+	}
+
+	/* Add it in.. */
+	active_nr++;
+	if (active_nr > pos)
+		memmove(active_cache + pos + 1, active_cache + pos, (active_nr - pos - 1) * sizeof(ce));
+	active_cache[pos] = ce;
+	return 0;
+}
+
+// 添加到缓冲区（类似stage changes）
+static int add_file_to_cache(char *path)
+{
+	int size, namelen;
+	struct cache_entry *ce;
+	struct stat st;
+	int fd;
+
+	fd = open(path, O_RDONLY);
+	if (fd < 0) {
+		if (errno == ENOENT)
+			return remove_file_from_cache(path);
+		return -1;
+	}
+	if (fstat(fd, &st) < 0) {
+		close(fd);
+		return -1;
+	}
+	namelen = strlen(path);
+	size = cache_entry_size(namelen);
+	ce = malloc(size);
+	memset(ce, 0, size);
+	memcpy(ce->name, path, namelen);
+	ce->ctime.sec = st.st_ctime;
+	ce->ctime.nsec = st.st_ctim.tv_nsec;
+	ce->mtime.sec = st.st_mtime;
+	ce->mtime.nsec = st.st_mtim.tv_nsec;
+	ce->st_dev = st.st_dev;
+	ce->st_ino = st.st_ino;
+	ce->st_mode = st.st_mode;
+	ce->st_uid = st.st_uid;
+	ce->st_gid = st.st_gid;
+	ce->st_size = st.st_size;
+	ce->namelen = namelen;
+
+	if (index_fd(path, namelen, ce, fd, &st) < 0)   // 索引
+		return -1;
+
+	return add_cache_entry(ce);
+}
+```
+
+rm功能：（类似于 git rm --cached，移出缓冲区）
+
+```c
+static int remove_file_from_cache(char *path)
+{
+	int pos = cache_name_pos(path, strlen(path));
+	if (pos < 0) {
+		pos = -pos-1;
+		active_nr--;
+		if (pos < active_nr)
+			memmove(active_cache + pos, active_cache + pos + 1, (active_nr - pos - 1) * sizeof(struct cache_entry *));
+	}
+}
+```
+
+写入cache：
+
+```c
+static int write_cache(int newfd, struct cache_entry **cache, int entries)
+{
+	SHA_CTX c;
+	struct cache_header hdr;
+	int i;
+
+	hdr.signature = CACHE_SIGNATURE;
+	hdr.version = 1;
+	hdr.entries = entries;
+
+	SHA1_Init(&c);
+	SHA1_Update(&c, &hdr, offsetof(struct cache_header, sha1));
+	for (i = 0; i < entries; i++) {
+		struct cache_entry *ce = cache[i];
+		int size = ce_size(ce);
+		SHA1_Update(&c, ce, size);
+	}
+	SHA1_Final(hdr.sha1, &c);
+
+	if (write(newfd, &hdr, sizeof(hdr)) != sizeof(hdr))
+		return -1;
+
+	for (i = 0; i < entries; i++) {
+		struct cache_entry *ce = cache[i];
+		int size = ce_size(ce);
+		if (write(newfd, ce, size) != size)
+			return -1;
+	}
+	return 0;
+}		
+```
+
+`read-tree.c`比较简单，读取tree的sha1和path等信息并打出来
+
+```c
+static int unpack(unsigned char *sha1)
+{
+	void *buffer;
+	unsigned long size;
+	char type[20];
+
+	buffer = read_sha1_file(sha1, type, &size);
+	if (!buffer)
+		usage("unable to read sha1 file");
+	if (strcmp(type, "tree"))
+		usage("expected a 'tree' node");
+	while (size) {
+		int len = strlen(buffer)+1;
+		unsigned char *sha1 = buffer + len;
+		char *path = strchr(buffer, ' ')+1;
+		unsigned int mode;
+		if (size < len + 20 || sscanf(buffer, "%o", &mode) != 1)
+			usage("corrupt 'tree' file");
+		buffer = sha1 + 20;
+		size -= len + 20;
+		printf("%o %s (%s)\n", mode, path, sha1_to_hex(sha1));
+	}
+	return 0;
+}
+```
+
+`show-diff.c`用来比较文件差异, `match_stat`判断是否一致
+
+```c
+// 判断两个文件的cache_entry中的名称、uid、大小等信息是否一致，用以判断是否更改
+static int match_stat(struct cache_entry *ce, struct stat *st)
+{
+    unsigned int changed = 0;
+
+    if (ce->mtime.sec != (unsigned int) st->st_mtim.tv_sec
+        || ce->mtime.nsec != (unsigned int) st->st_mtim.tv_nsec)
+        changed |= MTIME_CHANGED;
+    if (ce->ctime.sec != (unsigned int) st->st_ctim.tv_sec
+        || ce->ctime.nsec != (unsigned int) st->st_ctim.tv_nsec)
+        changed |= CTIME_CHANGED;
+    if (ce->st_uid != (unsigned int) st->st_uid || ce->st_gid != (unsigned int) st->st_gid)
+        changed |= OWNER_CHANGED;
+    if (ce->st_mode != (unsigned int) st->st_mode)
+        changed |= MODE_CHANGED;
+    if (ce->st_dev != (unsigned int) st->st_dev || ce->st_ino != (unsigned int) st->st_ino)
+        changed |= INODE_CHANGED;
+    if (ce->st_size != (unsigned int) st->st_size)
+        changed |= DATA_CHANGED;
+    return changed;
+}
+```
+
+`show_differences`用于显示差异
+
+```c
+static void show_differences(struct cache_entry *ce,
+                             struct stat *cur,
+                             void *old_contents,
+                             unsigned long long old_size)
+{
+    static char cmd[1000];
+    FILE *f;
+
+    snprintf(cmd, sizeof(cmd), "diff -u - %s", ce->name);
+    f = popen(cmd, "w");
+    fwrite(old_contents, old_size, 1, f);
+    pclose(f);
+}
+```
+
+`commit-tree.c`用于commit提交：
+
+```c
+#define MAXPARENT (16)
+
+int main(int argc, char **argv)
+{
+    int i, len;
+    int parents = 0;
+    unsigned char tree_sha1[20];
+    unsigned char parent_sha1[MAXPARENT][20];
+    char *gecos, *realgecos;
+    char *email, realemail[1000];
+    char *date, *realdate;
+    char comment[1000];
+    struct passwd *pw;
+    time_t now;
+    char *buffer;
+    unsigned int size;
+
+    if (argc < 2 || get_sha1_hex(argv[1], tree_sha1) < 0)
+        usage("commit-tree <sha1> [-p <sha1>]* < changelog");
+
+    for (i = 2; i < argc; i += 2) {
+        char *a, *b;
+        a = argv[i];
+        b = argv[i + 1];
+        if (!b || strcmp(a, "-p") || get_sha1_hex(b, parent_sha1[parents]))
+            usage("commit-tree <sha1> [-p <sha1>]* < changelog");
+        parents++;
+    }
+    if (!parents)
+        fprintf(stderr, "Committing initial tree %s\n", argv[1]);
+    pw = getpwuid(getuid());
+    if (!pw)
+        usage("You don't exist. Go away!");
+    realgecos = pw->pw_gecos;
+    len = strlen(pw->pw_name);
+    memcpy(realemail, pw->pw_name, len);
+    realemail[len] = '@';
+    gethostname(realemail + len + 1, sizeof(realemail) - len - 1);
+    time(&now);
+    realdate = ctime(&now);
+
+    gecos = getenv("COMMITTER_NAME") ?: realgecos;
+    email = getenv("COMMITTER_EMAIL") ?: realemail;
+    date = getenv("COMMITTER_DATE") ?: realdate;
+
+    remove_special(gecos);
+    remove_special(realgecos);
+    remove_special(email);
+    remove_special(realemail);
+    remove_special(date);
+    remove_special(realdate);
+
+    // 添加buffer，准备写入
+    init_buffer(&buffer, &size);
+    add_buffer(&buffer, &size, "tree %s\n", sha1_to_hex(tree_sha1));
+
+    /*
+	 * NOTE! This ordering means that the same exact tree merged with a
+	 * different order of parents will be a _different_ changeset even
+	 * if everything else stays the same.
+	 */
+    for (i = 0; i < parents; i++)
+        add_buffer(&buffer, &size, "parent %s\n", sha1_to_hex(parent_sha1[i]));
+
+    /* Person/date information */
+    add_buffer(&buffer, &size, "author %s <%s> %s\n", gecos, email, date);
+    add_buffer(&buffer, &size, "committer %s <%s> %s\n\n", realgecos, realemail, realdate);
+
+    /* And add the comment */
+    while (fgets(comment, sizeof(comment), stdin) != NULL)
+        add_buffer(&buffer, &size, "%s", comment);
+
+    finish_buffer("commit ", &buffer, &size);       // 写入buffer
+
+    write_sha1_file(buffer, size);  // 写入sha1
+    return 0;
+}
+```
+
+remove_special的实现也比较简单，一个简单的遍历：
+
+```c
+static void remove_special(char *p)
+{
+    char c;
+    char *dst = p;
+
+    for (;;) {
+        c = *p;
+        p++;
+        switch (c) {
+        case '\n':
+        case '<':
+        case '>':
+            continue;
+        }
+        *dst++ = c;
+        if (!c)
+            break;
+    }
+}
+```
+
+编译通过之后可以用一下试试:
+
+```bash
+# 编译
+make
+
+chmod +x *.sh
+
+# 初始化
+./init-db
+# 随便添加点内容
+echo $(date +%c) >> test.txt
+# 写入到缓冲区
+./update-cache test.txt
+# 然后在 .dircache/objects 下面会看到相关内容
+tree -L .dircache/objects
+
+# objects下面的内容可以用catfile查看
+./cat-file 
+
+# 将缓冲区object写入
+./write-tree
+
+# 查看写入内容
+./read-tree 
+
+# 提交更改
+./commit-tree 
+
+# 查看提交内容
+
+# echo 
+```
+
+我们看初版的源码可以发现，git确实是一个保存snapshot而不是保存diff的工具。后面版本我们可以看到git对存储冗余的优化。
 
 ## link
 
