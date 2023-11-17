@@ -161,7 +161,9 @@ git的增量，是当每次更改的时候
 
 ## 实现
 
-初版git的实现比较简单，代码量也比较少，可以观摩一下。先看一下第一次提交的版本。"initial revision of "git", the information manager from hell"
+### 初版
+
+初版git的实现比较精简，代码量也比较少，可以观摩一下。先看一下第一次提交的版本。"initial revision of "git", the information manager from hell"
 
 ```bash
 git clone https://github.com/git/git.git
@@ -172,15 +174,38 @@ README依然狂野`GIT - the stupid content tracker`
 
 初版代码量很少，没有今天常用的`git add`和`git commit`等功能，实现很精简，完成了自举。
 
+```bash
+~/codes/git @e83c5163 +11 !4 ?3 ❯ cloc ./
+      12 text files.
+      11 unique files.                              
+       4 files ignored.
+
+github.com/AlDanial/cloc v 1.98  T=0.01 s (789.0 files/s, 78109.3 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+C                                8            115             59            775
+C/C++ Header                     1             17             23             57
+make                             1             15              0             27
+JSON                             1              0              0              1
+-------------------------------------------------------------------------------
+SUM:                            11            147             82            860
+-------------------------------------------------------------------------------
+```
+
 >This is a stupid (but extremely fast) directory content manager.  It
 >doesn't do a whole lot, but what it _does_ do is track directory
 >contents efficiently. 
 
+直接`make`会报错，需要修改makefile，LIBS改为`LIBS= -lcrypto -lz`，然后在`cache.h`中`#include <string.h>`
 
-直接`make`会报错，需要修改makefile，
+或者用别人改好的能编译的babygit：
 
-先看一下README的介绍：There are two object abstractions: the "object database", and the
-"current directory cache".
+```bash
+git clone https://bitbucket.org/jacobstopak/baby-git.git
+```
+
+先看一下README的介绍：There are two object abstractions: the "object database", and the "current directory cache".
 
 初版的BLOB和TREE Object和现在的差不多，以及一个CHANGESET。
 
@@ -366,6 +391,7 @@ static int write_cache(int newfd, struct cache_entry **cache, int entries)
 `read-tree.c`比较简单，读取tree的sha1和path等信息并打出来
 
 ```c
+// 输入SHA1值，读取并打印
 static int unpack(unsigned char *sha1)
 {
 	void *buffer;
@@ -569,9 +595,11 @@ tree -L .dircache/objects
 ./read-tree 
 
 # 提交更改
+# 填写commit信息
 ./commit-tree 
 
 # 查看提交内容
+./cat-file 
 
 # echo 
 ```
@@ -584,3 +612,4 @@ tree -L .dircache/objects
 [Pro Git](https://git-scm.com/book)  
 [Commits are snapshots, not diffs](https://github.blog/2020-12-17-commits-are-snapshots-not-diffs/)  
 [Git’s database internals I: packed object store](https://github.blog/2022-08-29-gits-database-internals-i-packed-object-store/)  
+[What Can We Learn from the Code in Git’s Initial Commit?](https://bitbucket.org/blog/what-can-we-learn-from-the-code-in-gits-initial-commit)  
