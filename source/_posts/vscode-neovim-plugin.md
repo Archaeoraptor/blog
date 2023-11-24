@@ -168,8 +168,21 @@ Plug 'easymotion/vim-easymotion', Cond(!exists('g:vscode'))
 Plug 'asvetliakov/vim-easymotion', Cond(exists('g:vscode'), { 'as': 'vsc-easymotion' })
 ```
 
+禁用neovim的语法高亮：
+
+```lua
+if vim.g.vscode then
+  vim.cmd.colorscheme = ""
+```
+
 不过后来我的画风逐渐变成了这样：
 Neovim专心给vscode当backend用，terminal里面用vim，这样就不用管插件何时启用了。
+
+如果不需要Neovim的任何插件和语法高亮等功能，可以直接让Neovim以clean mode启动，这样会减少很多出问题的几率。
+
+```json
+"vscode-neovim.neovimClean": true
+```
 
 ## 后记
 
