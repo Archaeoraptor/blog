@@ -1,10 +1,12 @@
 ---
-title: Typst真好用啊
+title: 安利一下Typst
 date: 2023-12-2 17:58:27
+hide: true
 tags:
 - typst
 categories:
-- 
+- 不务正业系列
+abbrlink: 'typst'
 ---
 LaTeX is too sophisticated，markdown is too simple
 <!-- more -->
@@ -75,16 +77,32 @@ template.typ
 typst compile demo.typ
 ```
 
-## 字体和中文排版问题
+## 功能问题
 
-目前typst对非latin字符的支持有限，处于勉强能用的样子
+1. 字体和中文排版问题
+目前typst对非latin字符的支持有限，处于勉强能用的样子。如果对格式排版没有太高要求体验还行。
 
-```bash
-# 显示可用字体
-typst fonts
+2. 写作体验
+功能比latex简陋很多，适应一下大概比latex舒服三四倍的样子。因为写起来像写代码，有种写matlab和mathematica的感觉，比如一个矩阵用typst这样写，比latex那一堆花括号和斜杠看起来亲切不少
+
+```typst
+$ mat(
+  1, 2, ..., 10;
+  2, 2, ..., 10;
+  dots.v, dots.v, dots.down, dots.v;
+  10, 10, ..., 10;
+) $
 ```
 
-## 链接
+3.功能
+基本的排版功能都有。但是有一些看着比较鸡肋又看着有点好玩的功能。比如计算器，可以用typst计算11+7等于几，也有简单的变量和符号计算功能。但是这对于一个排版语言来说，又好像不是本职工作。
+
+4.模板
+模板自然远不如latex多，论文投稿什么的比较难办。不过改改模板应付一下课程作业还是够的。一些学校的论文模板也已经有typst的了。
+
+使用体验很好，用起来比latex顺手很多。
+
+## link
 
 <https://typst.app/>  
 <https://github.com/typst/typst>  

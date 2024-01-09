@@ -58,6 +58,20 @@ ps: 如果你用闭源的VSCode，那就直接在M$的插件市场装。Code-OSS
 
 编译运行这个就没必要装插件了吧，单个文件我使用gcc/g++命令或者clang/clang++命令，编译并运行。一个项目那就写个Makefile或者cmake之类的东西呗。
 
+比如一个简单的cmake：
+
+```cmake
+cmake_minimum_required (VERSION 3.28.1)
+project (Transformation)
+
+find_package(Eigen3 REQUIRED)
+include_directories(EIGEN3_INCLUDE_DIR)
+
+add_executable (Transformation main.cpp)
+```
+
+如果vscode装了cmake插件可以F7执行build
+
 ### 使用gdb和lldb命令Debug
 
 如果你需要Debug，在终端使用gdb和lldb即可， over～
@@ -114,7 +128,25 @@ ps: 如果你用闭源的VSCode，那就直接在M$的插件市场装。Code-OSS
 }
 ```
 
-好了，这样就可以了。
+好了，这样就可以了。如果是cmake项目，不需要tasks.json，大概要写成这样
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
+```
+
+然后按F5调试
 
 ## 其他的配置
 

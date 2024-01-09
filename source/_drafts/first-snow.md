@@ -1,5 +1,5 @@
 ---
-title: first-snow
+title: 青岛初雪
 date: 2023-12-16 14:40:54
 abbrlink: 'first-snow'
 tags:
