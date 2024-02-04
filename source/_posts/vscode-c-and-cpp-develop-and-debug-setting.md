@@ -54,6 +54,16 @@ ps: 如果你用闭源的VSCode，那就直接在M$的插件市场装。Code-OSS
 
 然后按`F1`，选`clangd:Download Language Server`, 下载clangd LSP （如果你想用系统包管理器装clangd也可以, Archlinux在`llvm`这个包里，Debian等发行版有单独的`clangd`包）
 
+### clangd插件主要功能和配置
+
+切换c/cpp文件和`.h`头文件：Alt+O
+
+clangd: Open Type Hierarchy 显示类的继承关系，我一般不怎么用类，除非写Qt。比较鸡肋的功能。
+
+clangd-tidy系列检查工具：
+
+
+
 ## Debug和运行
 
 编译运行这个就没必要装插件了吧，单个文件我使用gcc/g++命令或者clang/clang++命令，编译并运行。一个项目那就写个Makefile或者cmake之类的东西呗。
