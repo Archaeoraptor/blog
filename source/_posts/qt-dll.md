@@ -133,7 +133,7 @@ DEFINES += YOURPROJ_LIBRARY
 ```cpp
 // class YourProj : public QMainWindow
 // 改为
-class YOURPROJ_EXPORT YourProj
+class YOURPROJ_EXPORT YourProj : public QMainWindow
 ```
 
 然后编译，调用即可。
