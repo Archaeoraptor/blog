@@ -1,12 +1,12 @@
 ---
 title: 6.S081 Lab xv6 lazy page allocation（补档）
 tags:
-- 6.S081
-- sbrk
+  - 6.S081
+  - sbrk
 categories:
-- Linux&Unix
+  - Linux&Unix
+abbrlink: 6-S081-lab-lazy-page-allocation
 date: 2022-04-15 19:17:29
-abbrlink: '6-S081-lab-lazy-page-allocation'
 ---
 最近在看TLPI, 看到brk和sbrk的时候突然发现6.S081居然还有个和sbrk相关的lab。再一看我竟然还没有做？我怎么记得我明明做完了的，再一看是2020 fall的Lab内容，2021年的没有，顺手做了吧。
 <!-- more -->
