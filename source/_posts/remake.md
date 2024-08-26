@@ -29,4 +29,4 @@ date: 2019-05-27 21:40:11
 山中友，试高吟楚些，重与招魂
 {% endcq %}
 
-![Welcome](博客开通/cyperpunk.png)
+![Welcome](remake/remake.png)
